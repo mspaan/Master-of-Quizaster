@@ -1,59 +1,73 @@
 {
   "categories": [
-    {
-      "id": "GEEK",
-      "name": "THE GEEK",
-      "tag": "Tech & geeks",
-      "icon": "💻",
-      "blob": "rgba(59,130,255,.25)"
-    },
-    {
-      "id": "SCOUT",
-      "name": "THE SCOUT",
-      "tag": "Animals & nature",
-      "icon": "🐾",
-      "blob": "rgba(34,197,94,.25)"
-    },
-    {
-      "id": "TIME",
-      "name": "THE TIME TRAVELLER",
-      "tag": "History & world",
-      "icon": "⏳",
-      "blob": "rgba(124,58,237,.25)"
-    },
-    {
-      "id": "ART",
-      "name": "THE ARTIST",
-      "tag": "Arts & culture",
-      "icon": "🎨",
-      "blob": "rgba(255,59,141,.25)"
-    },
-    {
-      "id": "WEIRD",
-      "name": "THE WEIRDO",
-      "tag": "Logic & mind traps",
-      "icon": "🌀",
-      "blob": "rgba(250,204,21,.25)"
-    },
-    {
-      "id": "CHEF",
-      "name": "THE CHEF",
-      "tag": "Food & kitchen",
-      "icon": "👨‍🍳",
-      "blob": "rgba(255,122,24,.25)"
-    }
+    {"id":"GEEK","name":"THE GEEK","tag":"Tech & Geeks"},
+    {"id":"SCOUT","name":"THE SCOUT","tag":"Tiere & Bio"},
+    {"id":"TIME","name":"THE TIME TRAVELLER","tag":"Geschichte & Welt"},
+    {"id":"ART","name":"THE ARTIST","tag":"Kunst & Kultur"},
+    {"id":"WEIRD","name":"THE WEIRDO","tag":"Unnützes Wissen"},
+    {"id":"CHEF","name":"THE CHEF","tag":"Essen & Küche"}
   ],
   "questions": [
-    { "cat": "GEEK", "q": "What does USB stand for?", "a": "Universal Serial Bus" },
-    { "cat": "SCOUT", "q": "How many heart chambers do humans have?", "a": "4" },
-    { "cat": "TIME", "q": "Which came first: the Moon landing or the first iPhone?", "a": "The Moon landing (1969)." },
-    { "cat": "ART", "q": "Who painted the Mona Lisa?", "a": "Leonardo da Vinci" },
-    { "cat": "WEIRD", "q": "Is 0 an even number?", "a": "Yes." },
-    { "cat": "CHEF", "q": "What is the main flavor base of classic aioli?", "a": "Garlic (emulsified with oil)." }
+    {"cat":"GEEK","q":"Wofür steht USB?","a":"Universal Serial Bus"},
+    {"cat":"GEEK","q":"Was bedeutet 'HTTP' ausgeschrieben?","a":"Hypertext Transfer Protocol"},
+    {"cat":"GEEK","q":"Was ist der Unterschied zwischen RAM und Speicher (SSD/HDD) in einem Satz?","a":"RAM ist kurzfristiger Arbeitsspeicher, SSD/HDD ist dauerhafter Datenspeicher."},
+    {"cat":"GEEK","q":"Wie heißt das Betriebssystem-Kernstück, das Hardware und Programme vermittelt?","a":"Kernel"},
+    {"cat":"GEEK","q":"Wie heißt die kleinste Informationseinheit im Computer: Bit oder Byte?","a":"Bit"},
+    {"cat":"GEEK","q":"Wofür steht 'URL'?","a":"Uniform Resource Locator"},
+
+    {"cat":"SCOUT","q":"Wie viele Herzkammern hat ein Mensch?","a":"4"},
+    {"cat":"SCOUT","q":"Wie heißt der größte Knochen im menschlichen Körper?","a":"Oberschenkelknochen (Femur)"},
+    {"cat":"SCOUT","q":"Welches Organ produziert Insulin?","a":"Bauchspeicheldrüse"},
+    {"cat":"SCOUT","q":"Was ist die häufigste Blutgruppe weltweit?","a":"0 (Null)"},
+    {"cat":"SCOUT","q":"Wie nennt man Tiere, die nur Pflanzen fressen?","a":"Pflanzenfresser (Herbivoren)"},
+    {"cat":"SCOUT","q":"Wie heißt der Fachbegriff für Tiere, die gleichwarm sind (z. B. Menschen)?","a":"Gleichwarm (homoiotherm)"},
+
+    {"cat":"TIME","q":"In welchem Jahr fiel die Berliner Mauer?","a":"1989"},
+    {"cat":"TIME","q":"Was war zuerst: erste Mondlandung oder erstes iPhone?","a":"Erste Mondlandung (1969)"},
+    {"cat":"TIME","q":"In welchem Jahr begann der Zweite Weltkrieg?","a":"1939"},
+    {"cat":"TIME","q":"Welches Land nutzte als erstes die Euro-Banknoten ab 2002 mit?","a":"Mehrere Länder gleichzeitig (Eurozone)"},
+    {"cat":"TIME","q":"Welche Stadt war im antiken Rom das politische Zentrum des Römischen Reiches?","a":"Rom"},
+    {"cat":"TIME","q":"Wie heißt die Epoche vor dem Mittelalter in Europa grob genannt?","a":"Antike"},
+
+    {"cat":"ART","q":"Wie heißt das berühmte Porträt von Leonardo da Vinci mit dem Lächeln?","a":"Mona Lisa"},
+    {"cat":"ART","q":"Wie heißt die Technik, bei der Farben auf nassem Putz gemalt werden?","a":"Fresko"},
+    {"cat":"ART","q":"Welcher Komponist schrieb 'Für Elise'?","a":"Beethoven"},
+    {"cat":"ART","q":"Wie nennt man ein Gedicht mit 14 Zeilen, oft mit Reimschema?","a":"Sonett"},
+    {"cat":"ART","q":"Welche drei Grundfarben werden im klassischen Malen oft genannt?","a":"Rot, Blau, Gelb"},
+    {"cat":"ART","q":"Wie heißt der Begriff für eine Theater-Pause zwischen Akten?","a":"Pause / Intermezzo (umgangssprachlich: Pause)"},
+
+    {"cat":"WEIRD","q":"Wie heißt die Angst vor langen Wörtern (ironischerweise)?","a":"Hippopotomonstrosesquipedaliophobie"},
+    {"cat":"WEIRD","q":"Welcher Planet hat den höchsten Berg im Sonnensystem?","a":"Mars (Olympus Mons)"},
+    {"cat":"WEIRD","q":"Wie nennt man die Wissenschaft vom Käse?","a":"Tyrologie"},
+    {"cat":"WEIRD","q":"Wie heißt das einzig wirklich giftige Säugetier Europas?","a":"Sumpfspitzmaus (auch: Wasserspitzmaus gilt als giftig)"},
+    {"cat":"WEIRD","q":"Wie viele Buchstaben hat das längste deutsche Wort 'Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz' (ungefähr)?","a":"63 (oft so angegeben)"},
+    {"cat":"WEIRD","q":"Wie heißt das Land, das früher 'Persien' genannt wurde?","a":"Iran"},
+
+    {"cat":"CHEF","q":"Welche Zutat macht Aioli klassisch aus?","a":"Knoblauch (mit Öl/Eigelb emulgiert)"},
+    {"cat":"CHEF","q":"Wie heißt der japanische Reiswein?","a":"Sake"},
+    {"cat":"CHEF","q":"Welche Zutat macht Mayonnaise dick: Öl oder Wasser?","a":"Öl (Emulsion)"},
+    {"cat":"CHEF","q":"Wie nennt man das langsame Garen im eigenen Saft/bei niedriger Temperatur?","a":"Schmoren"},
+    {"cat":"CHEF","q":"Welche zwei Hauptzutaten hat ein klassischer Pfannkuchen-Teig?","a":"Mehl und Eier (plus Milch)"},
+    {"cat":"CHEF","q":"Was ist 'al dente'?","a":"Nudeln mit Biss"}
   ],
   "fearQuestions": [
-    { "q": "How many minutes are in a day?", "a": "1440" },
-    { "q": "Is 1 a prime number?", "a": "No." },
-    { "q": "How many months have 31 days?", "a": "7" }
+    {"q":"Wie viele Minuten hat ein Tag?","a":"1440"},
+    {"q":"Wie viele Sekunden hat eine Minute?","a":"60"},
+    {"q":"Wie viele Monate haben 31 Tage?","a":"7"},
+    {"q":"Ist 1 eine Primzahl?","a":"Nein"},
+    {"q":"Ist 0 eine gerade Zahl?","a":"Ja"},
+    {"q":"Wie viele Kontinente gibt es (Standardzählung)?","a":"7"},
+    {"q":"Wie viele Buchstaben hat das deutsche Alphabet?","a":"26"},
+    {"q":"Welche Farbe entsteht aus Blau und Gelb?","a":"Grün"},
+    {"q":"Wie viele Seiten hat ein Würfel?","a":"6"},
+    {"q":"Wie viele Stunden hat ein Tag?","a":"24"},
+    {"q":"Wie viele Tage hat ein Schaltjahr?","a":"366"},
+    {"q":"Welche Zahl kommt nach 999?","a":"1000"},
+    {"q":"Wie heißt die Hauptstadt von Frankreich?","a":"Paris"},
+    {"q":"Was ist die Mehrzahl von 'Status'?","a":"Status"},
+    {"q":"Wie viele Beine hat eine Spinne?","a":"8"},
+    {"q":"Wie viele Wochen hat ein Jahr (ungefähr, Standardantwort)?","a":"52"},
+    {"q":"Wie viele Millimeter sind ein Zentimeter?","a":"10"},
+    {"q":"Wie viele Zentimeter sind ein Meter?","a":"100"}
   ]
 }
