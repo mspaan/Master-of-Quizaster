@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {"id":"GEEK","name":"THE GEEK","tag":"Tech & Geeks"},
+    {"id":"SCOUT","name":"THE SCOUT","tag":"Tiere & Bio"},
+    {"id":"TIME","name":"THE TIME TRAVELLER","tag":"Geschichte & Welt"},
+    {"id":"ART","name":"THE ARTIST","tag":"Kunst & Kultur"},
+    {"id":"WEIRD","name":"THE WEIRDO","tag":"Logik & Denkfehler"},
+    {"id":"CHEF","name":"THE CHEF","tag":"Essen & Küche"}
+  ],
+  "questions": [
+    {"cat":"GEEK","q":"Wofür steht USB?","a":"Universal Serial Bus"},
+    {"cat":"SCOUT","q":"Wie viele Herzkammern hat ein Mensch?","a":"4"},
+    {"cat":"TIME","q":"Was war zuerst: Erste Mondlandung oder erstes iPhone?","a":"Erste Mondlandung (1969)"},
+    {"cat":"ART","q":"Wie heißt das sehr bekannte Gemälde von da Vinci mit dem lächelnden Porträt?","a":"Mona Lisa"},
+    {"cat":"WEIRD","q":"Ist 0 eine gerade Zahl?","a":"Ja"},
+    {"cat":"CHEF","q":"Welche Zutat macht Aioli klassisch aus?","a":"Knoblauch (mit Öl/Eigelb emulgiert)"}
+  ],
+  "fearQuestions": [
+    {"q":"Wie viele Minuten hat ein Tag?","a":"1440"},
+    {"q":"Ist 1 eine Primzahl?","a":"Nein"},
+    {"q":"Wie viele Monate haben 31 Tage?","a":"7"},
+    {"q":"Wie viele Sekunden hat eine Minute?","a":"60"}
+  ]
+}
