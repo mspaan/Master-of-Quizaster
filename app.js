@@ -3,7 +3,7 @@ let selectedCat = null;
 let fearMode = false;
 let difficulty = "medium";
 
-// no-repeat tracking: key = `${diff}|${cat}` -> Set(questionKey)
+// no-repeat tracking
 const used = new Map(); // Map<string, Set<string>>
 const usedFear = new Set();
 
@@ -40,24 +40,19 @@ function stopTimer(){
 function startTimer(){
   stopTimer();
   timeLeft = 20;
-
-  // show timer in meta (without redesign)
   updateMetaTimer();
 
   timerId = setInterval(() => {
     timeLeft -= 1;
     updateMetaTimer();
-
     if (timeLeft <= 0){
       stopTimer();
-      // auto reveal answer
-      aEl.hidden = false;
+      aEl.hidden = false; // auto reveal
     }
   }, 1000);
 }
 
 function updateMetaTimer(){
-  // keep existing meta text + add countdown
   const base = metaEl.dataset.base || metaEl.textContent || "";
   metaEl.textContent = `${base} • ${String(timeLeft).padStart(2,"0")}s`;
 }
@@ -67,6 +62,13 @@ function setMetaBase(text){
   metaEl.textContent = text;
 }
 
+function normalizeCat(x){
+  return String(x ?? "").trim().toUpperCase();
+}
+function normalizeDiff(x){
+  return String(x ?? "").trim().toLowerCase();
+}
+
 function setFearMode(on){
   fearMode = on;
   appEl.classList.toggle("fearMode", on);
@@ -74,7 +76,6 @@ function setFearMode(on){
   fearBtn.setAttribute("aria-pressed", on ? "true" : "false");
   tremble();
 
-  // draw immediately if possible
   if (on) nextQuestion();
   else if (selectedCat) nextQuestion();
   else resetQuestionText();
@@ -108,7 +109,6 @@ function getNonRepeating(pool, keyFn, usedSet){
     }
     tries++;
   }
-  // fallback
   const item = pickRandom(pool);
   usedSet.add(keyFn(item));
   return item;
@@ -151,9 +151,9 @@ function nextQuestion(){
   let item = null;
 
   if (fearMode){
-    const pool = DB.fearQuestions;
+    const pool = Array.isArray(DB.fearQuestions) ? DB.fearQuestions : [];
     item = getNonRepeating(pool, i => `FEAR:${i.q}`, usedFear);
-    setMetaBase("FEAR QUESTION");
+    setMetaBase(`FEAR QUESTION (${pool.length})`);
     tremble();
   } else {
     if (!selectedCat){
@@ -161,15 +161,27 @@ function nextQuestion(){
       return;
     }
 
-    const pool = DB.questions.filter(q => q.cat === selectedCat && q.diff === difficulty);
-    const key = `${difficulty}|${selectedCat}`;
+    const catNeedle = normalizeCat(selectedCat);
+    const diffNeedle = normalizeDiff(difficulty);
+
+    const pool = (Array.isArray(DB.questions) ? DB.questions : []).filter(q => {
+      const qc = normalizeCat(q.cat);
+      const qd = normalizeDiff(q.diff);
+
+      // allow slight mismatches like "THE GEEK" by checking containment too
+      const catMatch = (qc === catNeedle) || qc.includes(catNeedle) || catNeedle.includes(qc);
+      const diffMatch = (qd === diffNeedle);
+      return catMatch && diffMatch;
+    });
+
+    const key = `${diffNeedle}|${catNeedle}`;
     const usedSet = ensureUsedSet(key);
 
-    item = getNonRepeating(pool, i => `${i.cat}|${i.diff}|${i.q}`, usedSet);
+    item = getNonRepeating(pool, i => `${normalizeCat(i.cat)}|${normalizeDiff(i.diff)}|${i.q}`, usedSet);
 
     const catObj = DB.categories.find(c => c.id === selectedCat);
     const catName = catObj ? catObj.name : selectedCat;
-    setMetaBase(`Category: ${catName} • ${difficulty.toUpperCase()}`);
+    setMetaBase(`Category: ${catName} • ${diffNeedle.toUpperCase()} (${pool.length})`);
   }
 
   if (!item){
@@ -192,24 +204,25 @@ newQBtn.addEventListener("click", () => nextQuestion());
 
 showABtn.addEventListener("click", () => {
   aEl.hidden = false;
-  // stop timer when manually revealed (feels fair)
   stopTimer();
-  // keep meta base text without countdown
   metaEl.textContent = metaEl.dataset.base || metaEl.textContent;
 });
 
 difficultySelect.addEventListener("change", () => {
   difficulty = difficultySelect.value;
-  // do not change design, but refresh question pool
   if (!fearMode && selectedCat) nextQuestion();
 });
 
 async function init(){
-  const res = await fetch("questions.json");
+  const res = await fetch("questions.json", { cache: "no-store" }); // helps against GitHub Pages caching
+  if (!res.ok) throw new Error(`HTTP ${res.status} loading questions.json`);
   DB = await res.json();
   renderCats();
   resetQuestionText();
 }
-init().catch(() => {
+
+init().catch((e) => {
+  console.error(e);
   setMetaBase("Error: could not load questions.json");
+  qEl.textContent = String(e?.message || e);
 });
