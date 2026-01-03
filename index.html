@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,33 +9,46 @@
 <body>
   <main class="wrap">
     <header class="top">
-      <h1>QUIZ CARDS</h1>
-      <label class="toggle">
-        <input id="fearToggle" type="checkbox" />
-        <span>🪤 ANGSTFRAGE</span>
-      </label>
+      <div class="brand">
+        <div class="logo">QC</div>
+        <div class="brandText">
+          <h1>QUIZ CARDS</h1>
+          <p>This game won’t run out of questions.</p>
+        </div>
+      </div>
+
+      <button id="fearBtn" class="fearBtn" type="button" aria-label="Fear Question">
+        🪤 FEAR QUESTION
+      </button>
     </header>
 
-    <section class="cats" id="cats"></section>
+    <section class="cats" id="cats" aria-label="Categories"></section>
 
-    <section class="card">
-      <div class="meta" id="meta">Wähle eine Kategorie.</div>
+    <section class="panel" aria-label="Question Panel">
+      <div class="metaRow">
+        <div class="meta" id="meta">Pick a category.</div>
+        <button id="newQ" class="btn primary" type="button" disabled>New question</button>
+      </div>
 
       <div class="q" id="q">—</div>
 
-      <button class="btn ghost" id="showA" disabled>Antwort zeigen</button>
+      <div class="answerRow">
+        <button id="showA" class="btn ghost" type="button" disabled>Show answer</button>
+      </div>
+
       <div class="a" id="a" hidden>—</div>
 
-      <div class="actions">
-        <button class="btn" id="newQ" disabled>Neue Frage</button>
+      <div class="hint">
+        Tip: In the card game, players decide at the table whether the answer counts.
       </div>
     </section>
 
     <footer class="foot">
-      <small>Tipp: Im Spiel entscheidet ihr am Tisch, ob die Antwort gilt.</small>
+      <small>Made for phones. Add to Home Screen for best vibes.</small>
     </footer>
   </main>
 
   <script src="app.js"></script>
 </body>
 </html>
+
