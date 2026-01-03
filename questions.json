@@ -5,56 +5,55 @@
       "name": "THE GEEK",
       "tag": "Tech & geeks",
       "icon": "💻",
-      "blob": "rgba(59,130,255,.16)"
+      "blob": "rgba(59,130,255,.25)"
     },
     {
       "id": "SCOUT",
       "name": "THE SCOUT",
       "tag": "Animals & nature",
       "icon": "🐾",
-      "blob": "rgba(34,197,94,.16)"
+      "blob": "rgba(34,197,94,.25)"
     },
     {
       "id": "TIME",
       "name": "THE TIME TRAVELLER",
       "tag": "History & world",
       "icon": "⏳",
-      "blob": "rgba(124,58,237,.14)"
+      "blob": "rgba(124,58,237,.25)"
     },
     {
       "id": "ART",
       "name": "THE ARTIST",
       "tag": "Arts & culture",
       "icon": "🎨",
-      "blob": "rgba(255,59,141,.14)"
+      "blob": "rgba(255,59,141,.25)"
     },
     {
       "id": "WEIRD",
       "name": "THE WEIRDO",
       "tag": "Logic & mind traps",
       "icon": "🌀",
-      "blob": "rgba(250,204,21,.16)"
+      "blob": "rgba(250,204,21,.25)"
     },
     {
       "id": "CHEF",
       "name": "THE CHEF",
       "tag": "Food & kitchen",
       "icon": "👨‍🍳",
-      "blob": "rgba(255,122,24,.16)"
+      "blob": "rgba(255,122,24,.25)"
     }
   ],
   "questions": [
     { "cat": "GEEK", "q": "What does USB stand for?", "a": "Universal Serial Bus" },
     { "cat": "SCOUT", "q": "How many heart chambers do humans have?", "a": "4" },
-    { "cat": "TIME", "q": "Which happened first: the Moon landing or the first iPhone?", "a": "The Moon landing (1969) happened first." },
+    { "cat": "TIME", "q": "Which came first: the Moon landing or the first iPhone?", "a": "The Moon landing (1969)." },
     { "cat": "ART", "q": "Who painted the Mona Lisa?", "a": "Leonardo da Vinci" },
     { "cat": "WEIRD", "q": "Is 0 an even number?", "a": "Yes." },
-    { "cat": "CHEF", "q": "What is the main flavor base of classic aioli?", "a": "Garlic (emulsified with oil; often with egg yolk)." }
+    { "cat": "CHEF", "q": "What is the main flavor base of classic aioli?", "a": "Garlic (emulsified with oil)." }
   ],
   "fearQuestions": [
     { "q": "How many minutes are in a day?", "a": "1440" },
     { "q": "Is 1 a prime number?", "a": "No." },
-    { "q": "How many months have 31 days?", "a": "7" },
-    { "q": "How many seconds are in a minute?", "a": "60" }
+    { "q": "How many months have 31 days?", "a": "7" }
   ]
 }
