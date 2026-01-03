@@ -1,24 +1,60 @@
 {
   "categories": [
-    {"id":"GEEK","name":"THE GEEK","tag":"Tech & Geeks"},
-    {"id":"SCOUT","name":"THE SCOUT","tag":"Tiere & Bio"},
-    {"id":"TIME","name":"THE TIME TRAVELLER","tag":"Geschichte & Welt"},
-    {"id":"ART","name":"THE ARTIST","tag":"Kunst & Kultur"},
-    {"id":"WEIRD","name":"THE WEIRDO","tag":"Logik & Denkfehler"},
-    {"id":"CHEF","name":"THE CHEF","tag":"Essen & Küche"}
+    {
+      "id": "GEEK",
+      "name": "THE GEEK",
+      "tag": "Tech & geeks",
+      "icon": "💻",
+      "blob": "rgba(59,130,255,.16)"
+    },
+    {
+      "id": "SCOUT",
+      "name": "THE SCOUT",
+      "tag": "Animals & nature",
+      "icon": "🐾",
+      "blob": "rgba(34,197,94,.16)"
+    },
+    {
+      "id": "TIME",
+      "name": "THE TIME TRAVELLER",
+      "tag": "History & world",
+      "icon": "⏳",
+      "blob": "rgba(124,58,237,.14)"
+    },
+    {
+      "id": "ART",
+      "name": "THE ARTIST",
+      "tag": "Arts & culture",
+      "icon": "🎨",
+      "blob": "rgba(255,59,141,.14)"
+    },
+    {
+      "id": "WEIRD",
+      "name": "THE WEIRDO",
+      "tag": "Logic & mind traps",
+      "icon": "🌀",
+      "blob": "rgba(250,204,21,.16)"
+    },
+    {
+      "id": "CHEF",
+      "name": "THE CHEF",
+      "tag": "Food & kitchen",
+      "icon": "👨‍🍳",
+      "blob": "rgba(255,122,24,.16)"
+    }
   ],
   "questions": [
-    {"cat":"GEEK","q":"Wofür steht USB?","a":"Universal Serial Bus"},
-    {"cat":"SCOUT","q":"Wie viele Herzkammern hat ein Mensch?","a":"4"},
-    {"cat":"TIME","q":"Was war zuerst: Erste Mondlandung oder erstes iPhone?","a":"Erste Mondlandung (1969)"},
-    {"cat":"ART","q":"Wie heißt das sehr bekannte Gemälde von da Vinci mit dem lächelnden Porträt?","a":"Mona Lisa"},
-    {"cat":"WEIRD","q":"Ist 0 eine gerade Zahl?","a":"Ja"},
-    {"cat":"CHEF","q":"Welche Zutat macht Aioli klassisch aus?","a":"Knoblauch (mit Öl/Eigelb emulgiert)"}
+    { "cat": "GEEK", "q": "What does USB stand for?", "a": "Universal Serial Bus" },
+    { "cat": "SCOUT", "q": "How many heart chambers do humans have?", "a": "4" },
+    { "cat": "TIME", "q": "Which happened first: the Moon landing or the first iPhone?", "a": "The Moon landing (1969) happened first." },
+    { "cat": "ART", "q": "Who painted the Mona Lisa?", "a": "Leonardo da Vinci" },
+    { "cat": "WEIRD", "q": "Is 0 an even number?", "a": "Yes." },
+    { "cat": "CHEF", "q": "What is the main flavor base of classic aioli?", "a": "Garlic (emulsified with oil; often with egg yolk)." }
   ],
   "fearQuestions": [
-    {"q":"Wie viele Minuten hat ein Tag?","a":"1440"},
-    {"q":"Ist 1 eine Primzahl?","a":"Nein"},
-    {"q":"Wie viele Monate haben 31 Tage?","a":"7"},
-    {"q":"Wie viele Sekunden hat eine Minute?","a":"60"}
+    { "q": "How many minutes are in a day?", "a": "1440" },
+    { "q": "Is 1 a prime number?", "a": "No." },
+    { "q": "How many months have 31 days?", "a": "7" },
+    { "q": "How many seconds are in a minute?", "a": "60" }
   ]
 }
