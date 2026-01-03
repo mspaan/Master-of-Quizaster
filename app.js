@@ -1,4 +1,4 @@
-let DB;
+let DB = null;
 let selectedCat = null;
 let lastKey = null;
 
@@ -8,82 +8,60 @@ const qEl = document.getElementById("q");
 const aEl = document.getElementById("a");
 const showABtn = document.getElementById("showA");
 const newQBtn = document.getElementById("newQ");
-const fearBtn = document.getElementById("fearBtn");
+const fearToggle = document.getElementById("fearToggle");
 
-function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
-function uniquePick(arr, keyFn){
-  let item, key;
-  do{
-    item = pick(arr);
-    key = keyFn(item);
-  }while(key === lastKey && arr.length > 1);
-  lastKey = key;
+function uniquePick(list, keyFn) {
+  let item;
+  do {
+    item = pickRandom(list);
+  } while (keyFn(item) === lastKey && list.length > 1);
+  lastKey = keyFn(item);
   return item;
 }
 
-function renderCats(){
+function renderCats() {
   catsEl.innerHTML = "";
-  DB.categories.forEach((c,i)=>{
+  DB.categories.forEach(c => {
     const btn = document.createElement("button");
     btn.className = "cat";
-    btn.type = "button";
-    btn.style.setProperty("--tilt", (i%2?1:-1)+"deg");
-    btn.style.setProperty("--blob", c.blob);
-
-    btn.innerHTML = `
-      <div class="row">
-        <div>
-          <div class="name">${c.name}</div>
-          <div class="tag">${c.tag}</div>
-        </div>
-        <div class="badge">${c.icon}</div>
-      </div>
-    `;
-
-    btn.onclick = ()=>{
+    btn.innerHTML = `<strong>${c.name}</strong><span>›</span>`;
+    btn.onclick = () => {
       selectedCat = c.id;
-      document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));
+      document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
       btn.classList.add("active");
-      metaEl.textContent = `Category: ${c.name}`;
       newQBtn.disabled = false;
-      showABtn.disabled = true;
-      qEl.textContent = "—";
-      aEl.hidden = true;
-      nextQuestion(false);
+      nextQuestion();
     };
-
     catsEl.appendChild(btn);
   });
 }
 
-function showQuestion(q, label){
-  metaEl.textContent = label;
-  qEl.textContent = q.q;
-  aEl.textContent = q.a;
+function nextQuestion() {
+  let item;
+  if (fearToggle.checked) {
+    item = uniquePick(DB.fearQuestions, i => "F:"+i.q);
+    metaEl.textContent = "🪤 ANGSTFRAGE";
+  } else {
+    const pool = DB.questions.filter(q => q.cat === selectedCat);
+    item = uniquePick(pool, i => i.cat+":"+i.q);
+    metaEl.textContent = selectedCat;
+  }
+  qEl.textContent = item.q;
+  aEl.textContent = item.a;
   aEl.hidden = true;
   showABtn.disabled = false;
 }
 
-function nextQuestion(isFear){
-  if(isFear){
-    const q = uniquePick(DB.fearQuestions, x=>"F"+x.q);
-    showQuestion(q, "🪤 FEAR QUESTION");
-    return;
-  }
-  if(!selectedCat) return;
-  const pool = DB.questions.filter(q=>q.cat===selectedCat);
-  const q = uniquePick(pool, x=>x.cat+x.q);
-  showQuestion(q, `Category: ${DB.categories.find(c=>c.id===selectedCat).name}`);
-}
+showABtn.onclick = () => aEl.hidden = false;
+newQBtn.onclick = nextQuestion;
 
-showABtn.onclick = ()=>{aEl.hidden=false};
-newQBtn.onclick = ()=>{nextQuestion(false)};
-fearBtn.onclick = ()=>{nextQuestion(true)};
-
-async function init(){
-  const res = await fetch("questions.json");
-  DB = await res.json();
-  renderCats();
-}
-init();
+fetch("questions.json")
+  .then(r => r.json())
+  .then(data => {
+    DB = data;
+    renderCats();
+  });
