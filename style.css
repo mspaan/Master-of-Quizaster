@@ -88,7 +88,7 @@ body{
   box-shadow: 0 14px 44px rgba(255,59,48,.18);
 }
 
-/* NEW: difficulty selector (styled to match, not redesign) */
+/* difficulty selector */
 .diffSelect{
   border: 2px solid var(--stroke);
   background: var(--pill);
@@ -195,7 +195,7 @@ body{
   align-items:center;
   justify-content:space-between;
   gap: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .meta{
@@ -213,6 +213,35 @@ body{
   cursor: pointer;
 }
 .newBtn:disabled{ opacity:.45; cursor:not-allowed; }
+
+/* NEW: timer row (keeps the same visual language) */
+.timeRow{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin: 6px 0 10px;
+}
+.timeBar{
+  flex: 1;
+  height: 12px;
+  border-radius: 999px;
+  border: 2px solid var(--stroke);
+  background: rgba(255,255,255,.60);
+  overflow: hidden;
+}
+.timeFill{
+  height: 100%;
+  width: 100%;
+  border-radius: 999px;
+  background: rgba(26,31,51,.18);
+  transition: width .18s linear;
+}
+.timeNum{
+  min-width: 34px;
+  text-align: right;
+  font-weight: 900;
+  color: var(--muted);
+}
 
 .q{
   font-size: 28px;
@@ -251,7 +280,7 @@ body{
   color: var(--muted);
 }
 
-/* FEAR MODE (already existing, keep) */
+/* FEAR MODE */
 .fearMode .panel{
   border-color: rgba(255,59,48,.55);
   box-shadow: 0 18px 60px rgba(255,59,48,.18);
@@ -269,6 +298,10 @@ body{
 .fearMode .a{
   border-color: rgba(255,59,48,.45);
   background: var(--fearSoft);
+}
+/* make timer a bit “sharper” in fear mode */
+.fearMode .timeFill{
+  background: rgba(255,59,48,.25);
 }
 
 @keyframes tremble{
