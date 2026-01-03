@@ -1,53 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz Cards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Master of Quizaster</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="wrap">
-
     <header class="top">
-      <div class="brand">
-        <div class="logo">QC</div>
-        <div class="brandText">
-          <h1>QUIZ CARDS</h1>
-          <p>This game won’t run out of questions.</p>
-        </div>
-      </div>
-
-      <button id="fearBtn" class="fearBtn" type="button">
-        🪤 FEAR QUESTION
-      </button>
+      <h1>MASTER OF QUIZASTER</h1>
+      <label class="toggle">
+        <input id="fearToggle" type="checkbox" />
+        <span>🪤 ANGSTFRAGE</span>
+      </label>
     </header>
 
     <section class="cats" id="cats"></section>
 
-    <section class="panel">
-      <div class="metaRow">
-        <div class="meta" id="meta">Pick a category.</div>
-        <button id="newQ" class="btn primary" disabled>New question</button>
-      </div>
+    <section class="card">
+      <div class="meta" id="meta">Wähle eine Kategorie.</div>
 
       <div class="q" id="q">—</div>
 
-      <div class="answerRow">
-        <button id="showA" class="btn ghost" disabled>Show answer</button>
-      </div>
-
+      <button class="btn ghost" id="showA" disabled>Antwort zeigen</button>
       <div class="a" id="a" hidden>—</div>
 
-      <div class="hint">
-        Players decide at the table whether an answer counts.
+      <div class="actions">
+        <button class="btn" id="newQ" disabled>Neue Frage</button>
       </div>
     </section>
-
-    <footer class="foot">
-      <small>Best played on phones · Add to Home Screen</small>
-    </footer>
-
   </main>
 
   <script src="app.js"></script>
