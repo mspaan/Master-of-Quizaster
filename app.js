@@ -4,14 +4,14 @@ let fearMode = false;
 let difficulty = "medium";
 
 // no-repeat tracking
-const used = new Map(); // Map<string, Set<string>>
+const used = new Map();
 const usedFear = new Set();
 
 let timerId = null;
 let timeLeft = 0;
 const TOTAL_TIME = 20;
 
-// audio (WebAudio)
+// WebAudio
 let audioCtx = null;
 let audioUnlocked = false;
 
@@ -26,7 +26,7 @@ const fearBtn = document.getElementById("fearBtn");
 const panelEl = document.getElementById("panel");
 const difficultySelect = document.getElementById("difficultySelect");
 
-// NEW: timer UI
+// Timer UI
 const timeFillEl = document.getElementById("timeFill");
 const timeNumEl = document.getElementById("timeNum");
 
@@ -40,28 +40,43 @@ function tremble(){
   panelEl.classList.add("tremble");
 }
 
-function normalizeCat(x){
-  return String(x ?? "").trim().toUpperCase();
-}
-function normalizeDiff(x){
-  return String(x ?? "").trim().toLowerCase();
-}
+function normalizeCat(x){ return String(x ?? "").trim().toUpperCase(); }
+function normalizeDiff(x){ return String(x ?? "").trim().toLowerCase(); }
 
-/* -------------------- AUDIO -------------------- */
+/* -------------------- AUDIO (WebAudio) -------------------- */
 function ensureAudio(){
-  // Call this only after a user gesture (click/tap)
-  if (!audioCtx){
-    const AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) return;
-    audioCtx = new AC();
+  try{
+    if (!audioCtx){
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return false;
+      audioCtx = new AC();
+    }
+    if (audioCtx.state === "suspended"){
+      audioCtx.resume().catch(()=>{});
+    }
+    audioUnlocked = true;
+    return true;
+  } catch {
+    audioUnlocked = false;
+    return false;
   }
-  if (audioCtx && audioCtx.state === "suspended"){
-    audioCtx.resume().catch(() => {});
-  }
-  audioUnlocked = !!audioCtx;
 }
 
-function beep({freq=800, duration=0.05, type="sine", gain=0.04} = {}){
+// tiny silent unlock tick (iOS likes that)
+function unlockAudioHard(){
+  if (!ensureAudio() || !audioCtx) return;
+  const now = audioCtx.currentTime;
+  const osc = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  osc.frequency.value = 440;
+  g.gain.value = 0.00001; // basically silent
+  osc.connect(g);
+  g.connect(audioCtx.destination);
+  osc.start(now);
+  osc.stop(now + 0.02);
+}
+
+function beep({freq=800, duration=0.06, type="triangle", gain=0.08} = {}){
   if (!audioUnlocked || !audioCtx) return;
 
   const now = audioCtx.currentTime;
@@ -72,25 +87,38 @@ function beep({freq=800, duration=0.05, type="sine", gain=0.04} = {}){
   osc.frequency.setValueAtTime(freq, now);
 
   g.gain.setValueAtTime(0.0001, now);
-  g.gain.exponentialRampToValueAtTime(gain, now + 0.01);
+  g.gain.exponentialRampToValueAtTime(gain, now + 0.008);
   g.gain.exponentialRampToValueAtTime(0.0001, now + duration);
 
   osc.connect(g);
   g.connect(audioCtx.destination);
 
   osc.start(now);
-  osc.stop(now + duration + 0.02);
+  osc.stop(now + duration + 0.03);
 }
 
 function tickSound(){
-  // light “tick”
-  beep({freq: 1100, duration: 0.03, type: "square", gain: 0.02});
+  // sharp tick
+  beep({freq: 1400, duration: 0.035, type: "square", gain: 0.06});
 }
 
 function timeUpSound(){
-  // “time up” double-beep
-  beep({freq: 520, duration: 0.10, type: "sine", gain: 0.05});
-  setTimeout(() => beep({freq: 380, duration: 0.12, type: "sine", gain: 0.05}), 120);
+  // clear “time up” sound
+  beep({freq: 660, duration: 0.14, type: "sine", gain: 0.10});
+  setTimeout(() => beep({freq: 440, duration: 0.16, type: "sine", gain: 0.10}), 150);
+}
+
+/* Add global unlock on first real touch/click anywhere */
+function installAudioUnlock(){
+  const unlock = () => {
+    unlockAudioHard();
+    document.removeEventListener("pointerdown", unlock);
+    document.removeEventListener("touchstart", unlock);
+    document.removeEventListener("mousedown", unlock);
+  };
+  document.addEventListener("pointerdown", unlock, { once: true });
+  document.addEventListener("touchstart", unlock, { once: true, passive: true });
+  document.addEventListener("mousedown", unlock, { once: true });
 }
 
 /* -------------------- TIMER -------------------- */
@@ -104,6 +132,8 @@ function stopTimer(){
 function updateTimeUI(seconds){
   const s = Math.max(0, Math.min(TOTAL_TIME, seconds));
   timeNumEl.textContent = String(s);
+
+  // red bar shrinks (full -> empty)
   const pct = (s / TOTAL_TIME) * 100;
   timeFillEl.style.width = `${pct}%`;
 }
@@ -114,11 +144,10 @@ function startTimer(){
   updateMetaTimer();
   updateTimeUI(timeLeft);
 
-  // immediate tick feel? (no, start on first second)
   timerId = setInterval(() => {
     timeLeft -= 1;
 
-    // tick for each second while time remains
+    // tick while running
     if (timeLeft > 0) tickSound();
 
     updateMetaTimer();
@@ -128,16 +157,14 @@ function startTimer(){
       clearInterval(timerId);
       timerId = null;
 
-      // time-up sound + auto reveal answer
       timeUpSound();
-      aEl.hidden = false;
+      aEl.hidden = false; // auto reveal
     }
   }, 1000);
 }
 
 function updateMetaTimer(){
   const base = metaEl.dataset.base || metaEl.textContent || "";
-  // keep same style, just append seconds
   metaEl.textContent = `${base} • ${String(timeLeft).padStart(2,"0")}s`;
 }
 
@@ -307,6 +334,8 @@ difficultySelect.addEventListener("change", () => {
 
 /* -------------------- INIT -------------------- */
 async function init(){
+  installAudioUnlock(); // <-- important for iOS
+
   const res = await fetch("questions.json", { cache: "no-store" });
   if (!res.ok) throw new Error(`HTTP ${res.status} loading questions.json`);
   DB = await res.json();
