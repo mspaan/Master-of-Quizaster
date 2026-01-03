@@ -9,6 +9,11 @@ const usedFear = new Set();
 
 let timerId = null;
 let timeLeft = 0;
+const TOTAL_TIME = 20;
+
+// audio (WebAudio)
+let audioCtx = null;
+let audioUnlocked = false;
 
 const appEl = document.getElementById("app");
 const catsEl = document.getElementById("cats");
@@ -21,6 +26,10 @@ const fearBtn = document.getElementById("fearBtn");
 const panelEl = document.getElementById("panel");
 const difficultySelect = document.getElementById("difficultySelect");
 
+// NEW: timer UI
+const timeFillEl = document.getElementById("timeFill");
+const timeNumEl = document.getElementById("timeNum");
+
 function pickRandom(arr){
   return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -31,29 +40,104 @@ function tremble(){
   panelEl.classList.add("tremble");
 }
 
+function normalizeCat(x){
+  return String(x ?? "").trim().toUpperCase();
+}
+function normalizeDiff(x){
+  return String(x ?? "").trim().toLowerCase();
+}
+
+/* -------------------- AUDIO -------------------- */
+function ensureAudio(){
+  // Call this only after a user gesture (click/tap)
+  if (!audioCtx){
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    audioCtx = new AC();
+  }
+  if (audioCtx && audioCtx.state === "suspended"){
+    audioCtx.resume().catch(() => {});
+  }
+  audioUnlocked = !!audioCtx;
+}
+
+function beep({freq=800, duration=0.05, type="sine", gain=0.04} = {}){
+  if (!audioUnlocked || !audioCtx) return;
+
+  const now = audioCtx.currentTime;
+  const osc = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, now);
+
+  g.gain.setValueAtTime(0.0001, now);
+  g.gain.exponentialRampToValueAtTime(gain, now + 0.01);
+  g.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+  osc.connect(g);
+  g.connect(audioCtx.destination);
+
+  osc.start(now);
+  osc.stop(now + duration + 0.02);
+}
+
+function tickSound(){
+  // light “tick”
+  beep({freq: 1100, duration: 0.03, type: "square", gain: 0.02});
+}
+
+function timeUpSound(){
+  // “time up” double-beep
+  beep({freq: 520, duration: 0.10, type: "sine", gain: 0.05});
+  setTimeout(() => beep({freq: 380, duration: 0.12, type: "sine", gain: 0.05}), 120);
+}
+
+/* -------------------- TIMER -------------------- */
 function stopTimer(){
   if (timerId) clearInterval(timerId);
   timerId = null;
   timeLeft = 0;
+  updateTimeUI(0);
+}
+
+function updateTimeUI(seconds){
+  const s = Math.max(0, Math.min(TOTAL_TIME, seconds));
+  timeNumEl.textContent = String(s);
+  const pct = (s / TOTAL_TIME) * 100;
+  timeFillEl.style.width = `${pct}%`;
 }
 
 function startTimer(){
   stopTimer();
-  timeLeft = 20;
+  timeLeft = TOTAL_TIME;
   updateMetaTimer();
+  updateTimeUI(timeLeft);
 
+  // immediate tick feel? (no, start on first second)
   timerId = setInterval(() => {
     timeLeft -= 1;
+
+    // tick for each second while time remains
+    if (timeLeft > 0) tickSound();
+
     updateMetaTimer();
+    updateTimeUI(timeLeft);
+
     if (timeLeft <= 0){
-      stopTimer();
-      aEl.hidden = false; // auto reveal
+      clearInterval(timerId);
+      timerId = null;
+
+      // time-up sound + auto reveal answer
+      timeUpSound();
+      aEl.hidden = false;
     }
   }, 1000);
 }
 
 function updateMetaTimer(){
   const base = metaEl.dataset.base || metaEl.textContent || "";
+  // keep same style, just append seconds
   metaEl.textContent = `${base} • ${String(timeLeft).padStart(2,"0")}s`;
 }
 
@@ -62,13 +146,7 @@ function setMetaBase(text){
   metaEl.textContent = text;
 }
 
-function normalizeCat(x){
-  return String(x ?? "").trim().toUpperCase();
-}
-function normalizeDiff(x){
-  return String(x ?? "").trim().toLowerCase();
-}
-
+/* -------------------- GAME -------------------- */
 function setFearMode(on){
   fearMode = on;
   appEl.classList.toggle("fearMode", on);
@@ -88,6 +166,8 @@ function resetQuestionText(){
   aEl.hidden = true;
   showABtn.disabled = true;
   newQBtn.disabled = selectedCat ? false : true;
+  updateTimeUI(TOTAL_TIME);
+  timeNumEl.textContent = String(TOTAL_TIME);
 }
 
 function ensureUsedSet(key){
@@ -132,6 +212,7 @@ function renderCats(){
     `;
 
     btn.addEventListener("click", () => {
+      ensureAudio();
       selectedCat = c.id;
       document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
       btn.classList.add("active");
@@ -167,8 +248,6 @@ function nextQuestion(){
     const pool = (Array.isArray(DB.questions) ? DB.questions : []).filter(q => {
       const qc = normalizeCat(q.cat);
       const qd = normalizeDiff(q.diff);
-
-      // allow slight mismatches like "THE GEEK" by checking containment too
       const catMatch = (qc === catNeedle) || qc.includes(catNeedle) || catNeedle.includes(qc);
       const diffMatch = (qd === diffNeedle);
       return catMatch && diffMatch;
@@ -188,6 +267,8 @@ function nextQuestion(){
     qEl.textContent = "No questions found for this difficulty.";
     aEl.hidden = true;
     showABtn.disabled = true;
+    updateTimeUI(TOTAL_TIME);
+    timeNumEl.textContent = String(TOTAL_TIME);
     return;
   }
 
@@ -199,22 +280,34 @@ function nextQuestion(){
   startTimer();
 }
 
-fearBtn.addEventListener("click", () => setFearMode(!fearMode));
-newQBtn.addEventListener("click", () => nextQuestion());
+/* -------------------- EVENTS -------------------- */
+fearBtn.addEventListener("click", () => {
+  ensureAudio();
+  setFearMode(!fearMode);
+});
+
+newQBtn.addEventListener("click", () => {
+  ensureAudio();
+  nextQuestion();
+});
 
 showABtn.addEventListener("click", () => {
+  ensureAudio();
   aEl.hidden = false;
   stopTimer();
   metaEl.textContent = metaEl.dataset.base || metaEl.textContent;
+  updateTimeUI(0);
 });
 
 difficultySelect.addEventListener("change", () => {
+  ensureAudio();
   difficulty = difficultySelect.value;
   if (!fearMode && selectedCat) nextQuestion();
 });
 
+/* -------------------- INIT -------------------- */
 async function init(){
-  const res = await fetch("questions.json", { cache: "no-store" }); // helps against GitHub Pages caching
+  const res = await fetch("questions.json", { cache: "no-store" });
   if (!res.ok) throw new Error(`HTTP ${res.status} loading questions.json`);
   DB = await res.json();
   renderCats();
