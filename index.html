@@ -3,23 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Quiz Cards</title>
+  <title>MASTER OF QUIZASTER</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="wrap" id="app">
     <header class="top">
       <div class="brand">
-        <div class="qc">QC</div>
+        <div class="qc">MQ</div>
         <div class="brandText">
-          <div class="brandTitle">QUIZ CARDS</div>
+          <div class="brandTitle">MASTER OF QUIZASTER</div>
           <div class="brandSub">This game won’t run out of questions.</div>
         </div>
       </div>
 
-      <button class="fearBtn" id="fearBtn" type="button" aria-pressed="false">
-        🪤&nbsp; FEAR QUESTION
-      </button>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <select class="diffSelect" id="difficultySelect" aria-label="Difficulty">
+          <option value="easy">EASY</option>
+          <option value="medium" selected>MEDIUM</option>
+          <option value="hard">HARD</option>
+        </select>
+
+        <button class="fearBtn" id="fearBtn" type="button" aria-pressed="false">
+          🪤&nbsp; FEAR QUESTION
+        </button>
+      </div>
     </header>
 
     <section class="cats" id="cats"></section>
