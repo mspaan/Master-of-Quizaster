@@ -26,7 +26,7 @@ const fearBtn = document.getElementById("fearBtn");
 const panelEl = document.getElementById("panel");
 const difficultySelect = document.getElementById("difficultySelect");
 
-// NEW
+// Random button
 const randomCatBtn = document.getElementById("randomCatBtn");
 
 // Timer UI
@@ -131,6 +131,8 @@ function stopTimer(){
 function updateTimeUI(seconds){
   const s = Math.max(0, Math.min(TOTAL_TIME, seconds));
   timeNumEl.textContent = String(s);
+
+  // red bar shrinks
   const pct = (s / TOTAL_TIME) * 100;
   timeFillEl.style.width = `${pct}%`;
 }
@@ -154,7 +156,7 @@ function startTimer(){
       timerId = null;
 
       timeUpSound();
-      aEl.hidden = false;
+      aEl.hidden = false; // auto reveal
     }
   }, 1000);
 }
@@ -240,23 +242,49 @@ function renderCats(){
       document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
       btn.classList.add("active");
       newQBtn.disabled = false;
-      nextQuestion();
+      nextQuestion(); // immediate, like you want
     });
 
     catsEl.appendChild(btn);
   });
 }
 
-// NEW: random category in current difficulty
+/* NEW: Random category that ALWAYS yields a question in the selected difficulty */
 function randomCategoryQuestion(){
-  if (!DB || !Array.isArray(DB.categories) || DB.categories.length === 0) return;
+  if (!DB) return;
 
-  // If fear mode is on, turn it off first (because random category is for normal questions)
+  // Random category is for normal questions, so switch off fear mode
   if (fearMode) setFearMode(false);
 
-  const cats = DB.categories.map(c => c.id);
-  const pick = pickRandom(cats);
+  const diffNeedle = normalizeDiff(difficulty);
+  const allQs = Array.isArray(DB.questions) ? DB.questions : [];
 
+  // categories that have at least 1 question in current difficulty
+  const catsWithQs = (Array.isArray(DB.categories) ? DB.categories : [])
+    .map(c => c.id)
+    .filter(catId => {
+      const catNeedle = normalizeCat(catId);
+      return allQs.some(q => {
+        const qc = normalizeCat(q.cat);
+        const qd = normalizeDiff(q.diff);
+        const catMatch = (qc === catNeedle) || qc.includes(catNeedle) || catNeedle.includes(qc);
+        return catMatch && (qd === diffNeedle);
+      });
+    });
+
+  if (catsWithQs.length === 0){
+    // nothing available for that difficulty
+    stopTimer();
+    setMetaBase(`No categories have questions for ${diffNeedle.toUpperCase()}.`);
+    qEl.textContent = "No questions found for this difficulty.";
+    aEl.hidden = true;
+    showABtn.disabled = true;
+    updateTimeUI(TOTAL_TIME);
+    timeNumEl.textContent = String(TOTAL_TIME);
+    return;
+  }
+
+  const pick = pickRandom(catsWithQs);
   selectedCat = pick;
 
   // set active highlight
@@ -265,6 +293,8 @@ function randomCategoryQuestion(){
   });
 
   newQBtn.disabled = false;
+
+  // immediate, same behavior as clicking the category
   nextQuestion();
 }
 
@@ -339,10 +369,9 @@ newQBtn.addEventListener("click", () => {
   nextQuestion();
 });
 
-// NEW
 randomCatBtn.addEventListener("click", () => {
   ensureAudio();
-  randomCategoryQuestion();
+  randomCategoryQuestion(); // immediate question
 });
 
 showABtn.addEventListener("click", () => {
