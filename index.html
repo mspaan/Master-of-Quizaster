@@ -35,10 +35,13 @@
     <section class="panel" id="panel">
       <div class="panelTop">
         <div class="meta" id="meta">Pick a category.</div>
-        <button class="newBtn" id="newQ" type="button" disabled>New question</button>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          <button class="newBtn" id="randomCatBtn" type="button">Random category</button>
+          <button class="newBtn" id="newQ" type="button" disabled>New question</button>
+        </div>
       </div>
 
-      <!-- NEW: timer visualization -->
       <div class="timeRow" aria-label="Timer">
         <div class="timeBar" id="timeBar" aria-hidden="true">
           <div class="timeFill" id="timeFill"></div>
