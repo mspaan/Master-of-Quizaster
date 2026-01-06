@@ -26,6 +26,9 @@ const fearBtn = document.getElementById("fearBtn");
 const panelEl = document.getElementById("panel");
 const difficultySelect = document.getElementById("difficultySelect");
 
+// NEW
+const randomCatBtn = document.getElementById("randomCatBtn");
+
 // Timer UI
 const timeFillEl = document.getElementById("timeFill");
 const timeNumEl = document.getElementById("timeNum");
@@ -62,14 +65,13 @@ function ensureAudio(){
   }
 }
 
-// tiny silent unlock tick (iOS likes that)
 function unlockAudioHard(){
   if (!ensureAudio() || !audioCtx) return;
   const now = audioCtx.currentTime;
   const osc = audioCtx.createOscillator();
   const g = audioCtx.createGain();
   osc.frequency.value = 440;
-  g.gain.value = 0.00001; // basically silent
+  g.gain.value = 0.00001;
   osc.connect(g);
   g.connect(audioCtx.destination);
   osc.start(now);
@@ -98,17 +100,14 @@ function beep({freq=800, duration=0.06, type="triangle", gain=0.08} = {}){
 }
 
 function tickSound(){
-  // sharp tick
   beep({freq: 1400, duration: 0.035, type: "square", gain: 0.06});
 }
 
 function timeUpSound(){
-  // clear “time up” sound
   beep({freq: 660, duration: 0.14, type: "sine", gain: 0.10});
   setTimeout(() => beep({freq: 440, duration: 0.16, type: "sine", gain: 0.10}), 150);
 }
 
-/* Add global unlock on first real touch/click anywhere */
 function installAudioUnlock(){
   const unlock = () => {
     unlockAudioHard();
@@ -132,8 +131,6 @@ function stopTimer(){
 function updateTimeUI(seconds){
   const s = Math.max(0, Math.min(TOTAL_TIME, seconds));
   timeNumEl.textContent = String(s);
-
-  // red bar shrinks (full -> empty)
   const pct = (s / TOTAL_TIME) * 100;
   timeFillEl.style.width = `${pct}%`;
 }
@@ -147,7 +144,6 @@ function startTimer(){
   timerId = setInterval(() => {
     timeLeft -= 1;
 
-    // tick while running
     if (timeLeft > 0) tickSound();
 
     updateMetaTimer();
@@ -158,7 +154,7 @@ function startTimer(){
       timerId = null;
 
       timeUpSound();
-      aEl.hidden = false; // auto reveal
+      aEl.hidden = false;
     }
   }, 1000);
 }
@@ -251,6 +247,27 @@ function renderCats(){
   });
 }
 
+// NEW: random category in current difficulty
+function randomCategoryQuestion(){
+  if (!DB || !Array.isArray(DB.categories) || DB.categories.length === 0) return;
+
+  // If fear mode is on, turn it off first (because random category is for normal questions)
+  if (fearMode) setFearMode(false);
+
+  const cats = DB.categories.map(c => c.id);
+  const pick = pickRandom(cats);
+
+  selectedCat = pick;
+
+  // set active highlight
+  document.querySelectorAll(".cat").forEach(x => {
+    x.classList.toggle("active", normalizeCat(x.dataset.c) === normalizeCat(pick));
+  });
+
+  newQBtn.disabled = false;
+  nextQuestion();
+}
+
 function nextQuestion(){
   if (!DB) return;
 
@@ -283,7 +300,11 @@ function nextQuestion(){
     const key = `${diffNeedle}|${catNeedle}`;
     const usedSet = ensureUsedSet(key);
 
-    item = getNonRepeating(pool, i => `${normalizeCat(i.cat)}|${normalizeDiff(i.diff)}|${i.q}`, usedSet);
+    item = getNonRepeating(
+      pool,
+      i => `${normalizeCat(i.cat)}|${normalizeDiff(i.diff)}|${i.q}`,
+      usedSet
+    );
 
     const catObj = DB.categories.find(c => c.id === selectedCat);
     const catName = catObj ? catObj.name : selectedCat;
@@ -318,6 +339,12 @@ newQBtn.addEventListener("click", () => {
   nextQuestion();
 });
 
+// NEW
+randomCatBtn.addEventListener("click", () => {
+  ensureAudio();
+  randomCategoryQuestion();
+});
+
 showABtn.addEventListener("click", () => {
   ensureAudio();
   aEl.hidden = false;
@@ -334,7 +361,7 @@ difficultySelect.addEventListener("change", () => {
 
 /* -------------------- INIT -------------------- */
 async function init(){
-  installAudioUnlock(); // <-- important for iOS
+  installAudioUnlock();
 
   const res = await fetch("questions.json", { cache: "no-store" });
   if (!res.ok) throw new Error(`HTTP ${res.status} loading questions.json`);
