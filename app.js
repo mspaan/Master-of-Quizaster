@@ -129,7 +129,6 @@ function updateTimeUI(seconds){
 function stopTimer(){
   if (timerId) clearInterval(timerId);
   timerId = null;
-  // IMPORTANT: do not force UI to 0 here — we reset UI explicitly in resetQuestionText / idle state
 }
 
 function startTimer(){
@@ -151,7 +150,7 @@ function startTimer(){
       timerId = null;
 
       timeUpSound();
-      aEl.hidden = false; // auto reveal
+      aEl.hidden = false;
     }
   }, 1000);
 }
@@ -166,33 +165,25 @@ function setMetaBase(text){
   metaEl.textContent = text;
 }
 
-/* -------------------- IDLE / RESET -------------------- */
-function hardResetToIdle(){
-  // This is used on difficulty change: NO question, NO timer
+/* -------------------- HARD DESELECT (THE FIX) -------------------- */
+function deselectCategoryAndStop(){
+  // stop anything running
   stopTimer();
+
+  // remove active category
   selectedCat = null;
   document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
 
+  // clear question UI (do NOT draw a new one)
   setMetaBase("Pick a category.");
   qEl.textContent = "—";
   aEl.hidden = true;
   showABtn.disabled = true;
 
-  // new question only if brainfreezer is ON (because it doesn't need a category)
+  // only allow "New question" when Brainfreezer is ON (since it doesn't need category)
   newQBtn.disabled = fearMode ? false : true;
 
-  // show a full bar / 20 without running
-  updateTimeUI(TOTAL_TIME);
-}
-
-function resetQuestionText(){
-  // general idle reset (same as above, but keeps selectedCat logic)
-  stopTimer();
-  setMetaBase("Pick a category.");
-  qEl.textContent = "—";
-  aEl.hidden = true;
-  showABtn.disabled = true;
-  newQBtn.disabled = selectedCat ? false : (fearMode ? false : true);
+  // show full bar (not running)
   updateTimeUI(TOTAL_TIME);
 }
 
@@ -206,14 +197,14 @@ function setFearMode(on){
 
   if (on) {
     newQBtn.disabled = false;
-    nextQuestion();
+    nextQuestion(); // Brainfreezer can always pull
   } else {
-    // leaving brainfreezer: only show question if category selected
+    // leaving brainfreezer: no auto question unless a category is selected
     if (selectedCat) {
       newQBtn.disabled = false;
       nextQuestion();
     } else {
-      resetQuestionText();
+      deselectCategoryAndStop();
     }
   }
 }
@@ -274,7 +265,7 @@ function renderCats(){
 
 function randomCategoryQuestion(){
   if (!DB) return;
-  if (fearMode) setFearMode(false); // random is for normal questions
+  if (fearMode) setFearMode(false);
 
   const diffNeedle = normalizeDiff(difficulty);
   const allQs = Array.isArray(DB.questions) ? DB.questions : [];
@@ -292,12 +283,8 @@ function randomCategoryQuestion(){
     });
 
   if (catsWithQs.length === 0){
-    stopTimer();
-    setMetaBase(`No categories have questions for ${diffNeedle.toUpperCase()}.`);
+    deselectCategoryAndStop();
     qEl.textContent = "No questions found for this difficulty.";
-    aEl.hidden = true;
-    showABtn.disabled = true;
-    updateTimeUI(TOTAL_TIME);
     return;
   }
 
@@ -326,7 +313,7 @@ function nextQuestion(){
     tremble();
   } else {
     if (!selectedCat){
-      resetQuestionText();
+      deselectCategoryAndStop();
       return;
     }
 
@@ -344,11 +331,7 @@ function nextQuestion(){
     const key = `${diffNeedle}|${catNeedle}`;
     const usedSet = ensureUsedSet(key);
 
-    item = getNonRepeating(
-      pool,
-      i => `${normalizeCat(i.cat)}|${normalizeDiff(i.diff)}|${i.q}`,
-      usedSet
-    );
+    item = getNonRepeating(pool, i => `${normalizeCat(i.cat)}|${normalizeDiff(i.diff)}|${i.q}`, usedSet);
 
     const catObj = DB.categories.find(c => c.id === selectedCat);
     const catName = catObj ? catObj.name : selectedCat;
@@ -395,14 +378,25 @@ showABtn.addEventListener("click", () => {
   updateTimeUI(0);
 });
 
-/* IMPORTANT: difficulty change must NOT trigger questions */
+/*
+  THE IMPORTANT PART:
+  As soon as the difficulty dropdown is touched/opened,
+  we immediately deselect the category and stop the timer.
+*/
+difficultySelect.addEventListener("pointerdown", () => {
+  deselectCategoryAndStop();
+});
+
+// iOS/Safari sometimes uses focus without pointerdown
+difficultySelect.addEventListener("focus", () => {
+  deselectCategoryAndStop();
+});
+
+// on actual change: update difficulty, keep nothing selected, do NOT trigger question
 difficultySelect.addEventListener("change", () => {
   ensureAudio();
   difficulty = difficultySelect.value;
-
-  // Do NOT call nextQuestion here.
-  // Do NOT keep category active.
-  hardResetToIdle();
+  deselectCategoryAndStop();
 });
 
 /* -------------------- INIT -------------------- */
@@ -413,7 +407,7 @@ async function init(){
   if (!res.ok) throw new Error(`HTTP ${res.status} loading questions.json`);
   DB = await res.json();
   renderCats();
-  resetQuestionText();
+  deselectCategoryAndStop();
 }
 
 init().catch((e) => {
