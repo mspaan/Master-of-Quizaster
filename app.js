@@ -119,18 +119,17 @@ function installAudioUnlock(){
 }
 
 /* -------------------- TIMER -------------------- */
-function stopTimer(){
-  if (timerId) clearInterval(timerId);
-  timerId = null;
-  timeLeft = 0;
-  updateTimeUI(0);
-}
-
 function updateTimeUI(seconds){
   const s = Math.max(0, Math.min(TOTAL_TIME, seconds));
   timeNumEl.textContent = String(s);
   const pct = (s / TOTAL_TIME) * 100;
   timeFillEl.style.width = `${pct}%`;
+}
+
+function stopTimer(){
+  if (timerId) clearInterval(timerId);
+  timerId = null;
+  // IMPORTANT: do not force UI to 0 here — we reset UI explicitly in resetQuestionText / idle state
 }
 
 function startTimer(){
@@ -167,11 +166,34 @@ function setMetaBase(text){
   metaEl.textContent = text;
 }
 
-/* -------------------- CATEGORY RESET (NEW) -------------------- */
-function clearActiveCategoryUI(){
+/* -------------------- IDLE / RESET -------------------- */
+function hardResetToIdle(){
+  // This is used on difficulty change: NO question, NO timer
+  stopTimer();
   selectedCat = null;
   document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
-  if (!fearMode) newQBtn.disabled = true; // in brainfreezer mode you can still draw
+
+  setMetaBase("Pick a category.");
+  qEl.textContent = "—";
+  aEl.hidden = true;
+  showABtn.disabled = true;
+
+  // new question only if brainfreezer is ON (because it doesn't need a category)
+  newQBtn.disabled = fearMode ? false : true;
+
+  // show a full bar / 20 without running
+  updateTimeUI(TOTAL_TIME);
+}
+
+function resetQuestionText(){
+  // general idle reset (same as above, but keeps selectedCat logic)
+  stopTimer();
+  setMetaBase("Pick a category.");
+  qEl.textContent = "—";
+  aEl.hidden = true;
+  showABtn.disabled = true;
+  newQBtn.disabled = selectedCat ? false : (fearMode ? false : true);
+  updateTimeUI(TOTAL_TIME);
 }
 
 /* -------------------- GAME -------------------- */
@@ -182,12 +204,11 @@ function setFearMode(on){
   fearBtn.setAttribute("aria-pressed", on ? "true" : "false");
   tremble();
 
-  // If brainfreezer is turned ON, allow new question even without a category
   if (on) {
     newQBtn.disabled = false;
     nextQuestion();
   } else {
-    // when leaving brainfreezer: if no category selected, go back to idle
+    // leaving brainfreezer: only show question if category selected
     if (selectedCat) {
       newQBtn.disabled = false;
       nextQuestion();
@@ -195,17 +216,6 @@ function setFearMode(on){
       resetQuestionText();
     }
   }
-}
-
-function resetQuestionText(){
-  stopTimer();
-  setMetaBase("Pick a category.");
-  qEl.textContent = "—";
-  aEl.hidden = true;
-  showABtn.disabled = true;
-  newQBtn.disabled = selectedCat ? false : (fearMode ? false : true);
-  updateTimeUI(TOTAL_TIME);
-  timeNumEl.textContent = String(TOTAL_TIME);
 }
 
 function ensureUsedSet(key){
@@ -262,12 +272,9 @@ function renderCats(){
   });
 }
 
-/* Random category that ALWAYS yields a question in the selected difficulty */
 function randomCategoryQuestion(){
   if (!DB) return;
-
-  // Random category is for normal questions, so switch off brainfreezer
-  if (fearMode) setFearMode(false);
+  if (fearMode) setFearMode(false); // random is for normal questions
 
   const diffNeedle = normalizeDiff(difficulty);
   const allQs = Array.isArray(DB.questions) ? DB.questions : [];
@@ -291,7 +298,6 @@ function randomCategoryQuestion(){
     aEl.hidden = true;
     showABtn.disabled = true;
     updateTimeUI(TOTAL_TIME);
-    timeNumEl.textContent = String(TOTAL_TIME);
     return;
   }
 
@@ -354,7 +360,6 @@ function nextQuestion(){
     aEl.hidden = true;
     showABtn.disabled = true;
     updateTimeUI(TOTAL_TIME);
-    timeNumEl.textContent = String(TOTAL_TIME);
     return;
   }
 
@@ -390,17 +395,14 @@ showABtn.addEventListener("click", () => {
   updateTimeUI(0);
 });
 
-/* IMPORTANT CHANGE:
-   difficulty change clears active category and does NOT auto-trigger a question */
+/* IMPORTANT: difficulty change must NOT trigger questions */
 difficultySelect.addEventListener("change", () => {
   ensureAudio();
   difficulty = difficultySelect.value;
 
-  // Clear category selection so nothing is active / no automatic question
-  clearActiveCategoryUI();
-
-  // If not in brainfreezer mode, go back to idle state
-  if (!fearMode) resetQuestionText();
+  // Do NOT call nextQuestion here.
+  // Do NOT keep category active.
+  hardResetToIdle();
 });
 
 /* -------------------- INIT -------------------- */
