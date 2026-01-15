@@ -25,8 +25,6 @@ const newQBtn = document.getElementById("newQ");
 const fearBtn = document.getElementById("fearBtn");
 const panelEl = document.getElementById("panel");
 const difficultySelect = document.getElementById("difficultySelect");
-
-// Random button
 const randomCatBtn = document.getElementById("randomCatBtn");
 
 // Timer UI
@@ -131,8 +129,6 @@ function stopTimer(){
 function updateTimeUI(seconds){
   const s = Math.max(0, Math.min(TOTAL_TIME, seconds));
   timeNumEl.textContent = String(s);
-
-  // red bar shrinks
   const pct = (s / TOTAL_TIME) * 100;
   timeFillEl.style.width = `${pct}%`;
 }
@@ -171,6 +167,13 @@ function setMetaBase(text){
   metaEl.textContent = text;
 }
 
+/* -------------------- CATEGORY RESET (NEW) -------------------- */
+function clearActiveCategoryUI(){
+  selectedCat = null;
+  document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
+  if (!fearMode) newQBtn.disabled = true; // in brainfreezer mode you can still draw
+}
+
 /* -------------------- GAME -------------------- */
 function setFearMode(on){
   fearMode = on;
@@ -179,9 +182,19 @@ function setFearMode(on){
   fearBtn.setAttribute("aria-pressed", on ? "true" : "false");
   tremble();
 
-  if (on) nextQuestion();
-  else if (selectedCat) nextQuestion();
-  else resetQuestionText();
+  // If brainfreezer is turned ON, allow new question even without a category
+  if (on) {
+    newQBtn.disabled = false;
+    nextQuestion();
+  } else {
+    // when leaving brainfreezer: if no category selected, go back to idle
+    if (selectedCat) {
+      newQBtn.disabled = false;
+      nextQuestion();
+    } else {
+      resetQuestionText();
+    }
+  }
 }
 
 function resetQuestionText(){
@@ -190,7 +203,7 @@ function resetQuestionText(){
   qEl.textContent = "—";
   aEl.hidden = true;
   showABtn.disabled = true;
-  newQBtn.disabled = selectedCat ? false : true;
+  newQBtn.disabled = selectedCat ? false : (fearMode ? false : true);
   updateTimeUI(TOTAL_TIME);
   timeNumEl.textContent = String(TOTAL_TIME);
 }
@@ -242,24 +255,23 @@ function renderCats(){
       document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
       btn.classList.add("active");
       newQBtn.disabled = false;
-      nextQuestion(); // immediate, like you want
+      nextQuestion();
     });
 
     catsEl.appendChild(btn);
   });
 }
 
-/* NEW: Random category that ALWAYS yields a question in the selected difficulty */
+/* Random category that ALWAYS yields a question in the selected difficulty */
 function randomCategoryQuestion(){
   if (!DB) return;
 
-  // Random category is for normal questions, so switch off fear mode
+  // Random category is for normal questions, so switch off brainfreezer
   if (fearMode) setFearMode(false);
 
   const diffNeedle = normalizeDiff(difficulty);
   const allQs = Array.isArray(DB.questions) ? DB.questions : [];
 
-  // categories that have at least 1 question in current difficulty
   const catsWithQs = (Array.isArray(DB.categories) ? DB.categories : [])
     .map(c => c.id)
     .filter(catId => {
@@ -273,7 +285,6 @@ function randomCategoryQuestion(){
     });
 
   if (catsWithQs.length === 0){
-    // nothing available for that difficulty
     stopTimer();
     setMetaBase(`No categories have questions for ${diffNeedle.toUpperCase()}.`);
     qEl.textContent = "No questions found for this difficulty.";
@@ -287,14 +298,11 @@ function randomCategoryQuestion(){
   const pick = pickRandom(catsWithQs);
   selectedCat = pick;
 
-  // set active highlight
   document.querySelectorAll(".cat").forEach(x => {
     x.classList.toggle("active", normalizeCat(x.dataset.c) === normalizeCat(pick));
   });
 
   newQBtn.disabled = false;
-
-  // immediate, same behavior as clicking the category
   nextQuestion();
 }
 
@@ -307,8 +315,8 @@ function nextQuestion(){
 
   if (fearMode){
     const pool = Array.isArray(DB.fearQuestions) ? DB.fearQuestions : [];
-    item = getNonRepeating(pool, i => `FEAR:${i.q}`, usedFear);
-    setMetaBase(`FEAR QUESTION (${pool.length})`);
+    item = getNonRepeating(pool, i => `BF:${i.q}`, usedFear);
+    setMetaBase(`BRAINFREEZER (${pool.length})`);
     tremble();
   } else {
     if (!selectedCat){
@@ -371,7 +379,7 @@ newQBtn.addEventListener("click", () => {
 
 randomCatBtn.addEventListener("click", () => {
   ensureAudio();
-  randomCategoryQuestion(); // immediate question
+  randomCategoryQuestion();
 });
 
 showABtn.addEventListener("click", () => {
@@ -382,10 +390,17 @@ showABtn.addEventListener("click", () => {
   updateTimeUI(0);
 });
 
+/* IMPORTANT CHANGE:
+   difficulty change clears active category and does NOT auto-trigger a question */
 difficultySelect.addEventListener("change", () => {
   ensureAudio();
   difficulty = difficultySelect.value;
-  if (!fearMode && selectedCat) nextQuestion();
+
+  // Clear category selection so nothing is active / no automatic question
+  clearActiveCategoryUI();
+
+  // If not in brainfreezer mode, go back to idle state
+  if (!fearMode) resetQuestionText();
 });
 
 /* -------------------- INIT -------------------- */
