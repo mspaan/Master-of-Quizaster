@@ -1,0 +1,3426 @@
+{
+  "questions": [
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who created a famous work featuring mysterious smile portrait?",
+      "a_en": "Leonardo da Vinci",
+      "q_de": "Wer schuf ein berühmtes Werk mit mysterious smile portrait?",
+      "a_de": "Leonardo da Vinci"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who created a famous work featuring Vatican ceiling?",
+      "a_en": "Michelangelo",
+      "q_de": "Wer schuf ein berühmtes Werk mit Vatican ceiling?",
+      "a_de": "Michelangelo"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who created a famous work featuring fragmented faces?",
+      "a_en": "Picasso",
+      "q_de": "Wer schuf ein berühmtes Werk mit fragmented faces?",
+      "a_de": "Picasso"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who created a famous work featuring water lilies?",
+      "a_en": "Monet",
+      "q_de": "Wer schuf ein berühmtes Werk mit water lilies?",
+      "a_de": "Monet"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who created a famous work featuring sunflowers?",
+      "a_en": "Van Gogh",
+      "q_de": "Wer schuf ein berühmtes Werk mit sunflowers?",
+      "a_de": "Van Gogh"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who created a famous work featuring melting clocks?",
+      "a_en": "Dalí",
+      "q_de": "Wer schuf ein berühmtes Werk mit melting clocks?",
+      "a_de": "Dalí"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who created a famous work featuring soup cans?",
+      "a_en": "Warhol",
+      "q_de": "Wer schuf ein berühmtes Werk mit soup cans?",
+      "a_de": "Warhol"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who created a famous work featuring street stencils?",
+      "a_en": "Banksy",
+      "q_de": "Wer schuf ein berühmtes Werk mit street stencils?",
+      "a_de": "Banksy"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who created a famous work featuring wrapped landmarks?",
+      "a_en": "Christo",
+      "q_de": "Wer schuf ein berühmtes Werk mit wrapped landmarks?",
+      "a_de": "Christo"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who created a famous work featuring pearl earring?",
+      "a_en": "Vermeer",
+      "q_de": "Wer schuf ein berühmtes Werk mit pearl earring?",
+      "a_de": "Vermeer"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Which movie is known for a giant shark thriller?",
+      "a_en": "Jaws",
+      "q_de": "Welcher Film ist bekannt für ein giant shark thriller?",
+      "a_de": "Jaws"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Which movie is known for a sinking ocean liner?",
+      "a_en": "Titanic",
+      "q_de": "Welcher Film ist bekannt für ein sinking ocean liner?",
+      "a_de": "Titanic"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Which movie is known for a dream layers?",
+      "a_en": "Inception",
+      "q_de": "Welcher Film ist bekannt für ein dream layers?",
+      "a_de": "Inception"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Which movie is known for a blue aliens?",
+      "a_en": "Avatar",
+      "q_de": "Welcher Film ist bekannt für ein blue aliens?",
+      "a_de": "Avatar"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Which movie is known for a revived dinosaurs?",
+      "a_en": "Jurassic Park",
+      "q_de": "Welcher Film ist bekannt für ein revived dinosaurs?",
+      "a_de": "Jurassic Park"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Which movie is known for a secret rules?",
+      "a_en": "Fight Club",
+      "q_de": "Welcher Film ist bekannt für ein secret rules?",
+      "a_de": "Fight Club"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Which movie is known for a young lion?",
+      "a_en": "The Lion King",
+      "q_de": "Welcher Film ist bekannt für ein young lion?",
+      "a_de": "The Lion King"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Which movie is known for a repeating day?",
+      "a_en": "Groundhog Day",
+      "q_de": "Welcher Film ist bekannt für ein repeating day?",
+      "a_de": "Groundhog Day"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Which movie is known for a nonlinear crime?",
+      "a_en": "Pulp Fiction",
+      "q_de": "Welcher Film ist bekannt für ein nonlinear crime?",
+      "a_de": "Pulp Fiction"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Which movie is known for a simulated reality?",
+      "a_en": "Matrix",
+      "q_de": "Welcher Film ist bekannt für ein simulated reality?",
+      "a_de": "Matrix"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who wrote a story about Verona lovers?",
+      "a_en": "William Shakespeare",
+      "q_de": "Wer schrieb eine Geschichte über Verona lovers?",
+      "a_de": "William Shakespeare"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who wrote a story about total surveillance future?",
+      "a_en": "George Orwell",
+      "q_de": "Wer schrieb eine Geschichte über total surveillance future?",
+      "a_de": "George Orwell"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who wrote a story about absurd trial?",
+      "a_en": "Franz Kafka",
+      "q_de": "Wer schrieb eine Geschichte über absurd trial?",
+      "a_de": "Franz Kafka"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who wrote a story about Middle-earth?",
+      "a_en": "J.R.R. Tolkien",
+      "q_de": "Wer schrieb eine Geschichte über Middle-earth?",
+      "a_de": "J.R.R. Tolkien"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who wrote a story about curious girl?",
+      "a_en": "Lewis Carroll",
+      "q_de": "Wer schrieb eine Geschichte über curious girl?",
+      "a_de": "Lewis Carroll"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who wrote a story about burned books?",
+      "a_en": "Ray Bradbury",
+      "q_de": "Wer schrieb eine Geschichte über burned books?",
+      "a_de": "Ray Bradbury"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who wrote a story about endless waiting?",
+      "a_en": "Samuel Beckett",
+      "q_de": "Wer schrieb eine Geschichte über endless waiting?",
+      "a_de": "Samuel Beckett"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who wrote a story about stream of consciousness?",
+      "a_en": "James Joyce",
+      "q_de": "Wer schrieb eine Geschichte über stream of consciousness?",
+      "a_de": "James Joyce"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who wrote a story about ancient epic voyage?",
+      "a_en": "Homer",
+      "q_de": "Wer schrieb eine Geschichte über ancient epic voyage?",
+      "a_de": "Homer"
+    },
+    {
+      "cat": "ART",
+      "diff": "easy",
+      "q_en": "Who wrote a story about social manners?",
+      "a_en": "Jane Austen",
+      "q_de": "Wer schrieb eine Geschichte über social manners?",
+      "a_de": "Jane Austen"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "What art movement is associated with light brushstrokes?",
+      "a_en": "Impressionism",
+      "q_de": "Welche Kunstrichtung ist mit light brushstrokes verbunden?",
+      "a_de": "Impressionism"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "What art movement is associated with dream logic?",
+      "a_en": "Surrealism",
+      "q_de": "Welche Kunstrichtung ist mit dream logic verbunden?",
+      "a_de": "Surrealism"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "What art movement is associated with multiple viewpoints?",
+      "a_en": "Cubism",
+      "q_de": "Welche Kunstrichtung ist mit multiple viewpoints verbunden?",
+      "a_de": "Cubism"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "What art movement is associated with consumer imagery?",
+      "a_en": "Pop Art",
+      "q_de": "Welche Kunstrichtung ist mit consumer imagery verbunden?",
+      "a_de": "Pop Art"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "What art movement is associated with reduced forms?",
+      "a_en": "Minimalism",
+      "q_de": "Welche Kunstrichtung ist mit reduced forms verbunden?",
+      "a_de": "Minimalism"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "What art movement is associated with wet plaster?",
+      "a_en": "Fresco",
+      "q_de": "Welche Kunstrichtung ist mit wet plaster verbunden?",
+      "a_de": "Fresco"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "What art movement is associated with fourteen lines?",
+      "a_en": "Sonnet",
+      "q_de": "Welche Kunstrichtung ist mit fourteen lines verbunden?",
+      "a_de": "Sonnet"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "What art movement is associated with brief appearance?",
+      "a_en": "Cameo",
+      "q_de": "Welche Kunstrichtung ist mit brief appearance verbunden?",
+      "a_de": "Cameo"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "What art movement is associated with symbolic story?",
+      "a_en": "Allegory",
+      "q_de": "Welche Kunstrichtung ist mit symbolic story verbunden?",
+      "a_de": "Allegory"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "What art movement is associated with play within play?",
+      "a_en": "Metatheatre",
+      "q_de": "Welche Kunstrichtung ist mit play within play verbunden?",
+      "a_de": "Metatheatre"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which director is linked to the film about giant shark thriller?",
+      "a_en": "Various",
+      "q_de": "Welcher Regisseur ist mit dem Film über giant shark thriller verbunden?",
+      "a_de": "Various"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which director is linked to the film about sinking ocean liner?",
+      "a_en": "Various",
+      "q_de": "Welcher Regisseur ist mit dem Film über sinking ocean liner verbunden?",
+      "a_de": "Various"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which director is linked to the film about dream layers?",
+      "a_en": "Various",
+      "q_de": "Welcher Regisseur ist mit dem Film über dream layers verbunden?",
+      "a_de": "Various"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which director is linked to the film about blue aliens?",
+      "a_en": "Various",
+      "q_de": "Welcher Regisseur ist mit dem Film über blue aliens verbunden?",
+      "a_de": "Various"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which director is linked to the film about revived dinosaurs?",
+      "a_en": "Various",
+      "q_de": "Welcher Regisseur ist mit dem Film über revived dinosaurs verbunden?",
+      "a_de": "Various"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which director is linked to the film about secret rules?",
+      "a_en": "Various",
+      "q_de": "Welcher Regisseur ist mit dem Film über secret rules verbunden?",
+      "a_de": "Various"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which director is linked to the film about young lion?",
+      "a_en": "Various",
+      "q_de": "Welcher Regisseur ist mit dem Film über young lion verbunden?",
+      "a_de": "Various"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which director is linked to the film about repeating day?",
+      "a_en": "Various",
+      "q_de": "Welcher Regisseur ist mit dem Film über repeating day verbunden?",
+      "a_de": "Various"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which director is linked to the film about nonlinear crime?",
+      "a_en": "Various",
+      "q_de": "Welcher Regisseur ist mit dem Film über nonlinear crime verbunden?",
+      "a_de": "Various"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which director is linked to the film about simulated reality?",
+      "a_en": "Various",
+      "q_de": "Welcher Regisseur ist mit dem Film über simulated reality verbunden?",
+      "a_de": "Various"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which writer became famous for themes of Verona lovers?",
+      "a_en": "William Shakespeare",
+      "q_de": "Welcher Autor wurde bekannt für Themen wie Verona lovers?",
+      "a_de": "William Shakespeare"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which writer became famous for themes of total surveillance future?",
+      "a_en": "George Orwell",
+      "q_de": "Welcher Autor wurde bekannt für Themen wie total surveillance future?",
+      "a_de": "George Orwell"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which writer became famous for themes of absurd trial?",
+      "a_en": "Franz Kafka",
+      "q_de": "Welcher Autor wurde bekannt für Themen wie absurd trial?",
+      "a_de": "Franz Kafka"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which writer became famous for themes of Middle-earth?",
+      "a_en": "J.R.R. Tolkien",
+      "q_de": "Welcher Autor wurde bekannt für Themen wie Middle-earth?",
+      "a_de": "J.R.R. Tolkien"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which writer became famous for themes of curious girl?",
+      "a_en": "Lewis Carroll",
+      "q_de": "Welcher Autor wurde bekannt für Themen wie curious girl?",
+      "a_de": "Lewis Carroll"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which writer became famous for themes of burned books?",
+      "a_en": "Ray Bradbury",
+      "q_de": "Welcher Autor wurde bekannt für Themen wie burned books?",
+      "a_de": "Ray Bradbury"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which writer became famous for themes of endless waiting?",
+      "a_en": "Samuel Beckett",
+      "q_de": "Welcher Autor wurde bekannt für Themen wie endless waiting?",
+      "a_de": "Samuel Beckett"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which writer became famous for themes of stream of consciousness?",
+      "a_en": "James Joyce",
+      "q_de": "Welcher Autor wurde bekannt für Themen wie stream of consciousness?",
+      "a_de": "James Joyce"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which writer became famous for themes of ancient epic voyage?",
+      "a_en": "Homer",
+      "q_de": "Welcher Autor wurde bekannt für Themen wie ancient epic voyage?",
+      "a_de": "Homer"
+    },
+    {
+      "cat": "ART",
+      "diff": "medium",
+      "q_en": "Which writer became famous for themes of social manners?",
+      "a_en": "Jane Austen",
+      "q_de": "Welcher Autor wurde bekannt für Themen wie social manners?",
+      "a_de": "Jane Austen"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "What concept describes art focused on light brushstrokes?",
+      "a_en": "Impressionism",
+      "q_de": "Welcher Begriff beschreibt Kunst mit Fokus auf light brushstrokes?",
+      "a_de": "Impressionism"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "What concept describes art focused on dream logic?",
+      "a_en": "Surrealism",
+      "q_de": "Welcher Begriff beschreibt Kunst mit Fokus auf dream logic?",
+      "a_de": "Surrealism"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "What concept describes art focused on multiple viewpoints?",
+      "a_en": "Cubism",
+      "q_de": "Welcher Begriff beschreibt Kunst mit Fokus auf multiple viewpoints?",
+      "a_de": "Cubism"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "What concept describes art focused on consumer imagery?",
+      "a_en": "Pop Art",
+      "q_de": "Welcher Begriff beschreibt Kunst mit Fokus auf consumer imagery?",
+      "a_de": "Pop Art"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "What concept describes art focused on reduced forms?",
+      "a_en": "Minimalism",
+      "q_de": "Welcher Begriff beschreibt Kunst mit Fokus auf reduced forms?",
+      "a_de": "Minimalism"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "What concept describes art focused on wet plaster?",
+      "a_en": "Fresco",
+      "q_de": "Welcher Begriff beschreibt Kunst mit Fokus auf wet plaster?",
+      "a_de": "Fresco"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "What concept describes art focused on fourteen lines?",
+      "a_en": "Sonnet",
+      "q_de": "Welcher Begriff beschreibt Kunst mit Fokus auf fourteen lines?",
+      "a_de": "Sonnet"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "What concept describes art focused on brief appearance?",
+      "a_en": "Cameo",
+      "q_de": "Welcher Begriff beschreibt Kunst mit Fokus auf brief appearance?",
+      "a_de": "Cameo"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "What concept describes art focused on symbolic story?",
+      "a_en": "Allegory",
+      "q_de": "Welcher Begriff beschreibt Kunst mit Fokus auf symbolic story?",
+      "a_de": "Allegory"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "What concept describes art focused on play within play?",
+      "a_en": "Metatheatre",
+      "q_de": "Welcher Begriff beschreibt Kunst mit Fokus auf play within play?",
+      "a_de": "Metatheatre"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Which creator is often discussed regarding mysterious smile portrait?",
+      "a_en": "Leonardo da Vinci",
+      "q_de": "Welcher Künstler wird oft im Zusammenhang mit mysterious smile portrait genannt?",
+      "a_de": "Leonardo da Vinci"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Which creator is often discussed regarding Vatican ceiling?",
+      "a_en": "Michelangelo",
+      "q_de": "Welcher Künstler wird oft im Zusammenhang mit Vatican ceiling genannt?",
+      "a_de": "Michelangelo"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Which creator is often discussed regarding fragmented faces?",
+      "a_en": "Picasso",
+      "q_de": "Welcher Künstler wird oft im Zusammenhang mit fragmented faces genannt?",
+      "a_de": "Picasso"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Which creator is often discussed regarding water lilies?",
+      "a_en": "Monet",
+      "q_de": "Welcher Künstler wird oft im Zusammenhang mit water lilies genannt?",
+      "a_de": "Monet"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Which creator is often discussed regarding sunflowers?",
+      "a_en": "Van Gogh",
+      "q_de": "Welcher Künstler wird oft im Zusammenhang mit sunflowers genannt?",
+      "a_de": "Van Gogh"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Which creator is often discussed regarding melting clocks?",
+      "a_en": "Dalí",
+      "q_de": "Welcher Künstler wird oft im Zusammenhang mit melting clocks genannt?",
+      "a_de": "Dalí"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Which creator is often discussed regarding soup cans?",
+      "a_en": "Warhol",
+      "q_de": "Welcher Künstler wird oft im Zusammenhang mit soup cans genannt?",
+      "a_de": "Warhol"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Which creator is often discussed regarding street stencils?",
+      "a_en": "Banksy",
+      "q_de": "Welcher Künstler wird oft im Zusammenhang mit street stencils genannt?",
+      "a_de": "Banksy"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Which creator is often discussed regarding wrapped landmarks?",
+      "a_en": "Christo",
+      "q_de": "Welcher Künstler wird oft im Zusammenhang mit wrapped landmarks genannt?",
+      "a_de": "Christo"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Which creator is often discussed regarding pearl earring?",
+      "a_en": "Vermeer",
+      "q_de": "Welcher Künstler wird oft im Zusammenhang mit pearl earring genannt?",
+      "a_de": "Vermeer"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Who is studied for works centered on Verona lovers?",
+      "a_en": "William Shakespeare",
+      "q_de": "Wer wird für Werke mit Schwerpunkt Verona lovers untersucht?",
+      "a_de": "William Shakespeare"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Who is studied for works centered on total surveillance future?",
+      "a_en": "George Orwell",
+      "q_de": "Wer wird für Werke mit Schwerpunkt total surveillance future untersucht?",
+      "a_de": "George Orwell"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Who is studied for works centered on absurd trial?",
+      "a_en": "Franz Kafka",
+      "q_de": "Wer wird für Werke mit Schwerpunkt absurd trial untersucht?",
+      "a_de": "Franz Kafka"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Who is studied for works centered on Middle-earth?",
+      "a_en": "J.R.R. Tolkien",
+      "q_de": "Wer wird für Werke mit Schwerpunkt Middle-earth untersucht?",
+      "a_de": "J.R.R. Tolkien"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Who is studied for works centered on curious girl?",
+      "a_en": "Lewis Carroll",
+      "q_de": "Wer wird für Werke mit Schwerpunkt curious girl untersucht?",
+      "a_de": "Lewis Carroll"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Who is studied for works centered on burned books?",
+      "a_en": "Ray Bradbury",
+      "q_de": "Wer wird für Werke mit Schwerpunkt burned books untersucht?",
+      "a_de": "Ray Bradbury"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Who is studied for works centered on endless waiting?",
+      "a_en": "Samuel Beckett",
+      "q_de": "Wer wird für Werke mit Schwerpunkt endless waiting untersucht?",
+      "a_de": "Samuel Beckett"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Who is studied for works centered on stream of consciousness?",
+      "a_en": "James Joyce",
+      "q_de": "Wer wird für Werke mit Schwerpunkt stream of consciousness untersucht?",
+      "a_de": "James Joyce"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Who is studied for works centered on ancient epic voyage?",
+      "a_en": "Homer",
+      "q_de": "Wer wird für Werke mit Schwerpunkt ancient epic voyage untersucht?",
+      "a_de": "Homer"
+    },
+    {
+      "cat": "ART",
+      "diff": "hard",
+      "q_en": "Who is studied for works centered on social manners?",
+      "a_en": "Jane Austen",
+      "q_de": "Wer wird für Werke mit Schwerpunkt social manners untersucht?",
+      "a_de": "Jane Austen"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which creature is known as the largest land animal?",
+      "a_en": "Elephant",
+      "q_de": "Welches Lebewesen gilt als das largest land animal?",
+      "a_de": "Elephant"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which creature is known as the largest animal ever?",
+      "a_en": "Blue whale",
+      "q_de": "Welches Lebewesen gilt als das largest animal ever?",
+      "a_de": "Blue whale"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which creature is known as the fastest land animal?",
+      "a_en": "Cheetah",
+      "q_de": "Welches Lebewesen gilt als das fastest land animal?",
+      "a_de": "Cheetah"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which creature is known as the longest neck?",
+      "a_en": "Giraffe",
+      "q_de": "Welches Lebewesen gilt als das longest neck?",
+      "a_de": "Giraffe"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which creature is known as the three hearts?",
+      "a_en": "Octopus",
+      "q_de": "Welches Lebewesen gilt als das three hearts?",
+      "a_de": "Octopus"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which creature is known as the echolocation?",
+      "a_en": "Bat",
+      "q_de": "Welches Lebewesen gilt als das echolocation?",
+      "a_de": "Bat"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which creature is known as the high intelligence?",
+      "a_en": "Dolphin",
+      "q_de": "Welches Lebewesen gilt als das high intelligence?",
+      "a_de": "Dolphin"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which creature is known as the flightless bird?",
+      "a_en": "Penguin",
+      "q_de": "Welches Lebewesen gilt als das flightless bird?",
+      "a_de": "Penguin"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which creature is known as the desert survival?",
+      "a_en": "Camel",
+      "q_de": "Welches Lebewesen gilt als das desert survival?",
+      "a_de": "Camel"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which creature is known as the amphibious life?",
+      "a_en": "Frog",
+      "q_de": "Welches Lebewesen gilt als das amphibious life?",
+      "a_de": "Frog"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which place is famous for being the largest ocean?",
+      "a_en": "Pacific Ocean",
+      "q_de": "Welcher Ort ist bekannt als das largest ocean?",
+      "a_de": "Pacific Ocean"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which place is famous for being the long African river?",
+      "a_en": "Nile",
+      "q_de": "Welcher Ort ist bekannt als das long African river?",
+      "a_de": "Nile"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which place is famous for being the rainforest river?",
+      "a_en": "Amazon",
+      "q_de": "Welcher Ort ist bekannt als das rainforest river?",
+      "a_de": "Amazon"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which place is famous for being the largest hot desert?",
+      "a_en": "Sahara",
+      "q_de": "Welcher Ort ist bekannt als das largest hot desert?",
+      "a_de": "Sahara"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which place is famous for being the highest mountain?",
+      "a_en": "Everest",
+      "q_de": "Welcher Ort ist bekannt als das highest mountain?",
+      "a_de": "Everest"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which place is famous for being the coldest continent?",
+      "a_en": "Antarctica",
+      "q_de": "Welcher Ort ist bekannt als das coldest continent?",
+      "a_de": "Antarctica"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which place is famous for being the island continent?",
+      "a_en": "Australia",
+      "q_de": "Welcher Ort ist bekannt als das island continent?",
+      "a_de": "Australia"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which place is famous for being the largest continent?",
+      "a_en": "Asia",
+      "q_de": "Welcher Ort ist bekannt als das largest continent?",
+      "a_de": "Asia"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which place is famous for being the largest island?",
+      "a_en": "Greenland",
+      "q_de": "Welcher Ort ist bekannt als das largest island?",
+      "a_de": "Greenland"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "easy",
+      "q_en": "Which place is famous for being the volcanic island?",
+      "a_en": "Iceland",
+      "q_de": "Welcher Ort ist bekannt als das volcanic island?",
+      "a_de": "Iceland"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "What biological process involves energy from sunlight?",
+      "a_en": "Photosynthesis",
+      "q_de": "Welcher biologische Prozess umfasst energy from sunlight?",
+      "a_de": "Photosynthesis"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "What biological process involves genetic information?",
+      "a_en": "DNA",
+      "q_de": "Welcher biologische Prozess umfasst genetic information?",
+      "a_de": "DNA"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "What biological process involves cell division?",
+      "a_en": "Mitosis",
+      "q_de": "Welcher biologische Prozess umfasst cell division?",
+      "a_de": "Mitosis"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "What biological process involves water movement?",
+      "a_en": "Osmosis",
+      "q_de": "Welcher biologische Prozess umfasst water movement?",
+      "a_de": "Osmosis"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "What biological process involves species change?",
+      "a_en": "Evolution",
+      "q_de": "Welcher biologische Prozess umfasst species change?",
+      "a_de": "Evolution"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "What biological process involves chemical processes?",
+      "a_en": "Metabolism",
+      "q_de": "Welcher biologische Prozess umfasst chemical processes?",
+      "a_de": "Metabolism"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "What biological process involves oxygen use?",
+      "a_en": "Respiration",
+      "q_de": "Welcher biologische Prozess umfasst oxygen use?",
+      "a_de": "Respiration"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "What biological process involves internal balance?",
+      "a_en": "Homeostasis",
+      "q_de": "Welcher biologische Prozess umfasst internal balance?",
+      "a_de": "Homeostasis"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "What biological process involves genetic change?",
+      "a_en": "Mutation",
+      "q_de": "Welcher biologische Prozess umfasst genetic change?",
+      "a_de": "Mutation"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "What biological process involves biological catalyst?",
+      "a_en": "Enzyme",
+      "q_de": "Welcher biologische Prozess umfasst biological catalyst?",
+      "a_de": "Enzyme"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "Which animal is associated with largest land animal?",
+      "a_en": "Elephant",
+      "q_de": "Welches Tier wird mit largest land animal verbunden?",
+      "a_de": "Elephant"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "Which animal is associated with largest animal ever?",
+      "a_en": "Blue whale",
+      "q_de": "Welches Tier wird mit largest animal ever verbunden?",
+      "a_de": "Blue whale"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "Which animal is associated with fastest land animal?",
+      "a_en": "Cheetah",
+      "q_de": "Welches Tier wird mit fastest land animal verbunden?",
+      "a_de": "Cheetah"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "Which animal is associated with longest neck?",
+      "a_en": "Giraffe",
+      "q_de": "Welches Tier wird mit longest neck verbunden?",
+      "a_de": "Giraffe"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "Which animal is associated with three hearts?",
+      "a_en": "Octopus",
+      "q_de": "Welches Tier wird mit three hearts verbunden?",
+      "a_de": "Octopus"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "Which animal is associated with echolocation?",
+      "a_en": "Bat",
+      "q_de": "Welches Tier wird mit echolocation verbunden?",
+      "a_de": "Bat"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "Which animal is associated with high intelligence?",
+      "a_en": "Dolphin",
+      "q_de": "Welches Tier wird mit high intelligence verbunden?",
+      "a_de": "Dolphin"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "Which animal is associated with flightless bird?",
+      "a_en": "Penguin",
+      "q_de": "Welches Tier wird mit flightless bird verbunden?",
+      "a_de": "Penguin"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "Which animal is associated with desert survival?",
+      "a_en": "Camel",
+      "q_de": "Welches Tier wird mit desert survival verbunden?",
+      "a_de": "Camel"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "medium",
+      "q_en": "Which animal is associated with amphibious life?",
+      "a_en": "Frog",
+      "q_de": "Welches Tier wird mit amphibious life verbunden?",
+      "a_de": "Frog"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "What scientific term describes energy from sunlight?",
+      "a_en": "Photosynthesis",
+      "q_de": "Welcher Fachbegriff beschreibt energy from sunlight?",
+      "a_de": "Photosynthesis"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "What scientific term describes genetic information?",
+      "a_en": "DNA",
+      "q_de": "Welcher Fachbegriff beschreibt genetic information?",
+      "a_de": "DNA"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "What scientific term describes cell division?",
+      "a_en": "Mitosis",
+      "q_de": "Welcher Fachbegriff beschreibt cell division?",
+      "a_de": "Mitosis"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "What scientific term describes water movement?",
+      "a_en": "Osmosis",
+      "q_de": "Welcher Fachbegriff beschreibt water movement?",
+      "a_de": "Osmosis"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "What scientific term describes species change?",
+      "a_en": "Evolution",
+      "q_de": "Welcher Fachbegriff beschreibt species change?",
+      "a_de": "Evolution"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "What scientific term describes chemical processes?",
+      "a_en": "Metabolism",
+      "q_de": "Welcher Fachbegriff beschreibt chemical processes?",
+      "a_de": "Metabolism"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "What scientific term describes oxygen use?",
+      "a_en": "Respiration",
+      "q_de": "Welcher Fachbegriff beschreibt oxygen use?",
+      "a_de": "Respiration"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "What scientific term describes internal balance?",
+      "a_en": "Homeostasis",
+      "q_de": "Welcher Fachbegriff beschreibt internal balance?",
+      "a_de": "Homeostasis"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "What scientific term describes genetic change?",
+      "a_en": "Mutation",
+      "q_de": "Welcher Fachbegriff beschreibt genetic change?",
+      "a_de": "Mutation"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "What scientific term describes biological catalyst?",
+      "a_en": "Enzyme",
+      "q_de": "Welcher Fachbegriff beschreibt biological catalyst?",
+      "a_de": "Enzyme"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "Which geographic feature is described as the largest ocean?",
+      "a_en": "Pacific Ocean",
+      "q_de": "Welches geografische Merkmal gilt als das largest ocean?",
+      "a_de": "Pacific Ocean"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "Which geographic feature is described as the long African river?",
+      "a_en": "Nile",
+      "q_de": "Welches geografische Merkmal gilt als das long African river?",
+      "a_de": "Nile"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "Which geographic feature is described as the rainforest river?",
+      "a_en": "Amazon",
+      "q_de": "Welches geografische Merkmal gilt als das rainforest river?",
+      "a_de": "Amazon"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "Which geographic feature is described as the largest hot desert?",
+      "a_en": "Sahara",
+      "q_de": "Welches geografische Merkmal gilt als das largest hot desert?",
+      "a_de": "Sahara"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "Which geographic feature is described as the highest mountain?",
+      "a_en": "Everest",
+      "q_de": "Welches geografische Merkmal gilt als das highest mountain?",
+      "a_de": "Everest"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "Which geographic feature is described as the coldest continent?",
+      "a_en": "Antarctica",
+      "q_de": "Welches geografische Merkmal gilt als das coldest continent?",
+      "a_de": "Antarctica"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "Which geographic feature is described as the island continent?",
+      "a_en": "Australia",
+      "q_de": "Welches geografische Merkmal gilt als das island continent?",
+      "a_de": "Australia"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "Which geographic feature is described as the largest continent?",
+      "a_en": "Asia",
+      "q_de": "Welches geografische Merkmal gilt als das largest continent?",
+      "a_de": "Asia"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "Which geographic feature is described as the largest island?",
+      "a_en": "Greenland",
+      "q_de": "Welches geografische Merkmal gilt als das largest island?",
+      "a_de": "Greenland"
+    },
+    {
+      "cat": "SCOUT",
+      "diff": "hard",
+      "q_en": "Which geographic feature is described as the volcanic island?",
+      "a_en": "Iceland",
+      "q_de": "Welches geografische Merkmal gilt als das volcanic island?",
+      "a_de": "Iceland"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "In which year did the event known for first human moon landing occur?",
+      "a_en": "1969",
+      "q_de": "In welchem Jahr ereignete sich das Ereignis mit first human moon landing?",
+      "a_de": "1969"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "In which year did the event known for famous ocean liner sinking occur?",
+      "a_en": "1912",
+      "q_de": "In welchem Jahr ereignete sich das Ereignis mit famous ocean liner sinking?",
+      "a_de": "1912"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "In which year did the event known for fall of a divided European wall occur?",
+      "a_en": "1989",
+      "q_de": "In welchem Jahr ereignete sich das Ereignis mit fall of a divided European wall?",
+      "a_de": "1989"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "In which year did the event known for end of a global war occur?",
+      "a_en": "1945",
+      "q_de": "In welchem Jahr ereignete sich das Ereignis mit end of a global war?",
+      "a_de": "1945"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "In which year did the event known for declaration of independence occur?",
+      "a_en": "1776",
+      "q_de": "In welchem Jahr ereignete sich das Ereignis mit declaration of independence?",
+      "a_de": "1776"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "In which year did the event known for voyage across the Atlantic occur?",
+      "a_en": "1492",
+      "q_de": "In welchem Jahr ereignete sich das Ereignis mit voyage across the Atlantic?",
+      "a_de": "1492"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "In which year did the event known for start of a revolution in France occur?",
+      "a_en": "1789",
+      "q_de": "In welchem Jahr ereignete sich das Ereignis mit start of a revolution in France?",
+      "a_de": "1789"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "In which year did the event known for beginning of a world conflict occur?",
+      "a_en": "1914",
+      "q_de": "In welchem Jahr ereignete sich das Ereignis mit beginning of a world conflict?",
+      "a_de": "1914"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "In which year did the event known for major stock market crash occur?",
+      "a_en": "1929",
+      "q_de": "In welchem Jahr ereignete sich das Ereignis mit major stock market crash?",
+      "a_de": "1929"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "In which year did the event known for nuclear reactor disaster occur?",
+      "a_en": "1986",
+      "q_de": "In welchem Jahr ereignete sich das Ereignis mit nuclear reactor disaster?",
+      "a_de": "1986"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "Who is remembered for first human step on the Moon?",
+      "a_en": "Neil Armstrong",
+      "q_de": "Wer ist bekannt für first human step on the Moon?",
+      "a_de": "Neil Armstrong"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "Who is remembered for wartime diary?",
+      "a_en": "Anne Frank",
+      "q_de": "Wer ist bekannt für wartime diary?",
+      "a_de": "Anne Frank"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "Who is remembered for failed assassination attempt?",
+      "a_en": "Claus von Stauffenberg",
+      "q_de": "Wer ist bekannt für failed assassination attempt?",
+      "a_de": "Claus von Stauffenberg"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "Who is remembered for French military leader?",
+      "a_en": "Napoleon Bonaparte",
+      "q_de": "Wer ist bekannt für French military leader?",
+      "a_de": "Napoleon Bonaparte"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "Who is remembered for ancient Egyptian ruler?",
+      "a_en": "Cleopatra",
+      "q_de": "Wer ist bekannt für ancient Egyptian ruler?",
+      "a_de": "Cleopatra"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "Who is remembered for Roman dictator?",
+      "a_en": "Julius Caesar",
+      "q_de": "Wer ist bekannt für Roman dictator?",
+      "a_de": "Julius Caesar"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "Who is remembered for Atlantic exploration?",
+      "a_en": "Christopher Columbus",
+      "q_de": "Wer ist bekannt für Atlantic exploration?",
+      "a_de": "Christopher Columbus"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "Who is remembered for American civil war leader?",
+      "a_en": "Abraham Lincoln",
+      "q_de": "Wer ist bekannt für American civil war leader?",
+      "a_de": "Abraham Lincoln"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "Who is remembered for nonviolent resistance?",
+      "a_en": "Mahatma Gandhi",
+      "q_de": "Wer ist bekannt für nonviolent resistance?",
+      "a_de": "Mahatma Gandhi"
+    },
+    {
+      "cat": "TIME",
+      "diff": "easy",
+      "q_en": "Who is remembered for British wartime leader?",
+      "a_en": "Winston Churchill",
+      "q_de": "Wer ist bekannt für British wartime leader?",
+      "a_de": "Winston Churchill"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which location became known as a Cold War symbol?",
+      "a_en": "Berlin Wall",
+      "q_de": "Welcher Ort wurde bekannt als Cold War symbol?",
+      "a_de": "Berlin Wall"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which location became known as a luxury ship?",
+      "a_en": "Titanic",
+      "q_de": "Welcher Ort wurde bekannt als luxury ship?",
+      "a_de": "Titanic"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which location became known as a atomic bombing site?",
+      "a_en": "Hiroshima",
+      "q_de": "Welcher Ort wurde bekannt als atomic bombing site?",
+      "a_de": "Hiroshima"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which location became known as a historic treaty location?",
+      "a_en": "Versailles",
+      "q_de": "Welcher Ort wurde bekannt als historic treaty location?",
+      "a_de": "Versailles"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which location became known as a decisive battle?",
+      "a_en": "Waterloo",
+      "q_de": "Welcher Ort wurde bekannt als decisive battle?",
+      "a_de": "Waterloo"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which location became known as a D-Day landings?",
+      "a_en": "Normandy",
+      "q_de": "Welcher Ort wurde bekannt als D-Day landings?",
+      "a_de": "Normandy"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which location became known as a ancient empire center?",
+      "a_en": "Rome",
+      "q_de": "Welcher Ort wurde bekannt als ancient empire center?",
+      "a_de": "Rome"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which location became known as a birthplace of democracy?",
+      "a_en": "Athens",
+      "q_de": "Welcher Ort wurde bekannt als birthplace of democracy?",
+      "a_de": "Athens"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which location became known as a Soviet capital?",
+      "a_en": "Moscow",
+      "q_de": "Welcher Ort wurde bekannt als Soviet capital?",
+      "a_de": "Moscow"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which location became known as a imperial city?",
+      "a_en": "Beijing",
+      "q_de": "Welcher Ort wurde bekannt als imperial city?",
+      "a_de": "Beijing"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which historical figure is associated with first human step on the Moon?",
+      "a_en": "Neil Armstrong",
+      "q_de": "Welche historische Person wird mit first human step on the Moon verbunden?",
+      "a_de": "Neil Armstrong"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which historical figure is associated with wartime diary?",
+      "a_en": "Anne Frank",
+      "q_de": "Welche historische Person wird mit wartime diary verbunden?",
+      "a_de": "Anne Frank"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which historical figure is associated with failed assassination attempt?",
+      "a_en": "Claus von Stauffenberg",
+      "q_de": "Welche historische Person wird mit failed assassination attempt verbunden?",
+      "a_de": "Claus von Stauffenberg"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which historical figure is associated with French military leader?",
+      "a_en": "Napoleon Bonaparte",
+      "q_de": "Welche historische Person wird mit French military leader verbunden?",
+      "a_de": "Napoleon Bonaparte"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which historical figure is associated with ancient Egyptian ruler?",
+      "a_en": "Cleopatra",
+      "q_de": "Welche historische Person wird mit ancient Egyptian ruler verbunden?",
+      "a_de": "Cleopatra"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which historical figure is associated with Roman dictator?",
+      "a_en": "Julius Caesar",
+      "q_de": "Welche historische Person wird mit Roman dictator verbunden?",
+      "a_de": "Julius Caesar"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which historical figure is associated with Atlantic exploration?",
+      "a_en": "Christopher Columbus",
+      "q_de": "Welche historische Person wird mit Atlantic exploration verbunden?",
+      "a_de": "Christopher Columbus"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which historical figure is associated with American civil war leader?",
+      "a_en": "Abraham Lincoln",
+      "q_de": "Welche historische Person wird mit American civil war leader verbunden?",
+      "a_de": "Abraham Lincoln"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which historical figure is associated with nonviolent resistance?",
+      "a_en": "Mahatma Gandhi",
+      "q_de": "Welche historische Person wird mit nonviolent resistance verbunden?",
+      "a_de": "Mahatma Gandhi"
+    },
+    {
+      "cat": "TIME",
+      "diff": "medium",
+      "q_en": "Which historical figure is associated with British wartime leader?",
+      "a_en": "Winston Churchill",
+      "q_de": "Welche historische Person wird mit British wartime leader verbunden?",
+      "a_de": "Winston Churchill"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "What year marks the moment of first human moon landing?",
+      "a_en": "1969",
+      "q_de": "Welches Jahr markiert den Moment von first human moon landing?",
+      "a_de": "1969"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "What year marks the moment of famous ocean liner sinking?",
+      "a_en": "1912",
+      "q_de": "Welches Jahr markiert den Moment von famous ocean liner sinking?",
+      "a_de": "1912"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "What year marks the moment of fall of a divided European wall?",
+      "a_en": "1989",
+      "q_de": "Welches Jahr markiert den Moment von fall of a divided European wall?",
+      "a_de": "1989"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "What year marks the moment of end of a global war?",
+      "a_en": "1945",
+      "q_de": "Welches Jahr markiert den Moment von end of a global war?",
+      "a_de": "1945"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "What year marks the moment of declaration of independence?",
+      "a_en": "1776",
+      "q_de": "Welches Jahr markiert den Moment von declaration of independence?",
+      "a_de": "1776"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "What year marks the moment of voyage across the Atlantic?",
+      "a_en": "1492",
+      "q_de": "Welches Jahr markiert den Moment von voyage across the Atlantic?",
+      "a_de": "1492"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "What year marks the moment of start of a revolution in France?",
+      "a_en": "1789",
+      "q_de": "Welches Jahr markiert den Moment von start of a revolution in France?",
+      "a_de": "1789"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "What year marks the moment of beginning of a world conflict?",
+      "a_en": "1914",
+      "q_de": "Welches Jahr markiert den Moment von beginning of a world conflict?",
+      "a_de": "1914"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "What year marks the moment of major stock market crash?",
+      "a_en": "1929",
+      "q_de": "Welches Jahr markiert den Moment von major stock market crash?",
+      "a_de": "1929"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "What year marks the moment of nuclear reactor disaster?",
+      "a_en": "1986",
+      "q_de": "Welches Jahr markiert den Moment von nuclear reactor disaster?",
+      "a_de": "1986"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "Which place is linked to the event described as Cold War symbol?",
+      "a_en": "Berlin Wall",
+      "q_de": "Welcher Ort ist mit dem Ereignis Cold War symbol verknüpft?",
+      "a_de": "Berlin Wall"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "Which place is linked to the event described as luxury ship?",
+      "a_en": "Titanic",
+      "q_de": "Welcher Ort ist mit dem Ereignis luxury ship verknüpft?",
+      "a_de": "Titanic"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "Which place is linked to the event described as atomic bombing site?",
+      "a_en": "Hiroshima",
+      "q_de": "Welcher Ort ist mit dem Ereignis atomic bombing site verknüpft?",
+      "a_de": "Hiroshima"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "Which place is linked to the event described as historic treaty location?",
+      "a_en": "Versailles",
+      "q_de": "Welcher Ort ist mit dem Ereignis historic treaty location verknüpft?",
+      "a_de": "Versailles"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "Which place is linked to the event described as decisive battle?",
+      "a_en": "Waterloo",
+      "q_de": "Welcher Ort ist mit dem Ereignis decisive battle verknüpft?",
+      "a_de": "Waterloo"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "Which place is linked to the event described as D-Day landings?",
+      "a_en": "Normandy",
+      "q_de": "Welcher Ort ist mit dem Ereignis D-Day landings verknüpft?",
+      "a_de": "Normandy"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "Which place is linked to the event described as ancient empire center?",
+      "a_en": "Rome",
+      "q_de": "Welcher Ort ist mit dem Ereignis ancient empire center verknüpft?",
+      "a_de": "Rome"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "Which place is linked to the event described as birthplace of democracy?",
+      "a_en": "Athens",
+      "q_de": "Welcher Ort ist mit dem Ereignis birthplace of democracy verknüpft?",
+      "a_de": "Athens"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "Which place is linked to the event described as Soviet capital?",
+      "a_en": "Moscow",
+      "q_de": "Welcher Ort ist mit dem Ereignis Soviet capital verknüpft?",
+      "a_de": "Moscow"
+    },
+    {
+      "cat": "TIME",
+      "diff": "hard",
+      "q_en": "Which place is linked to the event described as imperial city?",
+      "a_en": "Beijing",
+      "q_de": "Welcher Ort ist mit dem Ereignis imperial city verknüpft?",
+      "a_de": "Beijing"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which dish is known as a Italian flatbread?",
+      "a_en": "Pizza",
+      "q_de": "Welches Gericht gilt als Italian flatbread?",
+      "a_de": "Pizza"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which dish is known as a Japanese rice rolls?",
+      "a_en": "Sushi",
+      "q_de": "Welches Gericht gilt als Japanese rice rolls?",
+      "a_de": "Sushi"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which dish is known as a Spanish rice dish?",
+      "a_en": "Paella",
+      "q_de": "Welches Gericht gilt als Spanish rice dish?",
+      "a_de": "Paella"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which dish is known as a French pastry?",
+      "a_en": "Croissant",
+      "q_de": "Welches Gericht gilt als French pastry?",
+      "a_de": "Croissant"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which dish is known as a stacked sandwich?",
+      "a_en": "Burger",
+      "q_de": "Welches Gericht gilt als stacked sandwich?",
+      "a_de": "Burger"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which dish is known as a Mexican street food?",
+      "a_en": "Tacos",
+      "q_de": "Welches Gericht gilt als Mexican street food?",
+      "a_de": "Tacos"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which dish is known as a spiced stew?",
+      "a_en": "Curry",
+      "q_de": "Welches Gericht gilt als spiced stew?",
+      "a_de": "Curry"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which dish is known as a Italian noodles?",
+      "a_en": "Pasta",
+      "q_de": "Welches Gericht gilt als Italian noodles?",
+      "a_de": "Pasta"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which dish is known as a fried chickpea balls?",
+      "a_en": "Falafel",
+      "q_de": "Welches Gericht gilt als fried chickpea balls?",
+      "a_de": "Falafel"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which dish is known as a Japanese noodle soup?",
+      "a_en": "Ramen",
+      "q_de": "Welches Gericht gilt als Japanese noodle soup?",
+      "a_de": "Ramen"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which drink is described as a mint cocktail?",
+      "a_en": "Mojito",
+      "q_de": "Welches Getränk wird beschrieben als mint cocktail?",
+      "a_de": "Mojito"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which drink is described as a gin classic?",
+      "a_en": "Martini",
+      "q_de": "Welches Getränk wird beschrieben als gin classic?",
+      "a_de": "Martini"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which drink is described as a tequila sour?",
+      "a_en": "Margarita",
+      "q_de": "Welches Getränk wird beschrieben als tequila sour?",
+      "a_de": "Margarita"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which drink is described as a whiskey mix?",
+      "a_en": "Old Fashioned",
+      "q_de": "Welches Getränk wird beschrieben als whiskey mix?",
+      "a_de": "Old Fashioned"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which drink is described as a bitter aperitif?",
+      "a_en": "Negroni",
+      "q_de": "Welches Getränk wird beschrieben als bitter aperitif?",
+      "a_de": "Negroni"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which drink is described as a strong coffee?",
+      "a_en": "Espresso",
+      "q_de": "Welches Getränk wird beschrieben als strong coffee?",
+      "a_de": "Espresso"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which drink is described as a milk coffee?",
+      "a_en": "Latte",
+      "q_de": "Welches Getränk wird beschrieben als milk coffee?",
+      "a_de": "Latte"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which drink is described as a foamed coffee?",
+      "a_en": "Cappuccino",
+      "q_de": "Welches Getränk wird beschrieben als foamed coffee?",
+      "a_de": "Cappuccino"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which drink is described as a wine punch?",
+      "a_en": "Sangria",
+      "q_de": "Welches Getränk wird beschrieben als wine punch?",
+      "a_de": "Sangria"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "easy",
+      "q_en": "Which drink is described as a tomato cocktail?",
+      "a_en": "Bloody Mary",
+      "q_de": "Welches Getränk wird beschrieben als tomato cocktail?",
+      "a_de": "Bloody Mary"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "What cooking method involves low temperature cooking?",
+      "a_en": "Sous vide",
+      "q_de": "Welche Kochmethode umfasst low temperature cooking?",
+      "a_de": "Sous vide"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "What cooking method involves microbial transformation?",
+      "a_en": "Fermentation",
+      "q_de": "Welche Kochmethode umfasst microbial transformation?",
+      "a_de": "Fermentation"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "What cooking method involves direct heat cooking?",
+      "a_en": "Grilling",
+      "q_de": "Welche Kochmethode umfasst direct heat cooking?",
+      "a_de": "Grilling"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "What cooking method involves slow cooking in liquid?",
+      "a_en": "Braising",
+      "q_de": "Welche Kochmethode umfasst slow cooking in liquid?",
+      "a_de": "Braising"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "What cooking method involves brief boiling?",
+      "a_en": "Blanching",
+      "q_de": "Welche Kochmethode umfasst brief boiling?",
+      "a_de": "Blanching"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "What cooking method involves mixing fat and water?",
+      "a_en": "Emulsification",
+      "q_de": "Welche Kochmethode umfasst mixing fat and water?",
+      "a_de": "Emulsification"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "What cooking method involves sugar browning?",
+      "a_en": "Caramelization",
+      "q_de": "Welche Kochmethode umfasst sugar browning?",
+      "a_de": "Caramelization"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "What cooking method involves flavor soaking?",
+      "a_en": "Marinating",
+      "q_de": "Welche Kochmethode umfasst flavor soaking?",
+      "a_de": "Marinating"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "What cooking method involves wood flavor infusion?",
+      "a_en": "Smoking",
+      "q_de": "Welche Kochmethode umfasst wood flavor infusion?",
+      "a_de": "Smoking"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "What cooking method involves controlled heating?",
+      "a_en": "Tempering",
+      "q_de": "Welche Kochmethode umfasst controlled heating?",
+      "a_de": "Tempering"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "Which food figure became famous as a television chef?",
+      "a_en": "Gordon Ramsay",
+      "q_de": "Welche Persönlichkeit wurde bekannt als television chef?",
+      "a_de": "Gordon Ramsay"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "Which food figure became famous as a French cuisine popularizer?",
+      "a_en": "Julia Child",
+      "q_de": "Welche Persönlichkeit wurde bekannt als French cuisine popularizer?",
+      "a_de": "Julia Child"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "Which food figure became famous as a British food advocate?",
+      "a_en": "Jamie Oliver",
+      "q_de": "Welche Persönlichkeit wurde bekannt als British food advocate?",
+      "a_de": "Jamie Oliver"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "Which food figure became famous as a modern Italian cuisine?",
+      "a_en": "Massimo Bottura",
+      "q_de": "Welche Persönlichkeit wurde bekannt als modern Italian cuisine?",
+      "a_de": "Massimo Bottura"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "Which food figure became famous as a travel food writer?",
+      "a_en": "Anthony Bourdain",
+      "q_de": "Welche Persönlichkeit wurde bekannt als travel food writer?",
+      "a_de": "Anthony Bourdain"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "Which food figure became famous as a experimental cooking?",
+      "a_en": "Heston Blumenthal",
+      "q_de": "Welche Persönlichkeit wurde bekannt als experimental cooking?",
+      "a_de": "Heston Blumenthal"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "Which food figure became famous as a molecular gastronomy?",
+      "a_en": "Ferran Adrià",
+      "q_de": "Welche Persönlichkeit wurde bekannt als molecular gastronomy?",
+      "a_de": "Ferran Adrià"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "Which food figure became famous as a fine dining?",
+      "a_en": "Thomas Keller",
+      "q_de": "Welche Persönlichkeit wurde bekannt als fine dining?",
+      "a_de": "Thomas Keller"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "Which food figure became famous as a Michelin stars?",
+      "a_en": "Alain Ducasse",
+      "q_de": "Welche Persönlichkeit wurde bekannt als Michelin stars?",
+      "a_de": "Alain Ducasse"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "medium",
+      "q_en": "Which food figure became famous as a home cooking?",
+      "a_en": "Nigella Lawson",
+      "q_de": "Welche Persönlichkeit wurde bekannt als home cooking?",
+      "a_de": "Nigella Lawson"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "What culinary term refers to low temperature cooking?",
+      "a_en": "Sous vide",
+      "q_de": "Welcher kulinarische Begriff bezeichnet low temperature cooking?",
+      "a_de": "Sous vide"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "What culinary term refers to microbial transformation?",
+      "a_en": "Fermentation",
+      "q_de": "Welcher kulinarische Begriff bezeichnet microbial transformation?",
+      "a_de": "Fermentation"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "What culinary term refers to direct heat cooking?",
+      "a_en": "Grilling",
+      "q_de": "Welcher kulinarische Begriff bezeichnet direct heat cooking?",
+      "a_de": "Grilling"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "What culinary term refers to slow cooking in liquid?",
+      "a_en": "Braising",
+      "q_de": "Welcher kulinarische Begriff bezeichnet slow cooking in liquid?",
+      "a_de": "Braising"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "What culinary term refers to brief boiling?",
+      "a_en": "Blanching",
+      "q_de": "Welcher kulinarische Begriff bezeichnet brief boiling?",
+      "a_de": "Blanching"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "What culinary term refers to mixing fat and water?",
+      "a_en": "Emulsification",
+      "q_de": "Welcher kulinarische Begriff bezeichnet mixing fat and water?",
+      "a_de": "Emulsification"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "What culinary term refers to sugar browning?",
+      "a_en": "Caramelization",
+      "q_de": "Welcher kulinarische Begriff bezeichnet sugar browning?",
+      "a_de": "Caramelization"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "What culinary term refers to flavor soaking?",
+      "a_en": "Marinating",
+      "q_de": "Welcher kulinarische Begriff bezeichnet flavor soaking?",
+      "a_de": "Marinating"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "What culinary term refers to wood flavor infusion?",
+      "a_en": "Smoking",
+      "q_de": "Welcher kulinarische Begriff bezeichnet wood flavor infusion?",
+      "a_de": "Smoking"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "What culinary term refers to controlled heating?",
+      "a_en": "Tempering",
+      "q_de": "Welcher kulinarische Begriff bezeichnet controlled heating?",
+      "a_de": "Tempering"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "Which chef is associated with television chef?",
+      "a_en": "Gordon Ramsay",
+      "q_de": "Welcher Koch wird mit television chef verbunden?",
+      "a_de": "Gordon Ramsay"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "Which chef is associated with French cuisine popularizer?",
+      "a_en": "Julia Child",
+      "q_de": "Welcher Koch wird mit French cuisine popularizer verbunden?",
+      "a_de": "Julia Child"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "Which chef is associated with British food advocate?",
+      "a_en": "Jamie Oliver",
+      "q_de": "Welcher Koch wird mit British food advocate verbunden?",
+      "a_de": "Jamie Oliver"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "Which chef is associated with modern Italian cuisine?",
+      "a_en": "Massimo Bottura",
+      "q_de": "Welcher Koch wird mit modern Italian cuisine verbunden?",
+      "a_de": "Massimo Bottura"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "Which chef is associated with travel food writer?",
+      "a_en": "Anthony Bourdain",
+      "q_de": "Welcher Koch wird mit travel food writer verbunden?",
+      "a_de": "Anthony Bourdain"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "Which chef is associated with experimental cooking?",
+      "a_en": "Heston Blumenthal",
+      "q_de": "Welcher Koch wird mit experimental cooking verbunden?",
+      "a_de": "Heston Blumenthal"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "Which chef is associated with molecular gastronomy?",
+      "a_en": "Ferran Adrià",
+      "q_de": "Welcher Koch wird mit molecular gastronomy verbunden?",
+      "a_de": "Ferran Adrià"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "Which chef is associated with fine dining?",
+      "a_en": "Thomas Keller",
+      "q_de": "Welcher Koch wird mit fine dining verbunden?",
+      "a_de": "Thomas Keller"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "Which chef is associated with Michelin stars?",
+      "a_en": "Alain Ducasse",
+      "q_de": "Welcher Koch wird mit Michelin stars verbunden?",
+      "a_de": "Alain Ducasse"
+    },
+    {
+      "cat": "CHEF",
+      "diff": "hard",
+      "q_en": "Which chef is associated with home cooking?",
+      "a_en": "Nigella Lawson",
+      "q_de": "Welcher Koch wird mit home cooking verbunden?",
+      "a_de": "Nigella Lawson"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "What device is described as an electronic device?",
+      "a_en": "Computer",
+      "q_de": "Welches Gerät wird als electronic device beschrieben?",
+      "a_de": "Computer"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "What device is described as an global network?",
+      "a_en": "Internet",
+      "q_de": "Welches Gerät wird als global network beschrieben?",
+      "a_de": "Internet"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "What device is described as an step-by-step procedure?",
+      "a_en": "Algorithm",
+      "q_de": "Welches Gerät wird als step-by-step procedure beschrieben?",
+      "a_de": "Algorithm"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "What device is described as an structured data storage?",
+      "a_en": "Database",
+      "q_de": "Welches Gerät wird als structured data storage beschrieben?",
+      "a_de": "Database"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "What device is described as an website viewer?",
+      "a_en": "Browser",
+      "q_de": "Welches Gerät wird als website viewer beschrieben?",
+      "a_de": "Browser"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "What device is described as an request handler?",
+      "a_en": "Server",
+      "q_de": "Welches Gerät wird als request handler beschrieben?",
+      "a_de": "Server"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "What device is described as an data protection?",
+      "a_en": "Encryption",
+      "q_de": "Welches Gerät wird als data protection beschrieben?",
+      "a_de": "Encryption"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "What device is described as an remote computing?",
+      "a_en": "Cloud",
+      "q_de": "Welches Gerät wird als remote computing beschrieben?",
+      "a_de": "Cloud"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "What device is described as an machine learning?",
+      "a_en": "Artificial intelligence",
+      "q_de": "Welches Gerät wird als machine learning beschrieben?",
+      "a_de": "Artificial intelligence"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "What device is described as an distributed ledger?",
+      "a_en": "Blockchain",
+      "q_de": "Welches Gerät wird als distributed ledger beschrieben?",
+      "a_de": "Blockchain"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "Which company is known as a consumer electronics brand?",
+      "a_en": "Apple",
+      "q_de": "Welches Unternehmen ist bekannt als consumer electronics brand?",
+      "a_de": "Apple"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "Which company is known as a search engine company?",
+      "a_en": "Google",
+      "q_de": "Welches Unternehmen ist bekannt als search engine company?",
+      "a_de": "Google"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "Which company is known as a software giant?",
+      "a_en": "Microsoft",
+      "q_de": "Welches Unternehmen ist bekannt als software giant?",
+      "a_de": "Microsoft"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "Which company is known as a online marketplace?",
+      "a_en": "Amazon",
+      "q_de": "Welches Unternehmen ist bekannt als online marketplace?",
+      "a_de": "Amazon"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "Which company is known as a social media conglomerate?",
+      "a_en": "Meta",
+      "q_de": "Welches Unternehmen ist bekannt als social media conglomerate?",
+      "a_de": "Meta"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "Which company is known as a streaming platform?",
+      "a_en": "Netflix",
+      "q_de": "Welches Unternehmen ist bekannt als streaming platform?",
+      "a_de": "Netflix"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "Which company is known as a electric vehicle maker?",
+      "a_en": "Tesla",
+      "q_de": "Welches Unternehmen ist bekannt als electric vehicle maker?",
+      "a_de": "Tesla"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "Which company is known as a enterprise computing?",
+      "a_en": "IBM",
+      "q_de": "Welches Unternehmen ist bekannt als enterprise computing?",
+      "a_de": "IBM"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "Which company is known as a chip manufacturer?",
+      "a_en": "Intel",
+      "q_de": "Welches Unternehmen ist bekannt als chip manufacturer?",
+      "a_de": "Intel"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "easy",
+      "q_en": "Which company is known as a electronics manufacturer?",
+      "a_en": "Samsung",
+      "q_de": "Welches Unternehmen ist bekannt als electronics manufacturer?",
+      "a_de": "Samsung"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "What concept relates to account protection?",
+      "a_en": "Password",
+      "q_de": "Welcher Begriff bezieht sich auf account protection?",
+      "a_de": "Password"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "What concept relates to network security?",
+      "a_en": "Firewall",
+      "q_de": "Welcher Begriff bezieht sich auf network security?",
+      "a_de": "Firewall"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "What concept relates to harmful software?",
+      "a_en": "Malware",
+      "q_de": "Welcher Begriff bezieht sich auf harmful software?",
+      "a_de": "Malware"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "What concept relates to website data file?",
+      "a_en": "Cookie",
+      "q_de": "Welcher Begriff bezieht sich auf website data file?",
+      "a_de": "Cookie"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "What concept relates to data transfer rate?",
+      "a_en": "Bandwidth",
+      "q_de": "Welcher Begriff bezieht sich auf data transfer rate?",
+      "a_de": "Bandwidth"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "What concept relates to network delay?",
+      "a_en": "Latency",
+      "q_de": "Welcher Begriff bezieht sich auf network delay?",
+      "a_de": "Latency"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "What concept relates to public code?",
+      "a_en": "Open source",
+      "q_de": "Welcher Begriff bezieht sich auf public code?",
+      "a_de": "Open source"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "What concept relates to immersive simulation?",
+      "a_en": "Virtual reality",
+      "q_de": "Welcher Begriff bezieht sich auf immersive simulation?",
+      "a_de": "Virtual reality"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "What concept relates to digital overlay?",
+      "a_en": "Augmented reality",
+      "q_de": "Welcher Begriff bezieht sich auf digital overlay?",
+      "a_de": "Augmented reality"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "What concept relates to advanced computation?",
+      "a_en": "Quantum computing",
+      "q_de": "Welcher Begriff bezieht sich auf advanced computation?",
+      "a_de": "Quantum computing"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "Which technological idea involves electronic device?",
+      "a_en": "Computer",
+      "q_de": "Welche technologische Idee beinhaltet electronic device?",
+      "a_de": "Computer"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "Which technological idea involves global network?",
+      "a_en": "Internet",
+      "q_de": "Welche technologische Idee beinhaltet global network?",
+      "a_de": "Internet"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "Which technological idea involves step-by-step procedure?",
+      "a_en": "Algorithm",
+      "q_de": "Welche technologische Idee beinhaltet step-by-step procedure?",
+      "a_de": "Algorithm"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "Which technological idea involves structured data storage?",
+      "a_en": "Database",
+      "q_de": "Welche technologische Idee beinhaltet structured data storage?",
+      "a_de": "Database"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "Which technological idea involves website viewer?",
+      "a_en": "Browser",
+      "q_de": "Welche technologische Idee beinhaltet website viewer?",
+      "a_de": "Browser"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "Which technological idea involves request handler?",
+      "a_en": "Server",
+      "q_de": "Welche technologische Idee beinhaltet request handler?",
+      "a_de": "Server"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "Which technological idea involves data protection?",
+      "a_en": "Encryption",
+      "q_de": "Welche technologische Idee beinhaltet data protection?",
+      "a_de": "Encryption"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "Which technological idea involves remote computing?",
+      "a_en": "Cloud",
+      "q_de": "Welche technologische Idee beinhaltet remote computing?",
+      "a_de": "Cloud"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "Which technological idea involves machine learning?",
+      "a_en": "Artificial intelligence",
+      "q_de": "Welche technologische Idee beinhaltet machine learning?",
+      "a_de": "Artificial intelligence"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "medium",
+      "q_en": "Which technological idea involves distributed ledger?",
+      "a_en": "Blockchain",
+      "q_de": "Welche technologische Idee beinhaltet distributed ledger?",
+      "a_de": "Blockchain"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "What technical term refers to account protection?",
+      "a_en": "Password",
+      "q_de": "Welcher Fachbegriff bezeichnet account protection?",
+      "a_de": "Password"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "What technical term refers to network security?",
+      "a_en": "Firewall",
+      "q_de": "Welcher Fachbegriff bezeichnet network security?",
+      "a_de": "Firewall"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "What technical term refers to harmful software?",
+      "a_en": "Malware",
+      "q_de": "Welcher Fachbegriff bezeichnet harmful software?",
+      "a_de": "Malware"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "What technical term refers to website data file?",
+      "a_en": "Cookie",
+      "q_de": "Welcher Fachbegriff bezeichnet website data file?",
+      "a_de": "Cookie"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "What technical term refers to data transfer rate?",
+      "a_en": "Bandwidth",
+      "q_de": "Welcher Fachbegriff bezeichnet data transfer rate?",
+      "a_de": "Bandwidth"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "What technical term refers to network delay?",
+      "a_en": "Latency",
+      "q_de": "Welcher Fachbegriff bezeichnet network delay?",
+      "a_de": "Latency"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "What technical term refers to public code?",
+      "a_en": "Open source",
+      "q_de": "Welcher Fachbegriff bezeichnet public code?",
+      "a_de": "Open source"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "What technical term refers to immersive simulation?",
+      "a_en": "Virtual reality",
+      "q_de": "Welcher Fachbegriff bezeichnet immersive simulation?",
+      "a_de": "Virtual reality"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "What technical term refers to digital overlay?",
+      "a_en": "Augmented reality",
+      "q_de": "Welcher Fachbegriff bezeichnet digital overlay?",
+      "a_de": "Augmented reality"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "What technical term refers to advanced computation?",
+      "a_en": "Quantum computing",
+      "q_de": "Welcher Fachbegriff bezeichnet advanced computation?",
+      "a_de": "Quantum computing"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "Which corporation is associated with being a consumer electronics brand?",
+      "a_en": "Apple",
+      "q_de": "Welcher Konzern wird mit consumer electronics brand verbunden?",
+      "a_de": "Apple"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "Which corporation is associated with being a search engine company?",
+      "a_en": "Google",
+      "q_de": "Welcher Konzern wird mit search engine company verbunden?",
+      "a_de": "Google"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "Which corporation is associated with being a software giant?",
+      "a_en": "Microsoft",
+      "q_de": "Welcher Konzern wird mit software giant verbunden?",
+      "a_de": "Microsoft"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "Which corporation is associated with being a online marketplace?",
+      "a_en": "Amazon",
+      "q_de": "Welcher Konzern wird mit online marketplace verbunden?",
+      "a_de": "Amazon"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "Which corporation is associated with being a social media conglomerate?",
+      "a_en": "Meta",
+      "q_de": "Welcher Konzern wird mit social media conglomerate verbunden?",
+      "a_de": "Meta"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "Which corporation is associated with being a streaming platform?",
+      "a_en": "Netflix",
+      "q_de": "Welcher Konzern wird mit streaming platform verbunden?",
+      "a_de": "Netflix"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "Which corporation is associated with being a electric vehicle maker?",
+      "a_en": "Tesla",
+      "q_de": "Welcher Konzern wird mit electric vehicle maker verbunden?",
+      "a_de": "Tesla"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "Which corporation is associated with being a enterprise computing?",
+      "a_en": "IBM",
+      "q_de": "Welcher Konzern wird mit enterprise computing verbunden?",
+      "a_de": "IBM"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "Which corporation is associated with being a chip manufacturer?",
+      "a_en": "Intel",
+      "q_de": "Welcher Konzern wird mit chip manufacturer verbunden?",
+      "a_de": "Intel"
+    },
+    {
+      "cat": "GEEK",
+      "diff": "hard",
+      "q_en": "Which corporation is associated with being a electronics manufacturer?",
+      "a_en": "Samsung",
+      "q_de": "Welcher Konzern wird mit electronics manufacturer verbunden?",
+      "a_de": "Samsung"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "easy",
+      "q_en": "What thing is known for being eight-sided stop sign?",
+      "a_en": "Octagon",
+      "q_de": "Was ist bekannt dafür, eight-sided stop sign zu sein?",
+      "a_de": "Octagon"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "easy",
+      "q_en": "What thing is known for being berries botanically?",
+      "a_en": "Bananas",
+      "q_de": "Was ist bekannt dafür, berries botanically zu sein?",
+      "a_de": "Bananas"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "easy",
+      "q_en": "What thing is known for being carnivorous plant?",
+      "a_en": "Venus flytrap",
+      "q_de": "Was ist bekannt dafür, carnivorous plant zu sein?",
+      "a_de": "Venus flytrap"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "easy",
+      "q_en": "What thing is known for being egg-laying mammal?",
+      "a_en": "Platypus",
+      "q_de": "Was ist bekannt dafür, egg-laying mammal zu sein?",
+      "a_de": "Platypus"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "easy",
+      "q_en": "What thing is known for being never spoils?",
+      "a_en": "Honey",
+      "q_de": "Was ist bekannt dafür, never spoils zu sein?",
+      "a_de": "Honey"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "easy",
+      "q_en": "What thing is known for being cube-shaped droppings?",
+      "a_en": "Wombat",
+      "q_de": "Was ist bekannt dafür, cube-shaped droppings zu sein?",
+      "a_de": "Wombat"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "easy",
+      "q_en": "What thing is known for being three hearts?",
+      "a_en": "Octopus",
+      "q_de": "Was ist bekannt dafür, three hearts zu sein?",
+      "a_de": "Octopus"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "easy",
+      "q_en": "What thing is known for being taste with feet?",
+      "a_en": "Butterflies",
+      "q_de": "Was ist bekannt dafür, taste with feet zu sein?",
+      "a_de": "Butterflies"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "easy",
+      "q_en": "What thing is known for being older than trees?",
+      "a_en": "Sharks",
+      "q_de": "Was ist bekannt dafür, older than trees zu sein?",
+      "a_de": "Sharks"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "easy",
+      "q_en": "What thing is known for being older than Aztecs?",
+      "a_en": "Oxford",
+      "q_de": "Was ist bekannt dafür, older than Aztecs zu sein?",
+      "a_de": "Oxford"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "medium",
+      "q_en": "What term describes something that reads same backwards?",
+      "a_en": "Palindrome",
+      "q_de": "Welcher Begriff beschreibt etwas, das reads same backwards?",
+      "a_de": "Palindrome"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "medium",
+      "q_en": "What term describes something that letter rearrangement?",
+      "a_en": "Anagram",
+      "q_de": "Welcher Begriff beschreibt etwas, das letter rearrangement?",
+      "a_de": "Anagram"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "medium",
+      "q_en": "What term describes something that sound word?",
+      "a_en": "Onomatopoeia",
+      "q_de": "Welcher Begriff beschreibt etwas, das sound word?",
+      "a_de": "Onomatopoeia"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "medium",
+      "q_en": "What term describes something that newly coined term?",
+      "a_en": "Neologism",
+      "q_de": "Welcher Begriff beschreibt etwas, das newly coined term?",
+      "a_de": "Neologism"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "medium",
+      "q_en": "What term describes something that contradictory phrase?",
+      "a_en": "Oxymoron",
+      "q_de": "Welcher Begriff beschreibt etwas, das contradictory phrase?",
+      "a_de": "Oxymoron"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "medium",
+      "q_en": "What term describes something that blended word?",
+      "a_en": "Portmanteau",
+      "q_de": "Welcher Begriff beschreibt etwas, das blended word?",
+      "a_de": "Portmanteau"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "medium",
+      "q_en": "What term describes something that mixed senses?",
+      "a_en": "Synesthesia",
+      "q_de": "Welcher Begriff beschreibt etwas, das mixed senses?",
+      "a_de": "Synesthesia"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "medium",
+      "q_en": "What term describes something that faces in objects?",
+      "a_en": "Pareidolia",
+      "q_de": "Welcher Begriff beschreibt etwas, das faces in objects?",
+      "a_de": "Pareidolia"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "medium",
+      "q_en": "What term describes something that fear of time?",
+      "a_en": "Chronophobia",
+      "q_de": "Welcher Begriff beschreibt etwas, das fear of time?",
+      "a_de": "Chronophobia"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "medium",
+      "q_en": "What term describes something that fear of thirteen?",
+      "a_en": "Triskaidekaphobia",
+      "q_de": "Welcher Begriff beschreibt etwas, das fear of thirteen?",
+      "a_de": "Triskaidekaphobia"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "hard",
+      "q_en": "What concept is remembered for being sold as medicine?",
+      "a_en": "Ketchup",
+      "q_de": "Welches Konzept ist dafür bekannt, sold as medicine zu sein?",
+      "a_de": "Ketchup"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "hard",
+      "q_en": "What concept is remembered for being stress relief?",
+      "a_en": "Bubble wrap",
+      "q_de": "Welches Konzept ist dafür bekannt, stress relief zu sein?",
+      "a_de": "Bubble wrap"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "hard",
+      "q_en": "What concept is remembered for being debugging symbol?",
+      "a_en": "Rubber duck",
+      "q_de": "Welches Konzept ist dafür bekannt, debugging symbol zu sein?",
+      "a_de": "Rubber duck"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "hard",
+      "q_en": "What concept is remembered for being background tunes?",
+      "a_en": "Elevator music",
+      "q_de": "Welches Konzept ist dafür bekannt, background tunes zu sein?",
+      "a_de": "Elevator music"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "hard",
+      "q_en": "What concept is remembered for being American invention?",
+      "a_en": "Fortune cookie",
+      "q_de": "Welches Konzept ist dafür bekannt, American invention zu sein?",
+      "a_de": "Fortune cookie"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "hard",
+      "q_en": "What concept is remembered for being childhood myth?",
+      "a_en": "Tooth Fairy",
+      "q_de": "Welches Konzept ist dafür bekannt, childhood myth zu sein?",
+      "a_de": "Tooth Fairy"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "hard",
+      "q_en": "What concept is remembered for being viral joke?",
+      "a_en": "Internet meme",
+      "q_de": "Welches Konzept ist dafür bekannt, viral joke zu sein?",
+      "a_de": "Internet meme"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "hard",
+      "q_en": "What concept is remembered for being canned meat email?",
+      "a_en": "Spam",
+      "q_de": "Welches Konzept ist dafür bekannt, canned meat email zu sein?",
+      "a_de": "Spam"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "hard",
+      "q_en": "What concept is remembered for being scripted unscripted?",
+      "a_en": "Reality TV",
+      "q_de": "Welches Konzept ist dafür bekannt, scripted unscripted zu sein?",
+      "a_de": "Reality TV"
+    },
+    {
+      "cat": "WEIRD",
+      "diff": "hard",
+      "q_en": "What concept is remembered for being misleading headline?",
+      "a_en": "Clickbait",
+      "q_de": "Welches Konzept ist dafür bekannt, misleading headline zu sein?",
+      "a_de": "Clickbait"
+    }
+  ],
+  "fearQuestions": [
+    {
+      "q_en": "How many minutes are in a day?",
+      "a_en": "1440",
+      "q_de": "Wie viele Minuten hat ein Tag?",
+      "a_de": "1440"
+    },
+    {
+      "q_en": "How many seconds are in an hour?",
+      "a_en": "3600",
+      "q_de": "Wie viele Sekunden hat eine Stunde?",
+      "a_de": "3600"
+    },
+    {
+      "q_en": "Is zero considered even?",
+      "a_en": "Yes",
+      "q_de": "Gilt die Null als gerade Zahl?",
+      "a_de": "Ja"
+    },
+    {
+      "q_en": "How many sides does a cube have?",
+      "a_en": "6",
+      "q_de": "Wie viele Seiten hat ein Würfel?",
+      "a_de": "6"
+    },
+    {
+      "q_en": "How many vertices does a cube have?",
+      "a_en": "8",
+      "q_de": "Wie viele Ecken hat ein Würfel?",
+      "a_de": "8"
+    },
+    {
+      "q_en": "Which direction does the Sun rise from?",
+      "a_en": "East",
+      "q_de": "Aus welcher Richtung geht die Sonne auf?",
+      "a_de": "Osten"
+    },
+    {
+      "q_en": "How many letters are used in English?",
+      "a_en": "26",
+      "q_de": "Wie viele Buchstaben hat das englische Alphabet?",
+      "a_de": "26"
+    },
+    {
+      "q_en": "How many months have thirty-one days?",
+      "a_en": "7",
+      "q_de": "Wie viele Monate haben einunddreißig Tage?",
+      "a_de": "7"
+    },
+    {
+      "q_en": "What is nine times seven?",
+      "a_en": "63",
+      "q_de": "Was ergibt neun mal sieben?",
+      "a_de": "63"
+    },
+    {
+      "q_en": "How many days are in a leap year?",
+      "a_en": "366",
+      "q_de": "Wie viele Tage hat ein Schaltjahr?",
+      "a_de": "366"
+    },
+    {
+      "q_en": "How many minutes are in a day?",
+      "a_en": "1440",
+      "q_de": "Wie viele Minuten hat ein Tag?",
+      "a_de": "1440"
+    },
+    {
+      "q_en": "How many seconds are in an hour?",
+      "a_en": "3600",
+      "q_de": "Wie viele Sekunden hat eine Stunde?",
+      "a_de": "3600"
+    },
+    {
+      "q_en": "Is zero considered even?",
+      "a_en": "Yes",
+      "q_de": "Gilt die Null als gerade Zahl?",
+      "a_de": "Ja"
+    },
+    {
+      "q_en": "How many sides does a cube have?",
+      "a_en": "6",
+      "q_de": "Wie viele Seiten hat ein Würfel?",
+      "a_de": "6"
+    },
+    {
+      "q_en": "How many vertices does a cube have?",
+      "a_en": "8",
+      "q_de": "Wie viele Ecken hat ein Würfel?",
+      "a_de": "8"
+    },
+    {
+      "q_en": "Which direction does the Sun rise from?",
+      "a_en": "East",
+      "q_de": "Aus welcher Richtung geht die Sonne auf?",
+      "a_de": "Osten"
+    },
+    {
+      "q_en": "How many letters are used in English?",
+      "a_en": "26",
+      "q_de": "Wie viele Buchstaben hat das englische Alphabet?",
+      "a_de": "26"
+    },
+    {
+      "q_en": "How many months have thirty-one days?",
+      "a_en": "7",
+      "q_de": "Wie viele Monate haben einunddreißig Tage?",
+      "a_de": "7"
+    },
+    {
+      "q_en": "What is nine times seven?",
+      "a_en": "63",
+      "q_de": "Was ergibt neun mal sieben?",
+      "a_de": "63"
+    },
+    {
+      "q_en": "How many days are in a leap year?",
+      "a_en": "366",
+      "q_de": "Wie viele Tage hat ein Schaltjahr?",
+      "a_de": "366"
+    },
+    {
+      "q_en": "How many minutes are in a day?",
+      "a_en": "1440",
+      "q_de": "Wie viele Minuten hat ein Tag?",
+      "a_de": "1440"
+    },
+    {
+      "q_en": "How many seconds are in an hour?",
+      "a_en": "3600",
+      "q_de": "Wie viele Sekunden hat eine Stunde?",
+      "a_de": "3600"
+    },
+    {
+      "q_en": "Is zero considered even?",
+      "a_en": "Yes",
+      "q_de": "Gilt die Null als gerade Zahl?",
+      "a_de": "Ja"
+    },
+    {
+      "q_en": "How many sides does a cube have?",
+      "a_en": "6",
+      "q_de": "Wie viele Seiten hat ein Würfel?",
+      "a_de": "6"
+    },
+    {
+      "q_en": "How many vertices does a cube have?",
+      "a_en": "8",
+      "q_de": "Wie viele Ecken hat ein Würfel?",
+      "a_de": "8"
+    },
+    {
+      "q_en": "Which direction does the Sun rise from?",
+      "a_en": "East",
+      "q_de": "Aus welcher Richtung geht die Sonne auf?",
+      "a_de": "Osten"
+    },
+    {
+      "q_en": "How many letters are used in English?",
+      "a_en": "26",
+      "q_de": "Wie viele Buchstaben hat das englische Alphabet?",
+      "a_de": "26"
+    },
+    {
+      "q_en": "How many months have thirty-one days?",
+      "a_en": "7",
+      "q_de": "Wie viele Monate haben einunddreißig Tage?",
+      "a_de": "7"
+    },
+    {
+      "q_en": "What is nine times seven?",
+      "a_en": "63",
+      "q_de": "Was ergibt neun mal sieben?",
+      "a_de": "63"
+    },
+    {
+      "q_en": "How many days are in a leap year?",
+      "a_en": "366",
+      "q_de": "Wie viele Tage hat ein Schaltjahr?",
+      "a_de": "366"
+    },
+    {
+      "q_en": "How many minutes are in a day?",
+      "a_en": "1440",
+      "q_de": "Wie viele Minuten hat ein Tag?",
+      "a_de": "1440"
+    },
+    {
+      "q_en": "How many seconds are in an hour?",
+      "a_en": "3600",
+      "q_de": "Wie viele Sekunden hat eine Stunde?",
+      "a_de": "3600"
+    },
+    {
+      "q_en": "Is zero considered even?",
+      "a_en": "Yes",
+      "q_de": "Gilt die Null als gerade Zahl?",
+      "a_de": "Ja"
+    },
+    {
+      "q_en": "How many sides does a cube have?",
+      "a_en": "6",
+      "q_de": "Wie viele Seiten hat ein Würfel?",
+      "a_de": "6"
+    },
+    {
+      "q_en": "How many vertices does a cube have?",
+      "a_en": "8",
+      "q_de": "Wie viele Ecken hat ein Würfel?",
+      "a_de": "8"
+    },
+    {
+      "q_en": "Which direction does the Sun rise from?",
+      "a_en": "East",
+      "q_de": "Aus welcher Richtung geht die Sonne auf?",
+      "a_de": "Osten"
+    },
+    {
+      "q_en": "How many letters are used in English?",
+      "a_en": "26",
+      "q_de": "Wie viele Buchstaben hat das englische Alphabet?",
+      "a_de": "26"
+    },
+    {
+      "q_en": "How many months have thirty-one days?",
+      "a_en": "7",
+      "q_de": "Wie viele Monate haben einunddreißig Tage?",
+      "a_de": "7"
+    },
+    {
+      "q_en": "What is nine times seven?",
+      "a_en": "63",
+      "q_de": "Was ergibt neun mal sieben?",
+      "a_de": "63"
+    },
+    {
+      "q_en": "How many days are in a leap year?",
+      "a_en": "366",
+      "q_de": "Wie viele Tage hat ein Schaltjahr?",
+      "a_de": "366"
+    },
+    {
+      "q_en": "How many minutes are in a day?",
+      "a_en": "1440",
+      "q_de": "Wie viele Minuten hat ein Tag?",
+      "a_de": "1440"
+    },
+    {
+      "q_en": "How many seconds are in an hour?",
+      "a_en": "3600",
+      "q_de": "Wie viele Sekunden hat eine Stunde?",
+      "a_de": "3600"
+    },
+    {
+      "q_en": "Is zero considered even?",
+      "a_en": "Yes",
+      "q_de": "Gilt die Null als gerade Zahl?",
+      "a_de": "Ja"
+    },
+    {
+      "q_en": "How many sides does a cube have?",
+      "a_en": "6",
+      "q_de": "Wie viele Seiten hat ein Würfel?",
+      "a_de": "6"
+    },
+    {
+      "q_en": "How many vertices does a cube have?",
+      "a_en": "8",
+      "q_de": "Wie viele Ecken hat ein Würfel?",
+      "a_de": "8"
+    },
+    {
+      "q_en": "Which direction does the Sun rise from?",
+      "a_en": "East",
+      "q_de": "Aus welcher Richtung geht die Sonne auf?",
+      "a_de": "Osten"
+    },
+    {
+      "q_en": "How many letters are used in English?",
+      "a_en": "26",
+      "q_de": "Wie viele Buchstaben hat das englische Alphabet?",
+      "a_de": "26"
+    },
+    {
+      "q_en": "How many months have thirty-one days?",
+      "a_en": "7",
+      "q_de": "Wie viele Monate haben einunddreißig Tage?",
+      "a_de": "7"
+    },
+    {
+      "q_en": "What is nine times seven?",
+      "a_en": "63",
+      "q_de": "Was ergibt neun mal sieben?",
+      "a_de": "63"
+    },
+    {
+      "q_en": "How many days are in a leap year?",
+      "a_en": "366",
+      "q_de": "Wie viele Tage hat ein Schaltjahr?",
+      "a_de": "366"
+    },
+    {
+      "q_en": "How many minutes are in a day?",
+      "a_en": "1440",
+      "q_de": "Wie viele Minuten hat ein Tag?",
+      "a_de": "1440"
+    },
+    {
+      "q_en": "How many seconds are in an hour?",
+      "a_en": "3600",
+      "q_de": "Wie viele Sekunden hat eine Stunde?",
+      "a_de": "3600"
+    },
+    {
+      "q_en": "Is zero considered even?",
+      "a_en": "Yes",
+      "q_de": "Gilt die Null als gerade Zahl?",
+      "a_de": "Ja"
+    },
+    {
+      "q_en": "How many sides does a cube have?",
+      "a_en": "6",
+      "q_de": "Wie viele Seiten hat ein Würfel?",
+      "a_de": "6"
+    },
+    {
+      "q_en": "How many vertices does a cube have?",
+      "a_en": "8",
+      "q_de": "Wie viele Ecken hat ein Würfel?",
+      "a_de": "8"
+    },
+    {
+      "q_en": "Which direction does the Sun rise from?",
+      "a_en": "East",
+      "q_de": "Aus welcher Richtung geht die Sonne auf?",
+      "a_de": "Osten"
+    },
+    {
+      "q_en": "How many letters are used in English?",
+      "a_en": "26",
+      "q_de": "Wie viele Buchstaben hat das englische Alphabet?",
+      "a_de": "26"
+    },
+    {
+      "q_en": "How many months have thirty-one days?",
+      "a_en": "7",
+      "q_de": "Wie viele Monate haben einunddreißig Tage?",
+      "a_de": "7"
+    },
+    {
+      "q_en": "What is nine times seven?",
+      "a_en": "63",
+      "q_de": "Was ergibt neun mal sieben?",
+      "a_de": "63"
+    },
+    {
+      "q_en": "How many days are in a leap year?",
+      "a_en": "366",
+      "q_de": "Wie viele Tage hat ein Schaltjahr?",
+      "a_de": "366"
+    },
+    {
+      "q_en": "How many minutes are in a day?",
+      "a_en": "1440",
+      "q_de": "Wie viele Minuten hat ein Tag?",
+      "a_de": "1440"
+    },
+    {
+      "q_en": "How many seconds are in an hour?",
+      "a_en": "3600",
+      "q_de": "Wie viele Sekunden hat eine Stunde?",
+      "a_de": "3600"
+    },
+    {
+      "q_en": "Is zero considered even?",
+      "a_en": "Yes",
+      "q_de": "Gilt die Null als gerade Zahl?",
+      "a_de": "Ja"
+    },
+    {
+      "q_en": "How many sides does a cube have?",
+      "a_en": "6",
+      "q_de": "Wie viele Seiten hat ein Würfel?",
+      "a_de": "6"
+    },
+    {
+      "q_en": "How many vertices does a cube have?",
+      "a_en": "8",
+      "q_de": "Wie viele Ecken hat ein Würfel?",
+      "a_de": "8"
+    },
+    {
+      "q_en": "Which direction does the Sun rise from?",
+      "a_en": "East",
+      "q_de": "Aus welcher Richtung geht die Sonne auf?",
+      "a_de": "Osten"
+    },
+    {
+      "q_en": "How many letters are used in English?",
+      "a_en": "26",
+      "q_de": "Wie viele Buchstaben hat das englische Alphabet?",
+      "a_de": "26"
+    },
+    {
+      "q_en": "How many months have thirty-one days?",
+      "a_en": "7",
+      "q_de": "Wie viele Monate haben einunddreißig Tage?",
+      "a_de": "7"
+    },
+    {
+      "q_en": "What is nine times seven?",
+      "a_en": "63",
+      "q_de": "Was ergibt neun mal sieben?",
+      "a_de": "63"
+    },
+    {
+      "q_en": "How many days are in a leap year?",
+      "a_en": "366",
+      "q_de": "Wie viele Tage hat ein Schaltjahr?",
+      "a_de": "366"
+    },
+    {
+      "q_en": "How many minutes are in a day?",
+      "a_en": "1440",
+      "q_de": "Wie viele Minuten hat ein Tag?",
+      "a_de": "1440"
+    },
+    {
+      "q_en": "How many seconds are in an hour?",
+      "a_en": "3600",
+      "q_de": "Wie viele Sekunden hat eine Stunde?",
+      "a_de": "3600"
+    },
+    {
+      "q_en": "Is zero considered even?",
+      "a_en": "Yes",
+      "q_de": "Gilt die Null als gerade Zahl?",
+      "a_de": "Ja"
+    },
+    {
+      "q_en": "How many sides does a cube have?",
+      "a_en": "6",
+      "q_de": "Wie viele Seiten hat ein Würfel?",
+      "a_de": "6"
+    },
+    {
+      "q_en": "How many vertices does a cube have?",
+      "a_en": "8",
+      "q_de": "Wie viele Ecken hat ein Würfel?",
+      "a_de": "8"
+    },
+    {
+      "q_en": "Which direction does the Sun rise from?",
+      "a_en": "East",
+      "q_de": "Aus welcher Richtung geht die Sonne auf?",
+      "a_de": "Osten"
+    },
+    {
+      "q_en": "How many letters are used in English?",
+      "a_en": "26",
+      "q_de": "Wie viele Buchstaben hat das englische Alphabet?",
+      "a_de": "26"
+    },
+    {
+      "q_en": "How many months have thirty-one days?",
+      "a_en": "7",
+      "q_de": "Wie viele Monate haben einunddreißig Tage?",
+      "a_de": "7"
+    },
+    {
+      "q_en": "What is nine times seven?",
+      "a_en": "63",
+      "q_de": "Was ergibt neun mal sieben?",
+      "a_de": "63"
+    },
+    {
+      "q_en": "How many days are in a leap year?",
+      "a_en": "366",
+      "q_de": "Wie viele Tage hat ein Schaltjahr?",
+      "a_de": "366"
+    },
+    {
+      "q_en": "How many minutes are in a day?",
+      "a_en": "1440",
+      "q_de": "Wie viele Minuten hat ein Tag?",
+      "a_de": "1440"
+    },
+    {
+      "q_en": "How many seconds are in an hour?",
+      "a_en": "3600",
+      "q_de": "Wie viele Sekunden hat eine Stunde?",
+      "a_de": "3600"
+    },
+    {
+      "q_en": "Is zero considered even?",
+      "a_en": "Yes",
+      "q_de": "Gilt die Null als gerade Zahl?",
+      "a_de": "Ja"
+    },
+    {
+      "q_en": "How many sides does a cube have?",
+      "a_en": "6",
+      "q_de": "Wie viele Seiten hat ein Würfel?",
+      "a_de": "6"
+    },
+    {
+      "q_en": "How many vertices does a cube have?",
+      "a_en": "8",
+      "q_de": "Wie viele Ecken hat ein Würfel?",
+      "a_de": "8"
+    },
+    {
+      "q_en": "Which direction does the Sun rise from?",
+      "a_en": "East",
+      "q_de": "Aus welcher Richtung geht die Sonne auf?",
+      "a_de": "Osten"
+    },
+    {
+      "q_en": "How many letters are used in English?",
+      "a_en": "26",
+      "q_de": "Wie viele Buchstaben hat das englische Alphabet?",
+      "a_de": "26"
+    },
+    {
+      "q_en": "How many months have thirty-one days?",
+      "a_en": "7",
+      "q_de": "Wie viele Monate haben einunddreißig Tage?",
+      "a_de": "7"
+    },
+    {
+      "q_en": "What is nine times seven?",
+      "a_en": "63",
+      "q_de": "Was ergibt neun mal sieben?",
+      "a_de": "63"
+    },
+    {
+      "q_en": "How many days are in a leap year?",
+      "a_en": "366",
+      "q_de": "Wie viele Tage hat ein Schaltjahr?",
+      "a_de": "366"
+    }
+  ]
+}
