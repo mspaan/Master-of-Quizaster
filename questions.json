@@ -308,9 +308,8 @@
 { "cat":"SCOUT","diff":"hard","q":"What scientific term describes animal behavior study?","a":"Ethology" },
 { "cat":"SCOUT","diff":"hard","q":"What phenomenon creates circular ocean currents?","a":"Coriolis effect" },
 { "cat":"SCOUT","diff":"hard","q":"What term describes permanent frozen ground?","a":"Permafrost" },
-{ "cat":"SCOUT","diff":"hard","q":"What layer of Earth generates the magnetic field?","a":"Outer core" }
-
-
+{ "cat":"SCOUT","diff":"hard","q":"What layer of Earth generates the magnetic field?","a":"Outer core" },
+    
     { "cat": "SCOUT", "diff": "hard", "q": "What is programmed cell death called?", "a": "Apoptosis" },
     { "cat": "SCOUT", "diff": "hard", "q": "What is the name of cell division into two identical cells?", "a": "Mitosis" },
     { "cat": "SCOUT", "diff": "hard", "q": "What pigment in blood binds oxygen?", "a": "Hemoglobin" },
@@ -344,8 +343,6 @@
 { "cat":"TIME","diff":"easy","q":"Which war involved the Allies and the Axis powers?","a":"World War II" },
 { "cat":"TIME","diff":"easy","q":"Which city was divided into East and West sectors?","a":"Berlin" },
 
-
-
 { "cat":"TIME","diff":"easy","q":"Which ancient people are associated with democracy?","a":"Greeks" },
 { "cat":"TIME","diff":"easy","q":"Which war was fought between North and South in the USA?","a":"Civil War" },
 { "cat":"TIME","diff":"easy","q":"Which city was the center of the Ottoman Empire?","a":"Istanbul" },
@@ -360,9 +357,8 @@
 { "cat":"TIME","diff":"easy","q":"Who was the leader of Nazi Germany?","a":"Adolf Hitler" },
 { "cat":"TIME","diff":"easy","q":"Which global conflict involved nuclear weapons in Japan?","a":"World War II" },
 { "cat":"TIME","diff":"easy","q":"Which country launched the first satellite?","a":"Soviet Union" },
-{ "cat":"TIME","diff":"easy","q":"Which city was destroyed by atomic bombing in 1945?","a":"Hiroshima" }
-
-
+{ "cat":"TIME","diff":"easy","q":"Which city was destroyed by atomic bombing in 1945?","a":"Hiroshima" },
+    
     { "cat": "TIME", "diff": "easy", "q": "What is the capital of France?", "a": "Paris" },
     { "cat": "TIME", "diff": "easy", "q": "What is the capital of Italy?", "a": "Rome" },
     { "cat": "TIME", "diff": "easy", "q": "What is the capital of Spain?", "a": "Madrid" },
@@ -417,8 +413,7 @@
 { "cat":"TIME","diff":"medium","q":"Which wall symbolized the Iron Curtain?","a":"Berlin Wall" },
 { "cat":"TIME","diff":"medium","q":"Which civilization built Angkor Wat?","a":"Khmer Empire" },
 { "cat":"TIME","diff":"medium","q":"Which uprising began the Arab Spring?","a":"Tunisian Revolution" },
-{ "cat":"TIME","diff":"medium","q":"Which war followed the Korean peninsula split?","a":"Korean War" }
-
+{ "cat":"TIME","diff":"medium","q":"Which war followed the Korean peninsula split?","a":"Korean War" },
 
     { "cat": "TIME", "diff": "medium", "q": "In what year did World War II begin?", "a": "1939" },
     { "cat": "TIME", "diff": "medium", "q": "In what year did World War I begin?", "a": "1914" },
@@ -474,7 +469,6 @@
 { "cat":"TIME","diff":"hard","q":"Which empire built Persepolis?","a":"Achaemenid Empire" },
 { "cat":"TIME","diff":"hard","q":"Which year did the European Union adopt the euro currency?","a":"1999" },
 
-
     { "cat": "TIME", "diff": "hard", "q": "Which year is commonly given for the start of the French Revolution?", "a": "1789" },
     { "cat": "TIME", "diff": "hard", "q": "Which empire was ruled by Genghis Khan?", "a": "The Mongol Empire" },
     { "cat": "TIME", "diff": "hard", "q": "What is the capital of Brazil?", "a": "Brasília" },
@@ -519,7 +513,6 @@
 
 { "cat":"ART","diff":"easy","q":"Who painted the Starry Night?","a":"Vincent van Gogh" },
 { "cat":"ART","diff":"easy","q":"What do you call the main character of a story?","a":"Protagonist" },
-
 
 { "cat":"ART","diff":"easy","q":"What do you call a very old handwritten book?","a":"Manuscript" },
 { "cat":"ART","diff":"easy","q":"Which genre focuses on imaginary futures?","a":"Science fiction" },
@@ -568,9 +561,7 @@
 { "cat":"ART","diff":"medium","q":"Which art form focuses on body movement expression?","a":"Contemporary dance" },
 { "cat":"ART","diff":"medium","q":"What term describes the rhythm of language in poetry?","a":"Meter" },
 { "cat":"ART","diff":"medium","q":"What kind of film uses animated drawings?","a":"Animation" },
-{ "cat":"ART","diff":"medium","q":"Which writer created Sherlock Holmes?","a":"Arthur Conan Doyle" }
-
-
+{ "cat":"ART","diff":"medium","q":"Which writer created Sherlock Holmes?","a":"Arthur Conan Doyle" },
 
     { "cat": "ART", "diff": "medium", "q": "Who composed 'Für Elise'?", "a": "Ludwig van Beethoven" },
     { "cat": "ART", "diff": "medium", "q": "What art movement is associated with Claude Monet?", "a": "Impressionism" },
@@ -629,9 +620,8 @@
 { "cat":"ART","diff":"hard","q":"What literary award is considered the most prestigious?","a":"Nobel Prize" },
 { "cat":"ART","diff":"hard","q":"What painting style emphasizes emotional distortion?","a":"Expressionism" },
 { "cat":"ART","diff":"hard","q":"What term describes symbolic storytelling using characters?","a":"Allegory" },
-{ "cat":"ART","diff":"hard","q":"What genre combines singing with orchestral music?","a":"Opera" }
-
-
+{ "cat":"ART","diff":"hard","q":"What genre combines singing with orchestral music?","a":"Opera" },
+    
     { "cat": "WEIRD", "diff": "easy", "q": "What shape is a standard stop sign?", "a": "Octagon" },
     { "cat": "WEIRD", "diff": "easy", "q": "What is the capital of Canada?", "a": "Ottawa" },
     { "cat": "WEIRD", "diff": "easy", "q": "What metal has the chemical symbol Sn?", "a": "Tin" },
@@ -726,9 +716,7 @@
 { "cat":"WEIRD","diff":"medium","q":"What do you call an irrational fear in general?","a":"Phobia" },
 { "cat":"WEIRD","diff":"medium","q":"What word means love of books?","a":"Bibliophilia" },
 { "cat":"WEIRD","diff":"medium","q":"What is the collective term for rhinos?","a":"Crash" },
-{ "cat":"WEIRD","diff":"medium","q":"What do you call a person who sleeps during the day?","a":"Nocturnal sleeper" }
-
-
+{ "cat":"WEIRD","diff":"medium","q":"What do you call a person who sleeps during the day?","a":"Nocturnal sleeper" },
 
     { "cat": "WEIRD", "diff": "medium", "q": "What is the study of flags called?", "a": "Vexillology" },
     { "cat": "WEIRD", "diff": "medium", "q": "What is the study of cheese called?", "a": "Tyrology" },
@@ -784,7 +772,6 @@
 { "cat":"WEIRD","diff":"hard","q":"What animal has the longest migration?","a":"Arctic tern" },
 { "cat":"WEIRD","diff":"hard","q":"What is the only letter not in any US state name?","a":"Q" },
 
-
     { "cat": "WEIRD", "diff": "hard", "q": "What is the term for seeing meaningful patterns in randomness?", "a": "Pareidolia" },
     { "cat": "WEIRD", "diff": "hard", "q": "What is auditory pareidolia (simple definition)?", "a": "Hearing words/meaning in random noise" },
     { "cat": "WEIRD", "diff": "hard", "q": "What is the collective noun for jellyfish?", "a": "A smack" },
@@ -796,10 +783,8 @@
     { "cat": "WEIRD", "diff": "hard", "q": "What do you call a word made from initial letters like NASA?", "a": "Acronym" },
     { "cat": "WEIRD", "diff": "hard", "q": "What is the only letter that does NOT appear in any U.S. state name?", "a": "Q" },
 
-
     { "cat": "CHEF", "diff": "easy", "q": "What is the first meal of the day called?", "a": "Breakfast" },
     { "cat": "CHEF", "diff": "easy", "q": "What are french fries mainly made from?", "a": "Potatoes" },
-
 
     { "cat": "CHEF", "diff": "easy", "q": "What does 'al dente' mean?", "a": "Firm to the bite" },
     { "cat": "CHEF", "diff": "easy", "q": "What is sushi rice usually seasoned with?", "a": "Rice vinegar (plus sugar/salt)" },
@@ -891,11 +876,6 @@
 { "cat":"CHEF","diff":"medium","q":"What cheese comes from blue mold?","a":"Roquefort" },
 { "cat":"CHEF","diff":"medium","q":"What herb is used in tzatziki sauce?","a":"Dill" }, 
 
-    
-
-
-    
-
     { "cat": "CHEF", "diff": "medium", "q": "What is miso?", "a": "Fermented soybean paste" },
     { "cat": "CHEF", "diff": "medium", "q": "What is gochujang?", "a": "Korean fermented chili paste" },
     { "cat": "CHEF", "diff": "medium", "q": "What two ingredients form a simple vinaigrette base?", "a": "Oil and vinegar" },
@@ -950,7 +930,6 @@
 { "cat":"CHEF","diff":"hard","q":"What Michelin rating is the highest?","a":"Three stars" },
 { "cat":"CHEF","diff":"hard","q":"What Japanese cooking style means grilled skewers?","a":"Yakitori" },
 
-
     { "cat": "CHEF", "diff": "hard", "q": "What is sous vide?", "a": "Cooking vacuum-sealed food at low controlled temperature" },
     { "cat": "CHEF", "diff": "hard", "q": "What is dashi?", "a": "Japanese stock commonly made from kombu and bonito" },
     { "cat": "CHEF", "diff": "hard", "q": "What is the cutting term for very small dice?", "a": "Brunoise" },
@@ -967,7 +946,6 @@
     { "q": "How many seconds are in an hour?", "a": "3600" },
     { "q": "How many edges does a cube have?", "a": "12" },
     { "q": "How many vertices does a cube have?", "a": "8" },
-    "fearQuestions": [
   { "q":"How many months have 28 days?","a":"All of them" },
   { "q":"Is zero an even number?","a":"Yes" },
   { "q":"Which direction does the sun rise?","a":"East" },
@@ -1053,6 +1031,7 @@
     { "q": "What is the largest ocean?", "a": "Pacific Ocean" }
   ]
 }
+
 
 
 
