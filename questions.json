@@ -255,10 +255,8 @@
 { "cat":"SCOUT","diff":"medium","q":"What force drives ocean currents?","a":"Wind" },
 { "cat":"SCOUT","diff":"medium","q":"What type of cloud produces thunderstorms?","a":"Cumulonimbus" },
 { "cat":"SCOUT","diff":"medium","q":"What layer of Earth is liquid metal?","a":"Outer core" },
-{ "cat":"SCOUT","diff":"medium","q":"What term describes seasonal animal movement?","a":"Migration" }
-
-
-
+{ "cat":"SCOUT","diff":"medium","q":"What term describes seasonal animal movement?","a":"Migration" },
+    
     { "cat": "SCOUT", "diff": "medium", "q": "How many chambers does the human heart have?", "a": "4" },
     { "cat": "SCOUT", "diff": "medium", "q": "What gas makes up most of Earth’s atmosphere?", "a": "Nitrogen" },
     { "cat": "SCOUT", "diff": "medium", "q": "What pigment makes plants look green?", "a": "Chlorophyll" },
@@ -1055,6 +1053,7 @@
     { "q": "What is the largest ocean?", "a": "Pacific Ocean" }
   ]
 }
+
 
 
 
