@@ -476,4 +476,7 @@ async function init(){
 }
 
 init().catch((e) => {
-  con
+  console.error(e);
+  setMetaBase("Error: could not load questions.json");
+  qEl.textContent = String(e?.message || e);
+});
