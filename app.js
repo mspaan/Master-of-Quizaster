@@ -3,13 +3,13 @@ let selectedCat = null;
 let fearMode = false;
 let difficulty = "medium";
 
-// no-repeat tracking
-const used = new Map();
-const usedFear = new Set();
+// no-repeat tracking (Session)
+const used = new Map();     // key: diff|cat -> Set(keys)
+const usedFear = new Set(); // Brainfreezer session set
 
 let timerId = null;
 let timeLeft = 0;
-const TOTAL_TIME = 20;
+const TOTAL_TIME = 30;
 
 // WebAudio
 let audioCtx = null;
@@ -165,7 +165,7 @@ function setMetaBase(text){
   metaEl.textContent = text;
 }
 
-/* -------------------- HARD DESELECT (difficulty dropdown fix) -------------------- */
+/* -------------------- UI RESET -------------------- */
 function deselectCategoryAndStop(){
   stopTimer();
 
@@ -183,6 +183,41 @@ function deselectCategoryAndStop(){
   updateTimeUI(TOTAL_TIME);
 }
 
+function showReadyState(){
+  stopTimer();
+  showABtn.disabled = true;
+  aEl.hidden = true;
+  qEl.textContent = "Ready. Tap “New question”.";
+  updateTimeUI(TOTAL_TIME);
+}
+
+/* -------------------- NO-REPEAT (SESSION HARD) -------------------- */
+function ensureUsedSet(key){
+  if (!used.has(key)) used.set(key, new Set());
+  return used.get(key);
+}
+
+function getNonRepeating(pool, keyFn, usedSet){
+  if (pool.length === 0) return null;
+
+  // Hard session rule: no repeats; if exhausted, stop
+  if (usedSet.size >= pool.length) return null;
+
+  let tries = 0;
+  while (tries < 250){
+    const item = pickRandom(pool);
+    const k = keyFn(item);
+    if (!usedSet.has(k)){
+      usedSet.add(k);
+      return item;
+    }
+    tries++;
+  }
+
+  // If we couldn't find a new one, consider it exhausted
+  return null;
+}
+
 /* -------------------- GAME -------------------- */
 function setFearMode(on){
   fearMode = on;
@@ -192,41 +227,20 @@ function setFearMode(on){
   tremble();
 
   if (on){
+    // Brainfreezer doesn't need category
     newQBtn.disabled = false;
-    nextQuestion(); // Brainfreezer can pull without category
+    showReadyState();
+    setMetaBase("BRAINFREEZER");
   } else {
-    // leaving brainfreezer: no auto question unless a category is selected
+    // leaving brainfreezer: require a category again
     if (selectedCat){
       newQBtn.disabled = false;
-      nextQuestion();
+      showReadyState();
+      // meta already handled by category selection; keep it
     } else {
       deselectCategoryAndStop();
     }
   }
-}
-
-function ensureUsedSet(key){
-  if (!used.has(key)) used.set(key, new Set());
-  return used.get(key);
-}
-
-function getNonRepeating(pool, keyFn, usedSet){
-  if (pool.length === 0) return null;
-  if (usedSet.size >= pool.length) usedSet.clear();
-
-  let tries = 0;
-  while (tries < 200){
-    const item = pickRandom(pool);
-    const k = keyFn(item);
-    if (!usedSet.has(k)){
-      usedSet.add(k);
-      return item;
-    }
-    tries++;
-  }
-  const item = pickRandom(pool);
-  usedSet.add(keyFn(item));
-  return item;
 }
 
 function renderCats(){
@@ -246,22 +260,39 @@ function renderCats(){
       <div class="iconWrap">${c.icon}</div>
     `;
 
+    // NEW: selecting a category does NOT auto-draw a question
     btn.addEventListener("click", () => {
       ensureAudio();
+      if (fearMode) setFearMode(false);
+
       selectedCat = c.id;
+
       document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
       btn.classList.add("active");
+
       newQBtn.disabled = false;
-      nextQuestion();
+
+      // Update meta with pool size for current difficulty
+      const diffNeedle = normalizeDiff(difficulty);
+      const catNeedle = normalizeCat(selectedCat);
+      const allQs = Array.isArray(DB.questions) ? DB.questions : [];
+      const poolCount = allQs.filter(q => {
+        const qc = normalizeCat(q.cat);
+        const qd = normalizeDiff(q.diff);
+        const catMatch = (qc === catNeedle) || qc.includes(catNeedle) || catNeedle.includes(qc);
+        return catMatch && (qd === diffNeedle);
+      }).length;
+
+      setMetaBase(`Category: ${c.name} • ${diffNeedle.toUpperCase()} (${poolCount})`);
+      showReadyState();
     });
 
     catsEl.appendChild(btn);
   });
 }
 
-function randomCategoryQuestion(){
-  if (!DB) return;
-  if (fearMode) setFearMode(false);
+function randomCategoryPick(){
+  if (!DB) return null;
 
   const diffNeedle = normalizeDiff(difficulty);
   const allQs = Array.isArray(DB.questions) ? DB.questions : [];
@@ -278,13 +309,21 @@ function randomCategoryQuestion(){
       });
     });
 
-  if (catsWithQs.length === 0){
+  if (catsWithQs.length === 0) return null;
+  return pickRandom(catsWithQs);
+}
+
+function randomCategoryQuestion(){
+  if (!DB) return;
+  if (fearMode) setFearMode(false);
+
+  const pick = randomCategoryPick();
+  if (!pick){
     deselectCategoryAndStop();
     qEl.textContent = "No questions found for this difficulty.";
     return;
   }
 
-  const pick = pickRandom(catsWithQs);
   selectedCat = pick;
 
   document.querySelectorAll(".cat").forEach(x => {
@@ -292,7 +331,23 @@ function randomCategoryQuestion(){
   });
 
   newQBtn.disabled = false;
-  nextQuestion();
+
+  // Update meta with pool size and show ready state (NO auto question)
+  const diffNeedle = normalizeDiff(difficulty);
+  const catNeedle = normalizeCat(selectedCat);
+  const allQs = Array.isArray(DB.questions) ? DB.questions : [];
+  const poolCount = allQs.filter(q => {
+    const qc = normalizeCat(q.cat);
+    const qd = normalizeDiff(q.diff);
+    const catMatch = (qc === catNeedle) || qc.includes(catNeedle) || catNeedle.includes(qc);
+    return catMatch && (qd === diffNeedle);
+  }).length;
+
+  const catObj = DB.categories.find(c => normalizeCat(c.id) === normalizeCat(selectedCat));
+  const catName = catObj ? catObj.name : selectedCat;
+
+  setMetaBase(`Category: ${catName} • ${diffNeedle.toUpperCase()} (${poolCount})`);
+  showReadyState();
 }
 
 function nextQuestion(){
@@ -305,8 +360,18 @@ function nextQuestion(){
   if (fearMode){
     const pool = Array.isArray(DB.fearQuestions) ? DB.fearQuestions : [];
     item = getNonRepeating(pool, i => `BF:${i.q}`, usedFear);
+
     setMetaBase(`BRAINFREEZER (${pool.length})`);
     tremble();
+
+    if (!item){
+      qEl.textContent = "All Brainfreezer questions used (this session).";
+      aEl.hidden = true;
+      showABtn.disabled = true;
+      newQBtn.disabled = true;
+      updateTimeUI(TOTAL_TIME);
+      return;
+    }
   } else {
     if (!selectedCat){
       deselectCategoryAndStop();
@@ -327,26 +392,33 @@ function nextQuestion(){
     const key = `${diffNeedle}|${catNeedle}`;
     const usedSet = ensureUsedSet(key);
 
-    item = getNonRepeating(pool, i => `${normalizeCat(i.cat)}|${normalizeDiff(i.diff)}|${i.q}`, usedSet);
+    item = getNonRepeating(
+      pool,
+      i => `${normalizeCat(i.cat)}|${normalizeDiff(i.diff)}|${i.q}`,
+      usedSet
+    );
 
     const catObj = DB.categories.find(c => c.id === selectedCat);
     const catName = catObj ? catObj.name : selectedCat;
     setMetaBase(`Category: ${catName} • ${diffNeedle.toUpperCase()} (${pool.length})`);
+
+    if (!item){
+      qEl.textContent = "All questions used for this category & difficulty (this session).";
+      aEl.hidden = true;
+      showABtn.disabled = true;
+      newQBtn.disabled = true;
+      updateTimeUI(TOTAL_TIME);
+      return;
+    }
   }
 
-  if (!item){
-    qEl.textContent = "No questions found for this difficulty.";
-    aEl.hidden = true;
-    showABtn.disabled = true;
-    updateTimeUI(TOTAL_TIME);
-    return;
-  }
-
+  // Render Q/A
   qEl.textContent = item.q;
   aEl.textContent = item.a;
   aEl.hidden = true;
   showABtn.disabled = false;
 
+  // Start the 30s timer only when a question is actually drawn
   startTimer();
 }
 
@@ -397,12 +469,11 @@ async function init(){
   const res = await fetch("questions.json", { cache: "no-store" });
   if (!res.ok) throw new Error(`HTTP ${res.status} loading questions.json`);
   DB = await res.json();
+
   renderCats();
   deselectCategoryAndStop();
+  updateTimeUI(TOTAL_TIME);
 }
 
 init().catch((e) => {
-  console.error(e);
-  setMetaBase("Error: could not load questions.json");
-  qEl.textContent = String(e?.message || e);
-});
+  con
