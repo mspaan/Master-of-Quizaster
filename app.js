@@ -1,417 +1,244 @@
-let DB = null;
-let selectedCat = null;
-let fearMode = false;
-let difficulty = "medium";
+// Brain Battle core logic (no questions included here).
+// - Selecting a category does NOT trigger a question
+// - "New Question" triggers the next question + starts a 30s timer
+// - No repeats within the same session (reload resets)
+// - Brainfreezer button draws from fearQuestions
 
-// no-repeat tracking
-const used = new Map();
-const usedFear = new Set();
+let data = null;
+let questions = [];
+let fearQuestions = [];
+let categories = [];
 
-let timerId = null;
-let timeLeft = 0;
-const TOTAL_TIME = 20;
+let selectedCategoryId = null;
+let selectedDifficulty = "easy";
+let currentQuestion = null;
 
-// WebAudio
-let audioCtx = null;
-let audioUnlocked = false;
+let usedQuestionKeys = new Set();      // session-only
+let usedFearKeys = new Set();          // session-only
 
-const appEl = document.getElementById("app");
-const catsEl = document.getElementById("cats");
-const metaEl = document.getElementById("meta");
-const qEl = document.getElementById("q");
-const aEl = document.getElementById("a");
-const showABtn = document.getElementById("showA");
-const newQBtn = document.getElementById("newQ");
-const fearBtn = document.getElementById("fearBtn");
-const panelEl = document.getElementById("panel");
+let timerInterval = null;
+let timeLeft = 30;
+
+// --- DOM
+const categoryGrid = document.getElementById("categoryGrid");
 const difficultySelect = document.getElementById("difficultySelect");
-const randomCatBtn = document.getElementById("randomCatBtn");
+const newQuestionBtn = document.getElementById("newQuestionBtn");
+const revealBtn = document.getElementById("revealBtn");
+const brainfreezeBtn = document.getElementById("brainfreezeBtn");
 
-// Timer UI
-const timeFillEl = document.getElementById("timeFill");
-const timeNumEl = document.getElementById("timeNum");
+const questionText = document.getElementById("questionText");
+const answerText = document.getElementById("answerText");
+const timerEl = document.getElementById("timer");
+const poolStatus = document.getElementById("poolStatus");
+const cardMeta = document.getElementById("cardMeta");
 
-function pickRandom(arr){
-  return arr[Math.floor(Math.random() * arr.length)];
+// --- Helpers
+function keyFor(qObj) {
+  // Good-enough unique key: cat|diff|question text
+  return `${qObj.cat || "BF"}|${qObj.diff || "bf"}|${qObj.q}`;
 }
 
-function tremble(){
-  panelEl.classList.remove("tremble");
-  void panelEl.offsetWidth;
-  panelEl.classList.add("tremble");
+function stopTimer() {
+  if (timerInterval) clearInterval(timerInterval);
+  timerInterval = null;
+  timeLeft = 30;
+  updateTimerUI();
 }
 
-function normalizeCat(x){ return String(x ?? "").trim().toUpperCase(); }
-function normalizeDiff(x){ return String(x ?? "").trim().toLowerCase(); }
-
-/* -------------------- AUDIO (WebAudio) -------------------- */
-function ensureAudio(){
-  try{
-    if (!audioCtx){
-      const AC = window.AudioContext || window.webkitAudioContext;
-      if (!AC) return false;
-      audioCtx = new AC();
-    }
-    if (audioCtx.state === "suspended"){
-      audioCtx.resume().catch(()=>{});
-    }
-    audioUnlocked = true;
-    return true;
-  } catch {
-    audioUnlocked = false;
-    return false;
-  }
-}
-
-function unlockAudioHard(){
-  if (!ensureAudio() || !audioCtx) return;
-  const now = audioCtx.currentTime;
-  const osc = audioCtx.createOscillator();
-  const g = audioCtx.createGain();
-  osc.frequency.value = 440;
-  g.gain.value = 0.00001;
-  osc.connect(g);
-  g.connect(audioCtx.destination);
-  osc.start(now);
-  osc.stop(now + 0.02);
-}
-
-function beep({freq=800, duration=0.06, type="triangle", gain=0.08} = {}){
-  if (!audioUnlocked || !audioCtx) return;
-
-  const now = audioCtx.currentTime;
-  const osc = audioCtx.createOscillator();
-  const g = audioCtx.createGain();
-
-  osc.type = type;
-  osc.frequency.setValueAtTime(freq, now);
-
-  g.gain.setValueAtTime(0.0001, now);
-  g.gain.exponentialRampToValueAtTime(gain, now + 0.008);
-  g.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-
-  osc.connect(g);
-  g.connect(audioCtx.destination);
-
-  osc.start(now);
-  osc.stop(now + duration + 0.03);
-}
-
-function tickSound(){
-  beep({freq: 1400, duration: 0.035, type: "square", gain: 0.06});
-}
-
-function timeUpSound(){
-  beep({freq: 660, duration: 0.14, type: "sine", gain: 0.10});
-  setTimeout(() => beep({freq: 440, duration: 0.16, type: "sine", gain: 0.10}), 150);
-}
-
-function installAudioUnlock(){
-  const unlock = () => {
-    unlockAudioHard();
-    document.removeEventListener("pointerdown", unlock);
-    document.removeEventListener("touchstart", unlock);
-    document.removeEventListener("mousedown", unlock);
-  };
-  document.addEventListener("pointerdown", unlock, { once: true });
-  document.addEventListener("touchstart", unlock, { once: true, passive: true });
-  document.addEventListener("mousedown", unlock, { once: true });
-}
-
-/* -------------------- TIMER -------------------- */
-function updateTimeUI(seconds){
-  const s = Math.max(0, Math.min(TOTAL_TIME, seconds));
-  timeNumEl.textContent = String(s);
-  const pct = (s / TOTAL_TIME) * 100;
-  timeFillEl.style.width = `${pct}%`;
-}
-
-function stopTimer(){
-  if (timerId) clearInterval(timerId);
-  timerId = null;
-}
-
-function startTimer(){
+function startTimer(seconds = 30) {
   stopTimer();
-  timeLeft = TOTAL_TIME;
-  updateMetaTimer();
-  updateTimeUI(timeLeft);
+  timeLeft = seconds;
+  updateTimerUI();
 
-  timerId = setInterval(() => {
+  timerInterval = setInterval(() => {
     timeLeft -= 1;
-
-    if (timeLeft > 0) tickSound();
-
-    updateMetaTimer();
-    updateTimeUI(timeLeft);
-
-    if (timeLeft <= 0){
-      clearInterval(timerId);
-      timerId = null;
-
-      timeUpSound();
-      aEl.hidden = false;
+    updateTimerUI();
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      onTimeUp();
     }
   }, 1000);
 }
 
-function updateMetaTimer(){
-  const base = metaEl.dataset.base || metaEl.textContent || "";
-  metaEl.textContent = `${base} • ${String(timeLeft).padStart(2,"0")}s`;
+function updateTimerUI() {
+  if (timerEl) timerEl.textContent = String(Math.max(0, timeLeft));
 }
 
-function setMetaBase(text){
-  metaEl.dataset.base = text;
-  metaEl.textContent = text;
+function onTimeUp() {
+  // Mark answer field red and reveal if you want:
+  answerText.classList.add("timeup");
+  // Optional: auto reveal
+  if (currentQuestion) {
+    answerText.textContent = currentQuestion.a;
+  }
 }
 
-/* -------------------- HARD DESELECT (THE FIX) -------------------- */
-function deselectCategoryAndStop(){
-  // stop anything running
+function clearQA(message = "Pick a category, then press “New Question”.") {
+  currentQuestion = null;
+  questionText.textContent = message;
+  answerText.textContent = "—";
+  answerText.classList.remove("timeup");
+  revealBtn.disabled = true;
   stopTimer();
-
-  // remove active category
-  selectedCat = null;
-  document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
-
-  // clear question UI (do NOT draw a new one)
-  setMetaBase("Pick a category.");
-  qEl.textContent = "—";
-  aEl.hidden = true;
-  showABtn.disabled = true;
-
-  // only allow "New question" when Brainfreezer is ON (since it doesn't need category)
-  newQBtn.disabled = fearMode ? false : true;
-
-  // show full bar (not running)
-  updateTimeUI(TOTAL_TIME);
+  cardMeta.textContent = "—";
 }
 
-/* -------------------- GAME -------------------- */
-function setFearMode(on){
-  fearMode = on;
-  appEl.classList.toggle("fearMode", on);
-  fearBtn.classList.toggle("isOn", on);
-  fearBtn.setAttribute("aria-pressed", on ? "true" : "false");
-  tremble();
+function setMeta(text) {
+  cardMeta.textContent = text;
+}
 
-  if (on) {
-    newQBtn.disabled = false;
-    nextQuestion(); // Brainfreezer can always pull
+function highlightSelectedCategory(catId) {
+  document.querySelectorAll(".catBtn").forEach(btn => {
+    btn.classList.toggle("selected", btn.dataset.catId === catId);
+  });
+}
+
+function updatePoolStatus() {
+  if (!poolStatus) return;
+
+  if (!selectedCategoryId) {
+    poolStatus.textContent = "";
+    return;
+  }
+
+  const total = questions.filter(q => q.cat === selectedCategoryId && q.diff === selectedDifficulty).length;
+  const left = questions.filter(q =>
+    q.cat === selectedCategoryId &&
+    q.diff === selectedDifficulty &&
+    !usedQuestionKeys.has(keyFor(q))
+  ).length;
+
+  poolStatus.textContent = `• ${left}/${total} left`;
+}
+
+function getRandomFromPool(pool) {
+  if (!pool.length) return null;
+  const idx = Math.floor(Math.random() * pool.length);
+  return pool[idx];
+}
+
+function getNextQuestion() {
+  if (!selectedCategoryId) return null;
+
+  const pool = questions.filter(q =>
+    q.cat === selectedCategoryId &&
+    q.diff === selectedDifficulty &&
+    !usedQuestionKeys.has(keyFor(q))
+  );
+
+  return getRandomFromPool(pool);
+}
+
+function getNextBrainfreezer() {
+  const pool = fearQuestions.filter(q => !usedFearKeys.has(keyFor(q)));
+  return getRandomFromPool(pool);
+}
+
+function renderQuestion(qObj, mode = "category") {
+  currentQuestion = qObj;
+  answerText.classList.remove("timeup");
+  questionText.textContent = qObj.q;
+  answerText.textContent = "—";
+  revealBtn.disabled = false;
+
+  if (mode === "category") {
+    setMeta(`${selectedCategoryId} • ${selectedDifficulty}`);
   } else {
-    // leaving brainfreezer: no auto question unless a category is selected
-    if (selectedCat) {
-      newQBtn.disabled = false;
-      nextQuestion();
-    } else {
-      deselectCategoryAndStop();
-    }
+    setMeta(`BRAINFREEZER`);
   }
 }
 
-function ensureUsedSet(key){
-  if (!used.has(key)) used.set(key, new Set());
-  return used.get(key);
-}
+// --- Events
+difficultySelect?.addEventListener("change", (e) => {
+  selectedDifficulty = e.target.value;
+  updatePoolStatus();
+  // Do not auto-trigger a question; keep state
+  clearQA("Difficulty set. Press “New Question”.");
+  // keep newQuestionBtn enabled if category selected
+  newQuestionBtn.disabled = !selectedCategoryId;
+});
 
-function getNonRepeating(pool, keyFn, usedSet){
-  if (pool.length === 0) return null;
-  if (usedSet.size >= pool.length) usedSet.clear();
+newQuestionBtn?.addEventListener("click", () => {
+  if (!selectedCategoryId) return;
 
-  let tries = 0;
-  while (tries < 200){
-    const item = pickRandom(pool);
-    const k = keyFn(item);
-    if (!usedSet.has(k)){
-      usedSet.add(k);
-      return item;
-    }
-    tries++;
+  const q = getNextQuestion();
+  if (!q) {
+    clearQA("No questions left for this category + difficulty (this session).");
+    updatePoolStatus();
+    return;
   }
-  const item = pickRandom(pool);
-  usedSet.add(keyFn(item));
-  return item;
-}
 
-function renderCats(){
-  catsEl.innerHTML = "";
+  usedQuestionKeys.add(keyFor(q));
+  renderQuestion(q, "category");
+  startTimer(30);
+  updatePoolStatus();
+});
 
-  DB.categories.forEach(c => {
+revealBtn?.addEventListener("click", () => {
+  if (!currentQuestion) return;
+  answerText.textContent = currentQuestion.a;
+});
+
+brainfreezeBtn?.addEventListener("click", () => {
+  const q = getNextBrainfreezer();
+  if (!q) {
+    clearQA("No Brainfreezers left (this session). Reload to reset.");
+    return;
+  }
+  usedFearKeys.add(keyFor(q));
+  renderQuestion(q, "bf");
+  startTimer(30);
+});
+
+// --- Category UI
+function renderCategories() {
+  categoryGrid.innerHTML = "";
+  categories.forEach(cat => {
     const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "cat";
-    btn.dataset.c = c.id;
+    btn.className = "catBtn";
+    btn.dataset.catId = cat.id;
 
     btn.innerHTML = `
-      <div class="left">
-        <div class="name">${c.name}</div>
-        <div class="tag">${c.tag}</div>
+      <div class="catLeft">
+        <div class="catName">${cat.name}</div>
+        <div class="catTag">${cat.tag || ""}</div>
       </div>
-      <div class="iconWrap">${c.icon}</div>
+      <div class="catIcon">${cat.icon || "❓"}</div>
     `;
 
     btn.addEventListener("click", () => {
-      ensureAudio();
-      selectedCat = c.id;
-      document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
-      btn.classList.add("active");
-      newQBtn.disabled = false;
-      nextQuestion();
+      selectedCategoryId = cat.id;
+      highlightSelectedCategory(cat.id);
+      newQuestionBtn.disabled = false;
+      clearQA("Category selected. Press “New Question”.");
+      updatePoolStatus();
     });
 
-    catsEl.appendChild(btn);
+    categoryGrid.appendChild(btn);
   });
 }
 
-function randomCategoryQuestion(){
-  if (!DB) return;
-  if (fearMode) setFearMode(false);
-
-  const diffNeedle = normalizeDiff(difficulty);
-  const allQs = Array.isArray(DB.questions) ? DB.questions : [];
-
-  const catsWithQs = (Array.isArray(DB.categories) ? DB.categories : [])
-    .map(c => c.id)
-    .filter(catId => {
-      const catNeedle = normalizeCat(catId);
-      return allQs.some(q => {
-        const qc = normalizeCat(q.cat);
-        const qd = normalizeDiff(q.diff);
-        const catMatch = (qc === catNeedle) || qc.includes(catNeedle) || catNeedle.includes(qc);
-        return catMatch && (qd === diffNeedle);
-      });
-    });
-
-  if (catsWithQs.length === 0){
-    deselectCategoryAndStop();
-    qEl.textContent = "No questions found for this difficulty.";
-    return;
-  }
-
-  const pick = pickRandom(catsWithQs);
-  selectedCat = pick;
-
-  document.querySelectorAll(".cat").forEach(x => {
-    x.classList.toggle("active", normalizeCat(x.dataset.c) === normalizeCat(pick));
-  });
-
-  newQBtn.disabled = false;
-  nextQuestion();
-}
-
-function nextQuestion(){
-  if (!DB) return;
-
-  stopTimer();
-
-  let item = null;
-
-  if (fearMode){
-    const pool = Array.isArray(DB.fearQuestions) ? DB.fearQuestions : [];
-    item = getNonRepeating(pool, i => `BF:${i.q}`, usedFear);
-    setMetaBase(`BRAINFREEZER (${pool.length})`);
-    tremble();
-  } else {
-    if (!selectedCat){
-      deselectCategoryAndStop();
-      return;
-    }
-
-    const catNeedle = normalizeCat(selectedCat);
-    const diffNeedle = normalizeDiff(difficulty);
-
-    const pool = (Array.isArray(DB.questions) ? DB.questions : []).filter(q => {
-      const qc = normalizeCat(q.cat);
-      const qd = normalizeDiff(q.diff);
-      const catMatch = (qc === catNeedle) || qc.includes(catNeedle) || catNeedle.includes(qc);
-      const diffMatch = (qd === diffNeedle);
-      return catMatch && diffMatch;
-    });
-
-    const key = `${diffNeedle}|${catNeedle}`;
-    const usedSet = ensureUsedSet(key);
-
-    item = getNonRepeating(pool, i => `${normalizeCat(i.cat)}|${normalizeDiff(i.diff)}|${i.q}`, usedSet);
-
-    const catObj = DB.categories.find(c => c.id === selectedCat);
-    const catName = catObj ? catObj.name : selectedCat;
-    setMetaBase(`Category: ${catName} • ${diffNeedle.toUpperCase()} (${pool.length})`);
-  }
-
-  if (!item){
-    qEl.textContent = "No questions found for this difficulty.";
-    aEl.hidden = true;
-    showABtn.disabled = true;
-    updateTimeUI(TOTAL_TIME);
-    return;
-  }
-
-  qEl.textContent = item.q;
-  aEl.textContent = item.a;
-  aEl.hidden = true;
-  showABtn.disabled = false;
-
-  startTimer();
-}
-
-/* -------------------- EVENTS -------------------- */
-fearBtn.addEventListener("click", () => {
-  ensureAudio();
-  setFearMode(!fearMode);
-});
-
-newQBtn.addEventListener("click", () => {
-  ensureAudio();
-  nextQuestion();
-});
-
-randomCatBtn.addEventListener("click", () => {
-  ensureAudio();
-  randomCategoryQuestion();
-});
-
-showABtn.addEventListener("click", () => {
-  ensureAudio();
-  aEl.hidden = false;
-  stopTimer();
-  metaEl.textContent = metaEl.dataset.base || metaEl.textContent;
-  updateTimeUI(0);
-});
-
-/*
-  THE IMPORTANT PART:
-  As soon as the difficulty dropdown is touched/opened,
-  we immediately deselect the category and stop the timer.
-*/
-difficultySelect.addEventListener("pointerdown", () => {
-  deselectCategoryAndStop();
-});
-
-// iOS/Safari sometimes uses focus without pointerdown
-difficultySelect.addEventListener("focus", () => {
-  deselectCategoryAndStop();
-});
-
-// on actual change: update difficulty, keep nothing selected, do NOT trigger question
-difficultySelect.addEventListener("change", () => {
-  ensureAudio();
-  difficulty = difficultySelect.value;
-  deselectCategoryAndStop();
-});
-
-/* -------------------- INIT -------------------- */
-async function init(){
-  installAudioUnlock();
-
+// --- Boot
+async function loadData() {
   const res = await fetch("questions.json", { cache: "no-store" });
-  if (!res.ok) throw new Error(`HTTP ${res.status} loading questions.json`);
-  DB = await res.json();
-  renderCats();
-  deselectCategoryAndStop();
+  data = await res.json();
+
+  categories = Array.isArray(data.categories) ? data.categories : [];
+  questions = Array.isArray(data.questions) ? data.questions : [];
+  fearQuestions = Array.isArray(data.fearQuestions) ? data.fearQuestions : [];
+
+  renderCategories();
+  clearQA();
+  updatePoolStatus();
+
+  // If there are zero categories, show a hint
+  if (!categories.length) {
+    questionText.textContent = "No categories found. Add them in questions.json.";
+  }
 }
 
-init().catch((e) => {
-  console.error(e);
-  setMetaBase("Error: could not load questions.json");
-  qEl.textContent = String(e?.message || e);
+loadData().catch(err => {
+  console.error(err);
+  questionText.textContent = "Failed to load questions.json. Check file name/path.";
 });
