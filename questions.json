@@ -132,7 +132,7 @@
 { "cat":"GEEK","diff":"hard","q":"What do hackers call searching for vulnerabilities in systems?","a":"Penetration testing" },
 { "cat":"GEEK","diff":"hard","q":"Which board game introduced legacy-style permanent changes?","a":"Risk Legacy" },
 { "cat":"GEEK","diff":"hard","q":"What term describes rewriting game rules for custom play?","a":"Homebrew" },
-{ "cat":"GEEK","diff":"hard","q":"What is the term for software that records keystrokes secretly?","a":"Keylogger" }
+{ "cat":"GEEK","diff":"hard","q":"What is the term for software that records keystrokes secretly?","a":"Keylogger" },
 { "cat":"GEEK","diff":"hard","q":"What was the name of the fictional computer in 2001: A Space Odyssey?","a":"HAL 9000" },
 { "cat":"GEEK","diff":"hard","q":"Which company created the first successful home video game console in the 1970s?","a":"Atari" },
 { "cat":"GEEK","diff":"hard","q":"Which spacecraft carried the first humans to the Moon?","a":"Apollo 11" },
@@ -1018,6 +1018,7 @@
     { "q": "What is the largest ocean?", "a": "Pacific Ocean" }
   ]
 }
+
 
 
 
