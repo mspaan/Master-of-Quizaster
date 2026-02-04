@@ -69,7 +69,7 @@ function unlockAudioHard(){
   const osc = audioCtx.createOscillator();
   const g = audioCtx.createGain();
   osc.frequency.value = 440;
-  g.gain.value = 0.00001;
+  g.gain.value = 0.00001; // almost silent
   osc.connect(g);
   g.connect(audioCtx.destination);
   osc.start(now);
@@ -150,7 +150,7 @@ function startTimer(){
       timerId = null;
 
       timeUpSound();
-      aEl.hidden = false;
+      aEl.hidden = false; // auto reveal
     }
   }, 1000);
 }
@@ -165,25 +165,21 @@ function setMetaBase(text){
   metaEl.textContent = text;
 }
 
-/* -------------------- HARD DESELECT (THE FIX) -------------------- */
+/* -------------------- HARD DESELECT (difficulty dropdown fix) -------------------- */
 function deselectCategoryAndStop(){
-  // stop anything running
   stopTimer();
 
-  // remove active category
   selectedCat = null;
   document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
 
-  // clear question UI (do NOT draw a new one)
   setMetaBase("Pick a category.");
   qEl.textContent = "—";
   aEl.hidden = true;
   showABtn.disabled = true;
 
-  // only allow "New question" when Brainfreezer is ON (since it doesn't need category)
+  // New question only enabled when Brainfreezer is on (because it doesn't need category)
   newQBtn.disabled = fearMode ? false : true;
 
-  // show full bar (not running)
   updateTimeUI(TOTAL_TIME);
 }
 
@@ -195,12 +191,12 @@ function setFearMode(on){
   fearBtn.setAttribute("aria-pressed", on ? "true" : "false");
   tremble();
 
-  if (on) {
+  if (on){
     newQBtn.disabled = false;
-    nextQuestion(); // Brainfreezer can always pull
+    nextQuestion(); // Brainfreezer can pull without category
   } else {
     // leaving brainfreezer: no auto question unless a category is selected
-    if (selectedCat) {
+    if (selectedCat){
       newQBtn.disabled = false;
       nextQuestion();
     } else {
@@ -379,20 +375,15 @@ showABtn.addEventListener("click", () => {
 });
 
 /*
-  THE IMPORTANT PART:
-  As soon as the difficulty dropdown is touched/opened,
-  we immediately deselect the category and stop the timer.
+  As soon as difficulty dropdown is touched/opened:
+  deselect category + stop timer + do NOT draw a new question.
 */
 difficultySelect.addEventListener("pointerdown", () => {
   deselectCategoryAndStop();
 });
-
-// iOS/Safari sometimes uses focus without pointerdown
 difficultySelect.addEventListener("focus", () => {
   deselectCategoryAndStop();
 });
-
-// on actual change: update difficulty, keep nothing selected, do NOT trigger question
 difficultySelect.addEventListener("change", () => {
   ensureAudio();
   difficulty = difficultySelect.value;
