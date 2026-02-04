@@ -183,14 +183,6 @@ function deselectCategoryAndStop(){
   updateTimeUI(TOTAL_TIME);
 }
 
-function showReadyState(){
-  stopTimer();
-  showABtn.disabled = true;
-  aEl.hidden = true;
-  qEl.textContent = "Ready. Tap “New question”.";
-  updateTimeUI(TOTAL_TIME);
-}
-
 /* -------------------- NO-REPEAT (SESSION HARD) -------------------- */
 function ensureUsedSet(key){
   if (!used.has(key)) used.set(key, new Set());
@@ -227,16 +219,13 @@ function setFearMode(on){
   tremble();
 
   if (on){
-    // Brainfreezer doesn't need category
+    // Brainfreezer doesn't need category: start immediately
     newQBtn.disabled = false;
-    showReadyState();
-    setMetaBase("BRAINFREEZER");
+    nextQuestion();
   } else {
-    // leaving brainfreezer: require a category again
+    // leaving brainfreezer: do NOT auto-draw (category click will draw)
     if (selectedCat){
       newQBtn.disabled = false;
-      showReadyState();
-      // meta already handled by category selection; keep it
     } else {
       deselectCategoryAndStop();
     }
@@ -260,10 +249,17 @@ function renderCats(){
       <div class="iconWrap">${c.icon}</div>
     `;
 
-    // Selecting a category does NOT auto-draw a question
+    // Category click: immediately draw a question + start timer
     btn.addEventListener("click", () => {
       ensureAudio();
-      if (fearMode) setFearMode(false);
+
+      // If we were in Brainfreezer, turn it off without triggering extra actions
+      if (fearMode){
+        fearMode = false;
+        appEl.classList.remove("fearMode");
+        fearBtn.classList.remove("isOn");
+        fearBtn.setAttribute("aria-pressed", "false");
+      }
 
       selectedCat = c.id;
 
@@ -284,7 +280,7 @@ function renderCats(){
       }).length;
 
       setMetaBase(`Category: ${c.name} • ${diffNeedle.toUpperCase()} (${poolCount})`);
-      showReadyState();
+      nextQuestion();
     });
 
     catsEl.appendChild(btn);
@@ -315,6 +311,8 @@ function randomCategoryPick(){
 
 function randomCategoryQuestion(){
   if (!DB) return;
+
+  // if fear mode is on, turn it off (no auto draw here; we'll draw below)
   if (fearMode) setFearMode(false);
 
   const pick = randomCategoryPick();
@@ -332,7 +330,7 @@ function randomCategoryQuestion(){
 
   newQBtn.disabled = false;
 
-  // Update meta with pool size and show ready state (NO auto question)
+  // Update meta with pool size and immediately draw a question
   const diffNeedle = normalizeDiff(difficulty);
   const catNeedle = normalizeCat(selectedCat);
   const allQs = Array.isArray(DB.questions) ? DB.questions : [];
@@ -347,7 +345,7 @@ function randomCategoryQuestion(){
   const catName = catObj ? catObj.name : selectedCat;
 
   setMetaBase(`Category: ${catName} • ${diffNeedle.toUpperCase()} (${poolCount})`);
-  showReadyState();
+  nextQuestion();
 }
 
 function nextQuestion(){
@@ -418,7 +416,7 @@ function nextQuestion(){
   aEl.hidden = true;
   showABtn.disabled = false;
 
-  // Start the 30s timer only when a question is actually drawn
+  // Start the 30s timer when a question is drawn
   startTimer();
 }
 
