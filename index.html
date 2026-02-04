@@ -1,69 +1,66 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>BRAIN BATTLE</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brain Battle</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="wrap" id="app">
-    <header class="top">
+  <div class="app">
+    <header class="topbar">
       <div class="brand">
-        <div class="qc">BB</div>
-        <div class="brandText">
-          <div class="brandTitle">BRAIN BATTLE</div>
-          <div class="brandSub">This game won’t run out of questions.</div>
-        </div>
+        <div class="title">Brain Battle</div>
+        <div class="subtitle">Pick a category → then press New Question</div>
       </div>
 
-      <div style="display:flex; gap:10px; align-items:center;">
-        <select class="diffSelect" id="difficultySelect" aria-label="Difficulty">
-          <option value="easy">EASY</option>
-          <option value="medium" selected>MEDIUM</option>
-          <option value="hard">HARD</option>
-        </select>
+      <div class="controls">
+        <label class="select">
+          <span>Difficulty</span>
+          <select id="difficultySelect">
+            <option value="easy">easy</option>
+            <option value="medium">medium</option>
+            <option value="hard">hard</option>
+          </select>
+        </label>
 
-        <!-- same id/classes for styling, just new label -->
-        <button class="fearBtn" id="fearBtn" type="button" aria-pressed="false">
-          🧊&nbsp; BRAINFREEZER
-        </button>
+        <div class="timerBox">
+          <div class="timerLabel">Time</div>
+          <div class="timerValue"><span id="timer">30</span>s</div>
+          <div id="poolStatus" class="poolStatus"></div>
+        </div>
       </div>
     </header>
 
-    <section class="cats" id="cats"></section>
+    <main class="main">
+      <section class="categories">
+        <div class="sectionTitle">Categories</div>
+        <div id="categoryGrid" class="grid"></div>
+      </section>
 
-    <section class="panel" id="panel">
-      <div class="panelTop">
-        <div class="meta" id="meta">Pick a category.</div>
-
-        <div style="display:flex; gap:10px; align-items:center;">
-          <button class="newBtn" id="randomCatBtn" type="button">Random category</button>
-          <button class="newBtn" id="newQ" type="button" disabled>New question</button>
+      <section class="card">
+        <div class="cardHeader">
+          <div class="cardTitle">Question</div>
+          <div class="cardMeta" id="cardMeta">—</div>
         </div>
-      </div>
 
-      <div class="timeRow" aria-label="Timer">
-        <div class="timeBar" id="timeBar" aria-hidden="true">
-          <div class="timeFill" id="timeFill"></div>
+        <div id="questionText" class="questionText">
+          Load the app, pick a category, then press “New Question”.
         </div>
-        <div class="timeNum" id="timeNum">20</div>
-      </div>
 
-      <div class="q" id="q">—</div>
+        <div class="actions">
+          <button id="newQuestionBtn" class="primary" disabled>New Question</button>
+          <button id="revealBtn" class="secondary" disabled>Reveal Answer</button>
+          <button id="brainfreezeBtn" class="ghost">Brainfreezer</button>
+        </div>
 
-      <button class="showBtn" id="showA" type="button" disabled>Show answer</button>
-      <div class="a" id="a" hidden>—</div>
-
-      <div class="tip">
-        Tip: In the card game, players decide at the table whether the answer counts.
-      </div>
-    </section>
-
-    <footer class="foot">
-      Made for phones. Add to Home Screen for best vibes.
-    </footer>
-  </main>
+        <div class="answerWrap">
+          <div class="answerLabel">Answer</div>
+          <div id="answerText" class="answerText">—</div>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <script src="app.js"></script>
 </body>
