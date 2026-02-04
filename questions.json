@@ -8,145 +8,118 @@
     { "id": "CHEF", "name": "THE CHEF", "tag": "Food & kitchen", "icon": "🧂" }
   ],
   "questions": [
-    { "cat": "GEEK", "diff": "easy", "q": "What does USB stand for?", "a": "Universal Serial Bus" },
-    { "cat": "GEEK", "diff": "easy", "q": "What do you call a secret word to log in?", "a": "Password" },
-    { "cat": "GEEK", "diff": "easy", "q": "What device do you use to move a cursor on a PC?", "a": "Mouse" },
-    { "cat": "GEEK", "diff": "easy", "q": "What is the name of Google’s web browser?", "a": "Chrome" },
-    { "cat": "GEEK", "diff": "easy", "q": "What is the name of Apple’s phone?", "a": "iPhone" },
-    { "cat": "GEEK", "diff": "easy", "q": "What key do you press to make a new line?", "a": "Enter / Return" },
-    { "cat": "GEEK", "diff": "easy", "q": "What do you call a portable computer?", "a": "Laptop" },
-    { "cat": "GEEK", "diff": "easy", "q": "What photo file format is most common?", "a": "JPG (JPEG)" },
-
-    { "cat":"GEEK","diff":"easy","q":"What do you use to protect an online account?","a":"Password" },
-{ "cat":"GEEK","diff":"easy","q":"Which company created the iPhone?","a":"Apple" },
-{ "cat":"GEEK","diff":"easy","q":"What do you call software you install on a phone?","a":"App" },
-{ "cat":"GEEK","diff":"easy","q":"What system connects computers worldwide?","a":"Internet" },
-{ "cat":"GEEK","diff":"easy","q":"What device shows images from a computer?","a":"Monitor" },
-{ "cat":"GEEK","diff":"easy","q":"What do you click to open a program?","a":"Icon" },
-{ "cat":"GEEK","diff":"easy","q":"What tool types letters on a screen?","a":"Keyboard" },
-{ "cat":"GEEK","diff":"easy","q":"What device moves the pointer on a screen?","a":"Mouse" },
-
+{ "cat": "GEEK", "diff": "easy", "q": "What does USB stand for?", "a": "Universal Serial Bus" },
+{ "cat": "GEEK", "diff": "easy", "q": "What is the name of Google’s web browser?", "a": "Chrome" },
+{ "cat": "GEEK", "diff": "easy", "q": "What photo file format is most common?", "a": "JPG (JPEG)" },
 { "cat":"GEEK","diff":"easy","q":"What service stores files online?","a":"Cloud" },
-{ "cat":"GEEK","diff":"easy","q":"What famous platform is used to watch online videos?","a":"YouTube" },
-{ "cat":"GEEK","diff":"easy","q":"What do you call unwanted email messages?","a":"Spam" },
-{ "cat":"GEEK","diff":"easy","q":"What company runs a popular search engine?","a":"Google" },
-{ "cat":"GEEK","diff":"easy","q":"What do you call a portable computer?","a":"Laptop" },
-{ "cat":"GEEK","diff":"easy","q":"What symbol is used in email addresses?","a":"At sign" },
-{ "cat":"GEEK","diff":"easy","q":"What technology allows wireless internet?","a":"Wi-Fi" },
-{ "cat":"GEEK","diff":"easy","q":"What do you call a website address?","a":"URL" },
-{ "cat":"GEEK","diff":"easy","q":"What most famous online platform streams movies and series?","a":"Netflix" },
 { "cat":"GEEK","diff":"easy","q":"What company makes Windows software?","a":"Microsoft" },
-{ "cat":"GEEK","diff":"easy","q":"What online platform is used for social posts?","a":"Instagram" },
-{ "cat":"GEEK","diff":"easy","q":"What device stores files permanently?","a":"Hard drive" },
-
-
-
 { "cat":"GEEK","diff":"easy","q":"What technology connects devices over short distances?","a":"Bluetooth" },
 { "cat":"GEEK","diff":"easy","q":"What do you call a broken computer program?","a":"Bug" },
-{ "cat":"GEEK","diff":"easy","q":"What do you call updating software?","a":"Upgrade" },
+{ "cat":"GEEK","diff":"easy","q":"What do you call updating software?","a":"Upgrade" },  { "cat":"GEEK","diff":"easy","q":"Who founded Amazon?","a":"Jeff Bezos" },
+{ "cat":"GEEK","diff":"easy","q":"What platform is mainly used for professional networking?","a":"LinkedIn" },
+{ "cat":"GEEK","diff":"easy","q":"Which company owns YouTube?","a":"Google" },
+{ "cat":"GEEK","diff":"easy","q":"What do you call unwanted advertising emails?","a":"Spam" },
+{ "cat":"GEEK","diff":"easy","q":"Which social network was created by Mark Zuckerberg?","a":"Facebook" },
+{ "cat":"GEEK","diff":"easy","q":"What do you call a short looping video on the internet?","a":"GIF" },
+{ "cat":"GEEK","diff":"easy","q":"What company produces the PlayStation?","a":"Sony" },
+{ "cat":"GEEK","diff":"easy","q":"Which app is known for disappearing messages?","a":"Snapchat" },
+{ "cat":"GEEK","diff":"easy","q":"What device connects multiple computers in a local network?","a":"Router" },
+{ "cat":"GEEK","diff":"easy","q":"Which company makes the Galaxy smartphones?","a":"Samsung" },
+{ "cat":"GEEK","diff":"easy","q":"What platform is used for online auctions?","a":"eBay" },
+{ "cat":"GEEK","diff":"easy","q":"What device tracks your daily steps?","a":"Fitness tracker" },
+{ "cat":"GEEK","diff":"easy","q":"Which company produces the iPad?","a":"Apple" },
+{ "cat":"GEEK","diff":"easy","q":"What online store sells apps for Android devices?","a":"Google Play" },
+{ "cat":"GEEK","diff":"easy","q":"Which gaming console is made by Nintendo?","a":"Switch" },
+{ "cat":"GEEK","diff":"easy","q":"Which company acquired WhatsApp in 2014?","a":"Facebook" },
+{ "cat":"GEEK","diff":"easy","q":"Which company created the Car CYBERTRUCK?","a":"Tesla" },
+{ "cat":"GEEK","diff":"easy","q":"Which company makes the Kindle?","a":"Amazon" },
+{ "cat":"GEEK","diff":"easy","q":"Where are illegal goods often traded anonymously online?","a":"Darknet" },
+{ "cat":"GEEK","diff":"easy","q":"What term describes people who earn money by promoting products online?","a":"Influencer" },
+{ "cat":"GEEK","diff":"easy","q":"Which company created the character Mario?","a":"Nintendo" },
+{ "cat":"GEEK","diff":"easy","q":"Which board game uses hotels and properties?","a":"Monopoly" },
+{ "cat":"GEEK","diff":"easy","q":"Which handheld creature-collecting game features Pikachu?","a":"Pokémon" },
+{ "cat":"GEEK","diff":"easy","q":"Which sandbox game is famous for building with blocks?","a":"Minecraft" },
 
-
+{ "cat":"GEEK","diff":"medium","q":"What do gamers call a sudden connection delay?","a":"Lag" },
+{ "cat":"GEEK","diff":"medium","q":"What do you call hidden content unlocked by special actions?","a":"Easter egg" },
+{ "cat":"GEEK","diff":"medium","q":"What do players call a non-playable character in video games?","a":"NPC" },
+{ "cat":"GEEK","diff":"medium","q":"What is the technical term for a lie detector?","a":"Polygraph" },
+{ "cat":"GEEK","diff":"medium","q":"Which company makes the Steam gaming platform?","a":"Valve" },
+{ "cat":"GEEK","diff":"medium","q":"Which company developed the Android operating system?","a":"Google" },
+{ "cat":"GEEK","diff":"medium","q":"What term describes digital money like Bitcoin?","a":"Cryptocurrency" },
+{ "cat":"GEEK","diff":"medium","q":"What does GPS stand for?","a":"Global Positioning System" },
+{ "cat":"GEEK","diff":"medium","q":"What unit measures processor speed?","a":"Hertz" },
+{ "cat":"GEEK","diff":"medium","q":"Which company created the first widely used microprocessor?","a":"Intel" },
+{ "cat":"GEEK","diff":"medium","q":"What term describes protecting data by scrambling it?","a":"Encryption" },
+{ "cat":"GEEK","diff":"medium","q":"What protocol is mainly used to transfer web pages?","a":"HTTP" },
+{ "cat":"GEEK","diff":"medium","q":"What unit measures electrical resistance?","a":"Ohm" },
+{ "cat":"GEEK","diff":"medium","q":"Who founded OpenAI?","a":"Sam Altman" },
+{ "cat":"GEEK","diff":"medium","q":"What term describes virtual money earned in games?","a":"In-game currency" },
 { "cat":"GEEK","diff":"medium","q":"What term describes harmful software?","a":"Malware" },
-
 { "cat":"GEEK","diff":"medium","q":"What term describes data sent securely?","a":"Encryption" },
 { "cat":"GEEK","diff":"medium","q":"What system translates website names to numbers?","a":"DNS" },
 { "cat":"GEEK","diff":"medium","q":"What digital currency uses blockchain technology?","a":"Bitcoin" },
-
-
-
-{ "cat":"GEEK","diff":"medium","q":"What unit measures processing speed?","a":"Hertz" },
 { "cat":"GEEK","diff":"medium","q":"What technology enables contactless payments?","a":"NFC" },
-
-{ "cat":"GEEK","diff":"medium","q":"What company develops electric autonomous cars?","a":"Tesla" },
-{ "cat":"GEEK","diff":"medium","q":"What digital assistant responds to voice commands?","a":"Alexa" },
-
-
-{ "cat":"GEEK","diff":"medium","q":"What device distributes network connections?","a":"Switch" },
+{ "cat":"GEEK","diff":"medium","q":"What digital assistant from Amazon responds to voice commands?","a":"Alexa" },
 { "cat":"GEEK","diff":"medium","q":"What term describes open collaborative software?","a":"Open source" },
-
 { "cat":"GEEK","diff":"medium","q":"What system protects networks from intrusions?","a":"Firewall" },
 { "cat":"GEEK","diff":"medium","q":"What type of storage uses flash memory?","a":"SSD" },
-{ "cat":"GEEK","diff":"medium","q":"What protocol secures websites?","a":"HTTPS" },
-
-{ "cat":"GEEK","diff":"medium","q":"What device captures fingerprints digitally?","a":"Biometric scanner" },
-{ "cat":"GEEK","diff":"medium","q":"What term describes fake online content?","a":"Deepfake" },
-{ "cat":"GEEK","diff":"medium","q":"What system stores structured information?","a":"Database" },
-
-{ "cat":"GEEK","diff":"medium","q":"Where are illegal goods often traded anonymously online?","a":"Darknet" },
-{ "cat":"GEEK","diff":"medium","q":"Who co-founded the company behind ChatGPT?","a":"Sam Altman" },
 { "cat":"GEEK","diff":"medium","q":"What name did Elon Musk give to his former Twitter takeover project?","a":"X" },
 { "cat":"GEEK","diff":"medium","q":"What underground online market became famous for illegal trading in the 2010s?","a":"Silk Road" },
-{ "cat":"GEEK","diff":"medium","q":"What company launched the first iPhone?","a":"Apple" },
 { "cat":"GEEK","diff":"medium","q":"What online platform started as a DVD-by-mail service?","a":"Netflix" },
 { "cat":"GEEK","diff":"medium","q":"What term describes a startup valued at over one billion dollars?","a":"Unicorn" },
 { "cat":"GEEK","diff":"medium","q":"What social media platform was originally limited to 140 characters?","a":"Twitter" },
 { "cat":"GEEK","diff":"medium","q":"What name is given to fake news spread for clicks?","a":"Clickbait" },
-{ "cat":"GEEK","diff":"medium","q":"What device listens to you to respond with voice commands?","a":"Smart speaker" },
-
-{ "cat":"GEEK","diff":"medium","q":"What company created the electric car brand Model S?","a":"Tesla" },
-{ "cat":"GEEK","diff":"medium","q":"What term describes people who earn money by promoting products online?","a":"Influencer" },
 { "cat":"GEEK","diff":"medium","q":"What internet culture term describes someone extremely dedicated to a fandom?","a":"Stan" },
 { "cat":"GEEK","diff":"medium","q":"What leaked document collection exposed global surveillance programs in 2013?","a":"Snowden leaks" },
-{ "cat":"GEEK","diff":"medium","q":"What name is used for digital currencies without physical coins?","a":"Cryptocurrency" },
-{ "cat":"GEEK","diff":"medium","q":"What online phenomenon spreads rapidly through sharing and remixing?","a":"Meme" },
 { "cat":"GEEK","diff":"medium","q":"What platform became famous for short viral dance videos?","a":"TikTok" },
 { "cat":"GEEK","diff":"medium","q":"What term describes fear of missing out on online trends?","a":"FOMO" },
 { "cat":"GEEK","diff":"medium","q":"What online forum is known for upvotes and downvotes?","a":"Reddit" },
 { "cat":"GEEK","diff":"medium","q":"What name is given to fake online identities used to deceive others?","a":"Catfish" },
-
-
-{ "cat":"GEEK","diff":"medium","q":"What company operates a major social network?","a":"Meta" },
-{ "cat":"GEEK","diff":"medium","q":"What term describes limited internet speed?","a":"Bandwidth" },
-{ "cat":"GEEK","diff":"medium","q":"What coding language structures websites?","a":"HTML" },
-
-
 { "cat":"GEEK","diff":"medium","q":"What digital concept stores money electronically?","a":"E-wallet" },
+{ "cat": "GEEK", "diff": "medium", "q": "What does RAM stand for?", "a": "Random Access Memory" },
+{ "cat": "GEEK", "diff": "medium", "q": "What does CPU stand for?", "a": "Central Processing Unit" },
+{ "cat": "GEEK", "diff": "medium", "q": "What does URL stand for?", "a": "Uniform Resource Locator" },
+{ "cat": "GEEK", "diff": "medium", "q": "What does HTML stand for?", "a": "HyperText Markup Language" },
+{ "cat":"GEEK","diff":"medium","q":"Who is credited with inventing the light bulb for practical use?","a":"Thomas Edison" },
+{ "cat":"GEEK","diff":"medium","q":"Who founded Microsoft together with Paul Allen?","a":"Bill Gates" },
+{ "cat":"GEEK","diff":"medium","q":"What do you call a competitive video game tournament?","a":"Esports" },
+{ "cat":"GEEK","diff":"medium","q":"What is the name for a bug that crashes a game completely?","a":"Fatal error" },
+{ "cat":"GEEK","diff":"medium","q":"Which board game was originally called The Landlord’s Game?","a":"Monopoly" },
+{ "cat":"GEEK","diff":"medium","q":"What do speedrunners try to minimize?","a":"Completion time" },
+{ "cat":"GEEK","diff":"medium","q":"Which collectible card game features planeswalkers?","a":"Magic" },
+{ "cat":"GEEK","diff":"medium","q":"What term describes exploiting unintended mechanics in games?","a":"Glitch" },
+{ "cat":"GEEK","diff":"medium","q":"Which franchise popularized the battle royale genre in 2017?","a":"Fortnite" },
+{ "cat":"GEEK","diff":"medium","q":"What disaster in 1986 drastically changed nuclear energy policy worldwide?","a":"Chernobyl" },
+{ "cat":"GEEK","diff":"medium","q":"What system was used to locate ships using sound underwater?","a":"Sonar" },
+{ "cat":"GEEK","diff":"medium","q":"Which tech company attempted smart glasses that failed commercially in 2013?","a":"Google" },
+{ "cat":"GEEK","diff":"medium","q":"What operating system did Torvalds create in 1991?","a":"Linux" },
+{ "cat":"GEEK","diff":"medium","q":"Which 1999 sci-fi film popularized simulated reality theory?","a":"The Matrix" },
+{ "cat":"GEEK","diff":"medium","q":"What innovation replaced floppy disks in the late 1990s?","a":"USB" },
 
-
-
-    { "cat": "GEEK", "diff": "medium", "q": "What does RAM stand for?", "a": "Random Access Memory" },
-    { "cat": "GEEK", "diff": "medium", "q": "What does CPU stand for?", "a": "Central Processing Unit" },
-    { "cat": "GEEK", "diff": "medium", "q": "What does URL stand for?", "a": "Uniform Resource Locator" },
-    { "cat": "GEEK", "diff": "medium", "q": "What does HTML stand for?", "a": "HyperText Markup Language" },
-
-
-    { "cat": "GEEK", "diff": "medium", "q": "What IPv4 address is commonly used for localhost?", "a": "127.0.0.1" },
-    { "cat": "GEEK", "diff": "medium", "q": "What is the default port for HTTPS?", "a": "443" },
-
-    { "cat":"GEEK","diff":"hard","q":"Who invented the telephone?","a":"Alexander Graham Bell" },
+{ "cat":"GEEK","diff":"hard","q":"In which year was the first iPhone released?","a":"2007" },
+{ "cat":"GEEK","diff":"hard","q":"Who invented the World Wide Web?","a":"Tim Berners-Lee" },
+{ "cat":"GEEK","diff":"hard","q":"Who invented the telephone?","a":"Alexander Graham Bell" },
 { "cat":"GEEK","diff":"hard","q":"In which year was the World Wide Web first proposed?","a":"1989" },
-{ "cat":"GEEK","diff":"hard","q":"Who is credited with inventing the light bulb for practical use?","a":"Thomas Edison" },
 { "cat":"GEEK","diff":"hard","q":"In which decade was the first personal computer marketed?","a":"1970s" },
 { "cat":"GEEK","diff":"hard","q":"Who developed the alternating current power system?","a":"Nikola Tesla" },
 { "cat":"GEEK","diff":"hard","q":"In which year was Apple founded?","a":"1976" },
-{ "cat":"GEEK","diff":"hard","q":"Who invented the World Wide Web?","a":"Tim Berners-Lee" },
-{ "cat":"GEEK","diff":"hard","q":"What year did humans first land on the Moon?","a":"1969" },
-{ "cat":"GEEK","diff":"hard","q":"Who founded Microsoft together with Paul Allen?","a":"Bill Gates" },
 { "cat":"GEEK","diff":"hard","q":"In which year was Google founded?","a":"1998" },
-
-{ "cat":"GEEK","diff":"hard","q":"Who invented the first programmable computer concept?","a":"Charles Babbage" },
 { "cat":"GEEK","diff":"hard","q":"What year was the first email sent?","a":"1971" },
 { "cat":"GEEK","diff":"hard","q":"Who is considered the inventor of the radio?","a":"Guglielmo Marconi" },
 { "cat":"GEEK","diff":"hard","q":"In which year was Facebook launched publicly?","a":"2004" },
-{ "cat":"GEEK","diff":"hard","q":"Who founded Amazon?","a":"Jeff Bezos" },
 { "cat":"GEEK","diff":"hard","q":"What year did the first iPhone go on sale?","a":"2007" },
 { "cat":"GEEK","diff":"hard","q":"Who invented the diesel engine?","a":"Rudolf Diesel" },
 { "cat":"GEEK","diff":"hard","q":"In which year was Tesla Motors founded?","a":"2003" },
-{ "cat":"GEEK","diff":"hard","q":"Who invented the first mechanical calculator?","a":"Blaise Pascal" },
 { "cat":"GEEK","diff":"hard","q":"What year did YouTube launch?","a":"2005" },
-
 { "cat":"GEEK","diff":"hard","q":"Who invented the concept of the assembly line?","a":"Henry Ford" },
 { "cat":"GEEK","diff":"hard","q":"In which year was the first compact disc released commercially?","a":"1982" },
 { "cat":"GEEK","diff":"hard","q":"Who developed the first modern battery?","a":"Alessandro Volta" },
 { "cat":"GEEK","diff":"hard","q":"What year did Netflix begin streaming online?","a":"2007" },
 { "cat":"GEEK","diff":"hard","q":"Who invented the jet engine?","a":"Frank Whittle" },
 { "cat":"GEEK","diff":"hard","q":"In which year was Bluetooth technology introduced?","a":"1999" },
-{ "cat":"GEEK","diff":"hard","q":"Who invented the polio vaccine?","a":"Jonas Salk" },
 { "cat":"GEEK","diff":"hard","q":"What year was Wikipedia launched?","a":"2001" },
 { "cat":"GEEK","diff":"hard","q":"Who invented the first successful airplane?","a":"Wright brothers" },
-
-{ "cat":"GEEK","diff":"hard","q":"In which year was the first digital camera created?","a":"1975" },
-{ "cat":"GEEK","diff":"hard","q":"Who invented the barcode?","a":"Norman Woodland" },
 { "cat":"GEEK","diff":"hard","q":"What year did SpaceX launch its first rocket?","a":"2006" },
 { "cat":"GEEK","diff":"hard","q":"Who invented the automatic dishwasher?","a":"Josephine Cochrane" },
 { "cat":"GEEK","diff":"hard","q":"In which year was Instagram launched?","a":"2010" },
@@ -154,10 +127,23 @@
 { "cat":"GEEK","diff":"hard","q":"What year was the USB standard introduced?","a":"1996" },
 { "cat":"GEEK","diff":"hard","q":"Who invented the microwave oven?","a":"Percy Spencer" },
 { "cat":"GEEK","diff":"hard","q":"In which year was OpenAI founded?","a":"2015" },
-{ "cat":"GEEK","diff":"hard","q":"What is the scientific name for a lie detector?","a":"Polygraph" },
-{ "cat":"GEEK","diff":"hard","q":"What unit is used to measure electrical power?","a":"Watt" },
-{ "cat":"GEEK","diff":"hard","q":"What term describes identifying a person by physical traits?","a":"Biometrics" },
-    
+{ "cat":"GEEK","diff":"hard","q":"What is the technical term for a system that verifies identity using fingerprints or faces?","a":"Biometrics" },
+{ "cat":"GEEK","diff":"hard","q":"Which sci-fi franchise features the Prime Directive?","a":"Star Trek" },
+{ "cat":"GEEK","diff":"hard","q":"What do hackers call searching for vulnerabilities in systems?","a":"Penetration testing" },
+{ "cat":"GEEK","diff":"hard","q":"Which board game introduced legacy-style permanent changes?","a":"Risk Legacy" },
+{ "cat":"GEEK","diff":"hard","q":"What term describes rewriting game rules for custom play?","a":"Homebrew" },
+{ "cat":"GEEK","diff":"hard","q":"What is the term for software that records keystrokes secretly?","a":"Keylogger" }
+{ "cat":"GEEK","diff":"hard","q":"What was the name of the fictional computer in 2001: A Space Odyssey?","a":"HAL 9000" },
+{ "cat":"GEEK","diff":"hard","q":"Which company created the first successful home video game console in the 1970s?","a":"Atari" },
+{ "cat":"GEEK","diff":"hard","q":"Which spacecraft carried the first humans to the Moon?","a":"Apollo 11" },
+{ "cat":"GEEK","diff":"hard","q":"What fictional metal powers Iron Man’s first suit?","a":"Palladium" },
+{ "cat":"GEEK","diff":"hard","q":"Which company introduced the first mass-market MP3 player before the iPod?","a":"Diamond Multimedia" },
+{ "cat":"GEEK","diff":"hard","q":"What scandal involved falsified blood testing technology in Silicon Valley?","a":"Theranos" },
+{ "cat":"GEEK","diff":"hard","q":"Which country first connected to the internet after the United States?","a":"Norway" },
+{ "cat":"GEEK","diff":"hard","q":"Which fictional AI controls the machines in The Matrix?","a":"The Architect" },
+
+
+
 
   
 
@@ -369,7 +355,8 @@
     { "cat": "TIME", "diff": "easy", "q": "What country is London in?", "a": "United Kingdom" },
     { "cat": "TIME", "diff": "easy", "q": "What country is New York City in?", "a": "United States" },
     { "cat": "TIME", "diff": "easy", "q": "What is the capital of Germany?", "a": "Berlin" },
-    
+
+{ "cat":"TIME","diff":"medium","q":"What year did humans first land on the Moon?","a":"1969" },
 { "cat":"TIME","diff":"medium","q":"Which civilization built Machu Picchu?","a":"Inca" },
 { "cat":"TIME","diff":"medium","q":"Who was known as the first Roman emperor?","a":"Augustus" },
 { "cat":"TIME","diff":"medium","q":"Which country was formerly known as Persia?","a":"Iran" },
@@ -1031,6 +1018,7 @@
     { "q": "What is the largest ocean?", "a": "Pacific Ocean" }
   ]
 }
+
 
 
 
