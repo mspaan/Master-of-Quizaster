@@ -260,7 +260,7 @@ function renderCats(){
       <div class="iconWrap">${c.icon}</div>
     `;
 
-    // NEW: selecting a category does NOT auto-draw a question
+    // Selecting a category does NOT auto-draw a question
     btn.addEventListener("click", () => {
       ensureAudio();
       if (fearMode) setFearMode(false);
