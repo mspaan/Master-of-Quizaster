@@ -2,10 +2,11 @@ let DB = null;
 let selectedCat = null;
 let fearMode = false;
 let difficulty = "medium";
+let lang = "en"; // "en" | "de"
 
-// no-repeat tracking (Session)
-const used = new Map();     // key: diff|cat -> Set(keys)
-const usedFear = new Set(); // Brainfreezer session set
+// no-repeat tracking (Session) – pro Sprache getrennt
+const usedByLang = new Map();     // lang -> Map(key -> Set)
+const usedFearByLang = new Map(); // lang -> Set
 
 let timerId = null;
 let timeLeft = 0;
@@ -26,6 +27,7 @@ const fearBtn = document.getElementById("fearBtn");
 const panelEl = document.getElementById("panel");
 const difficultySelect = document.getElementById("difficultySelect");
 const randomCatBtn = document.getElementById("randomCatBtn");
+const langSelect = document.getElementById("langSelect");
 
 // Timer UI
 const timeFillEl = document.getElementById("timeFill");
@@ -69,7 +71,7 @@ function unlockAudioHard(){
   const osc = audioCtx.createOscillator();
   const g = audioCtx.createGain();
   osc.frequency.value = 440;
-  g.gain.value = 0.00001; // almost silent
+  g.gain.value = 0.00001;
   osc.connect(g);
   g.connect(audioCtx.destination);
   osc.start(now);
@@ -150,7 +152,7 @@ function startTimer(){
       timerId = null;
 
       timeUpSound();
-      aEl.hidden = false; // auto reveal
+      aEl.hidden = false;
     }
   }, 1000);
 }
@@ -165,35 +167,29 @@ function setMetaBase(text){
   metaEl.textContent = text;
 }
 
-/* -------------------- UI RESET -------------------- */
-function deselectCategoryAndStop(){
-  stopTimer();
-
-  selectedCat = null;
-  document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
-
-  setMetaBase("Pick a category.");
-  qEl.textContent = "—";
-  aEl.hidden = true;
-  showABtn.disabled = true;
-
-  // New question only enabled when Brainfreezer is on (because it doesn't need category)
-  newQBtn.disabled = fearMode ? false : true;
-
-  updateTimeUI(TOTAL_TIME);
+/* -------------------- SESSION USED HELPERS (per language) -------------------- */
+function getUsedMapForLang(){
+  if (!usedByLang.has(lang)) usedByLang.set(lang, new Map());
+  return usedByLang.get(lang);
+}
+function getFearUsedForLang(){
+  if (!usedFearByLang.has(lang)) usedFearByLang.set(lang, new Set());
+  return usedFearByLang.get(lang);
+}
+function resetUsedForCurrentLang(){
+  getUsedMapForLang().clear();
+  getFearUsedForLang().clear();
 }
 
-/* -------------------- NO-REPEAT (SESSION HARD) -------------------- */
 function ensureUsedSet(key){
-  if (!used.has(key)) used.set(key, new Set());
-  return used.get(key);
+  const m = getUsedMapForLang();
+  if (!m.has(key)) m.set(key, new Set());
+  return m.get(key);
 }
 
 function getNonRepeating(pool, keyFn, usedSet){
   if (pool.length === 0) return null;
-
-  // Hard session rule: no repeats; if exhausted, stop
-  if (usedSet.size >= pool.length) return null;
+  if (usedSet.size >= pool.length) return null; // hard session rule
 
   let tries = 0;
   while (tries < 250){
@@ -205,9 +201,23 @@ function getNonRepeating(pool, keyFn, usedSet){
     }
     tries++;
   }
-
-  // If we couldn't find a new one, consider it exhausted
   return null;
+}
+
+/* -------------------- UI RESET -------------------- */
+function deselectCategoryAndStop(){
+  stopTimer();
+
+  selectedCat = null;
+  document.querySelectorAll(".cat").forEach(x => x.classList.remove("active"));
+
+  setMetaBase(lang === "de" ? "Wähle eine Kategorie." : "Pick a category.");
+  qEl.textContent = "—";
+  aEl.hidden = true;
+  showABtn.disabled = true;
+
+  newQBtn.disabled = fearMode ? false : true;
+  updateTimeUI(TOTAL_TIME);
 }
 
 /* -------------------- GAME -------------------- */
@@ -219,11 +229,9 @@ function setFearMode(on){
   tremble();
 
   if (on){
-    // Brainfreezer doesn't need category: start immediately
     newQBtn.disabled = false;
-    nextQuestion();
+    nextQuestion(); // Brainfreezer startet sofort
   } else {
-    // leaving brainfreezer: do NOT auto-draw (category click will draw)
     if (selectedCat){
       newQBtn.disabled = false;
     } else {
@@ -234,8 +242,9 @@ function setFearMode(on){
 
 function renderCats(){
   catsEl.innerHTML = "";
+  const cats = Array.isArray(DB?.categories) ? DB.categories : [];
 
-  DB.categories.forEach(c => {
+  cats.forEach(c => {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "cat";
@@ -249,11 +258,10 @@ function renderCats(){
       <div class="iconWrap">${c.icon}</div>
     `;
 
-    // Category click: immediately draw a question + start timer
+    // Kategorie-Klick: sofort Frage + Timer
     btn.addEventListener("click", () => {
       ensureAudio();
 
-      // If we were in Brainfreezer, turn it off without triggering extra actions
       if (fearMode){
         fearMode = false;
         appEl.classList.remove("fearMode");
@@ -268,7 +276,6 @@ function renderCats(){
 
       newQBtn.disabled = false;
 
-      // Update meta with pool size for current difficulty
       const diffNeedle = normalizeDiff(difficulty);
       const catNeedle = normalizeCat(selectedCat);
       const allQs = Array.isArray(DB.questions) ? DB.questions : [];
@@ -311,14 +318,14 @@ function randomCategoryPick(){
 
 function randomCategoryQuestion(){
   if (!DB) return;
-
-  // if fear mode is on, turn it off (no auto draw here; we'll draw below)
   if (fearMode) setFearMode(false);
 
   const pick = randomCategoryPick();
   if (!pick){
     deselectCategoryAndStop();
-    qEl.textContent = "No questions found for this difficulty.";
+    qEl.textContent = lang === "de"
+      ? "Keine Fragen für diese Schwierigkeit gefunden."
+      : "No questions found for this difficulty.";
     return;
   }
 
@@ -330,19 +337,18 @@ function randomCategoryQuestion(){
 
   newQBtn.disabled = false;
 
-  // Update meta with pool size and immediately draw a question
   const diffNeedle = normalizeDiff(difficulty);
-  const catNeedle = normalizeCat(selectedCat);
+  const catObj = DB.categories.find(c => normalizeCat(c.id) === normalizeCat(selectedCat));
+  const catName = catObj ? catObj.name : selectedCat;
+
   const allQs = Array.isArray(DB.questions) ? DB.questions : [];
   const poolCount = allQs.filter(q => {
     const qc = normalizeCat(q.cat);
     const qd = normalizeDiff(q.diff);
+    const catNeedle = normalizeCat(selectedCat);
     const catMatch = (qc === catNeedle) || qc.includes(catNeedle) || catNeedle.includes(qc);
     return catMatch && (qd === diffNeedle);
   }).length;
-
-  const catObj = DB.categories.find(c => normalizeCat(c.id) === normalizeCat(selectedCat));
-  const catName = catObj ? catObj.name : selectedCat;
 
   setMetaBase(`Category: ${catName} • ${diffNeedle.toUpperCase()} (${poolCount})`);
   nextQuestion();
@@ -357,13 +363,16 @@ function nextQuestion(){
 
   if (fearMode){
     const pool = Array.isArray(DB.fearQuestions) ? DB.fearQuestions : [];
+    const usedFear = getFearUsedForLang();
     item = getNonRepeating(pool, i => `BF:${i.q}`, usedFear);
 
     setMetaBase(`BRAINFREEZER (${pool.length})`);
     tremble();
 
     if (!item){
-      qEl.textContent = "All Brainfreezer questions used (this session).";
+      qEl.textContent = lang === "de"
+        ? "Alle Brainfreezer-Fragen sind in dieser Session verbraucht."
+        : "All Brainfreezer questions used (this session).";
       aEl.hidden = true;
       showABtn.disabled = true;
       newQBtn.disabled = true;
@@ -383,8 +392,7 @@ function nextQuestion(){
       const qc = normalizeCat(q.cat);
       const qd = normalizeDiff(q.diff);
       const catMatch = (qc === catNeedle) || qc.includes(catNeedle) || catNeedle.includes(qc);
-      const diffMatch = (qd === diffNeedle);
-      return catMatch && diffMatch;
+      return catMatch && (qd === diffNeedle);
     });
 
     const key = `${diffNeedle}|${catNeedle}`;
@@ -396,12 +404,14 @@ function nextQuestion(){
       usedSet
     );
 
-    const catObj = DB.categories.find(c => c.id === selectedCat);
+    const catObj = DB.categories.find(c => normalizeCat(c.id) === normalizeCat(selectedCat));
     const catName = catObj ? catObj.name : selectedCat;
     setMetaBase(`Category: ${catName} • ${diffNeedle.toUpperCase()} (${pool.length})`);
 
     if (!item){
-      qEl.textContent = "All questions used for this category & difficulty (this session).";
+      qEl.textContent = lang === "de"
+        ? "Alle Fragen dieser Kategorie & Schwierigkeit sind in dieser Session verbraucht."
+        : "All questions used for this category & difficulty (this session).";
       aEl.hidden = true;
       showABtn.disabled = true;
       newQBtn.disabled = true;
@@ -410,14 +420,36 @@ function nextQuestion(){
     }
   }
 
-  // Render Q/A
   qEl.textContent = item.q;
   aEl.textContent = item.a;
   aEl.hidden = true;
   showABtn.disabled = false;
 
-  // Start the 30s timer when a question is drawn
   startTimer();
+}
+
+/* -------------------- LANGUAGE LOAD -------------------- */
+function getDbFileForLang(){
+  // Du kannst die Dateinamen so lassen:
+  // EN: questions.json
+  // DE: questions_de.json
+  return (lang === "de") ? "questions_de.json" : "questions.json";
+}
+
+async function loadDBForLang(){
+  stopTimer();
+  const file = getDbFileForLang();
+
+  const res = await fetch(file, { cache: "no-store" });
+  if (!res.ok) throw new Error(`HTTP ${res.status} loading ${file}`);
+  DB = await res.json();
+
+  // Session-Tracking pro Sprache: beim Wechsel zurücksetzen
+  resetUsedForCurrentLang();
+
+  renderCats();
+  deselectCategoryAndStop();
+  updateTimeUI(TOTAL_TIME);
 }
 
 /* -------------------- EVENTS -------------------- */
@@ -444,10 +476,7 @@ showABtn.addEventListener("click", () => {
   updateTimeUI(0);
 });
 
-/*
-  As soon as difficulty dropdown is touched/opened:
-  deselect category + stop timer + do NOT draw a new question.
-*/
+// difficulty dropdown behavior (dein bisheriger Ansatz bleibt)
 difficultySelect.addEventListener("pointerdown", () => {
   deselectCategoryAndStop();
 });
@@ -460,21 +489,26 @@ difficultySelect.addEventListener("change", () => {
   deselectCategoryAndStop();
 });
 
+// language toggle
+langSelect.addEventListener("change", () => {
+  ensureAudio();
+  lang = langSelect.value === "de" ? "de" : "en";
+  loadDBForLang().catch((e) => {
+    console.error(e);
+    setMetaBase(`Error: could not load ${getDbFileForLang()}`);
+    qEl.textContent = String(e?.message || e);
+  });
+});
+
 /* -------------------- INIT -------------------- */
 async function init(){
   installAudioUnlock();
-
-  const res = await fetch("questions.json", { cache: "no-store" });
-  if (!res.ok) throw new Error(`HTTP ${res.status} loading questions.json`);
-  DB = await res.json();
-
-  renderCats();
-  deselectCategoryAndStop();
   updateTimeUI(TOTAL_TIME);
+  await loadDBForLang();
 }
 
 init().catch((e) => {
   console.error(e);
-  setMetaBase("Error: could not load questions.json");
+  setMetaBase("Error: could not load questions database");
   qEl.textContent = String(e?.message || e);
 });
