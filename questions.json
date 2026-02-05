@@ -199,7 +199,7 @@
 { "cat":"SCOUT","diff":"easy","q":"What do you call a baby sheep?","a":"Lamb" },
 { "cat":"SCOUT","diff":"easy","q":"What term describes a species that no longer exists?","a":"Extinct" },
 { "cat":"SCOUT","diff":"easy","q":"Which natural disaster involves rapidly rotating air columns?","a":"Tornado" },
-{ "cat":"SCOUT","diff":"easy","q":"Which forest type is found near the equator and has heavy rainfall?","a":"Rainforest" }
+{ "cat":"SCOUT","diff":"easy","q":"Which forest type is found near the equator and has heavy rainfall?","a":"Rainforest" },
 { "cat":"SCOUT","diff":"easy","q":"What structure protects the brain?","a":"Skull" },
     
 { "cat":"SCOUT","diff":"medium","q":"Which layer protects Earth from harmful UV radiation?","a":"Ozone layer" },
@@ -1056,6 +1056,7 @@
     { "q": "What is the largest ocean?", "a": "Pacific Ocean" }
   ]
 }
+
 
 
 
