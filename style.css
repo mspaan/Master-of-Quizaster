@@ -172,12 +172,12 @@ body{
   opacity: .55;
 }
 
-.cat[data-c="GEEK"]::before{ background: rgba(46,125,255,.32); }
-.cat[data-c="SCOUT"]::before{ background: rgba(0,200,120,.28); }
+.cat[data-c="NERD"]::before{ background: rgba(46,125,255,.32); }
+.cat[data-c="EXPLORER"]::before{ background: rgba(0,200,120,.28); }
 .cat[data-c="TIME"]::before{ background: rgba(168,98,255,.28); }
 .cat[data-c="ART"]::before{ background: rgba(255,68,153,.26); }
 .cat[data-c="WEIRD"]::before{ background: rgba(255,220,70,.30); }
-.cat[data-c="CHEF"]::before{ background: rgba(255,150,70,.28); }
+.cat[data-c="CITIZEN"]::before{ background: rgba(255,150,70,.28); }
 
 .panel{
   border: 2px solid var(--stroke);
@@ -310,3 +310,4 @@ body{
   100%{ transform: translateX(0) }
 }
 .tremble{ animation: tremble .28s ease; }
+
