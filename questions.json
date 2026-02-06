@@ -745,7 +745,7 @@
     { "cat": "CITIZEN", "diff": "hard", "q": "What culinary term means removing fat from liquid?", "a": "Skimming" },
     { "cat": "CITIZEN", "diff": "hard", "q": "What herb defines the flavor of béarnaise sauce?", "a": "Tarragon" },
     { "cat": "CITIZEN", "diff": "hard", "q": "What Michelin rating is the highest?", "a": "Three stars" },
-    { "cat": "CITIZEN", "diff": "hard", "q": "What Japanese cooking style means grilled skewers?", "a": "Yakitori" },
+    { "cat": "CITIZEN", "diff": "hard", "q": "What Japanese cooking style means grilled skewers?", "a": "Yakitori" }
   
   ],
   "fearQuestions": [
@@ -817,6 +817,7 @@
     { "q": "What is the largest ocean?", "a": "Pacific Ocean" }
   ]
 }
+
 
 
 
