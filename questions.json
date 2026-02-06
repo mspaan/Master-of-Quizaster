@@ -474,7 +474,7 @@
     { "cat":"EXPLORER","diff":"hard","q":"What was the name of the 1968 reform movement in Czechoslovakia?","a":"Prague Spring" },
     { "cat":"EXPLORER","diff":"hard","q":"How long did the Hundred Years War last?","a":"116 years" },
     { "cat":"EXPLORER","diff":"hard","q":"Which prophet led the Exodus story?","a":"Moses" },
-    { "cat":"EXPLORER","diff":"hard","q":"When did Stauffenberg attempt to assassinate Hitler?","a":"20 July 1944" }
+    { "cat":"EXPLORER","diff":"hard","q":"When did Stauffenberg attempt to assassinate Hitler?","a":"20 July 1944" },
     { "cat":"EXPLORER","diff":"hard","q":"When did India gain independence?","a":"1947" },
 
 
@@ -817,5 +817,6 @@
     { "q": "What is the largest ocean?", "a": "Pacific Ocean" }
   ]
 }
+
 
 
