@@ -23,15 +23,16 @@ const qEl = document.getElementById("q");
 const aEl = document.getElementById("a");
 const showABtn = document.getElementById("showA");
 const newQBtn = document.getElementById("newQ");
-const fearBtn = document.getElementById("fearBtn");
 const panelEl = document.getElementById("panel");
 const difficultySelect = document.getElementById("difficultySelect");
 const randomCatBtn = document.getElementById("randomCatBtn");
+
+// Optional: falls du schon einen Language-Select eingebaut hast
 const langSelect = document.getElementById("langSelect");
 
-// Timer UI
-const timeFillEl = document.getElementById("timeFill");
-const timeNumEl = document.getElementById("timeNum");
+// Header Brainfreezer existiert in index.html, wird aber per CSS versteckt.
+// Wir nutzen ihn nicht mehr aktiv – Brainfreezer kommt als Grid-Button.
+const headerFearBtn = document.getElementById("fearBtn");
 
 function pickRandom(arr){
   return arr[Math.floor(Math.random() * arr.length)];
@@ -123,9 +124,9 @@ function installAudioUnlock(){
 /* -------------------- TIMER -------------------- */
 function updateTimeUI(seconds){
   const s = Math.max(0, Math.min(TOTAL_TIME, seconds));
-  timeNumEl.textContent = String(s);
+  document.getElementById("timeNum").textContent = String(s);
   const pct = (s / TOTAL_TIME) * 100;
-  timeFillEl.style.width = `${pct}%`;
+  document.getElementById("timeFill").style.width = `${pct}%`;
 }
 
 function stopTimer(){
@@ -150,7 +151,6 @@ function startTimer(){
     if (timeLeft <= 0){
       clearInterval(timerId);
       timerId = null;
-
       timeUpSound();
       aEl.hidden = false;
     }
@@ -224,8 +224,6 @@ function deselectCategoryAndStop(){
 function setFearMode(on){
   fearMode = on;
   appEl.classList.toggle("fearMode", on);
-  fearBtn.classList.toggle("isOn", on);
-  fearBtn.setAttribute("aria-pressed", on ? "true" : "false");
   tremble();
 
   if (on){
@@ -242,8 +240,10 @@ function setFearMode(on){
 
 function renderCats(){
   catsEl.innerHTML = "";
+
   const cats = Array.isArray(DB?.categories) ? DB.categories : [];
 
+  // Normale Kategorien
   cats.forEach(c => {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -258,16 +258,10 @@ function renderCats(){
       <div class="iconWrap">${c.icon}</div>
     `;
 
-    // Kategorie-Klick: sofort Frage + Timer
     btn.addEventListener("click", () => {
       ensureAudio();
 
-      if (fearMode){
-        fearMode = false;
-        appEl.classList.remove("fearMode");
-        fearBtn.classList.remove("isOn");
-        fearBtn.setAttribute("aria-pressed", "false");
-      }
+      if (fearMode) setFearMode(false);
 
       selectedCat = c.id;
 
@@ -292,6 +286,29 @@ function renderCats(){
 
     catsEl.appendChild(btn);
   });
+
+  // Brainfreezer Button im Grid (statt WEIRDO)
+  const fearCat = document.createElement("button");
+  fearCat.type = "button";
+  fearCat.className = "cat fearCat";
+  fearCat.dataset.c = "BRAINFREEZER";
+  fearCat.setAttribute("aria-pressed", fearMode ? "true" : "false");
+
+  fearCat.innerHTML = `
+    <div class="left">
+      <div class="name">BRAINFREEZER</div>
+      <div class="tag">${lang === "de" ? "Eiskalt. Sofort." : "Ice-cold. Instant."}</div>
+    </div>
+    <div class="iconWrap">🧊</div>
+  `;
+
+  fearCat.addEventListener("click", () => {
+    ensureAudio();
+    setFearMode(!fearMode);
+    fearCat.setAttribute("aria-pressed", fearMode ? "true" : "false");
+  });
+
+  catsEl.appendChild(fearCat);
 }
 
 function randomCategoryPick(){
@@ -398,11 +415,7 @@ function nextQuestion(){
     const key = `${diffNeedle}|${catNeedle}`;
     const usedSet = ensureUsedSet(key);
 
-    item = getNonRepeating(
-      pool,
-      i => `${normalizeCat(i.cat)}|${normalizeDiff(i.diff)}|${i.q}`,
-      usedSet
-    );
+    item = getNonRepeating(pool, i => `${normalizeCat(i.cat)}|${normalizeDiff(i.diff)}|${i.q}`, usedSet);
 
     const catObj = DB.categories.find(c => normalizeCat(c.id) === normalizeCat(selectedCat));
     const catName = catObj ? catObj.name : selectedCat;
@@ -430,21 +443,17 @@ function nextQuestion(){
 
 /* -------------------- LANGUAGE LOAD -------------------- */
 function getDbFileForLang(){
-  // Du kannst die Dateinamen so lassen:
-  // EN: questions.json
-  // DE: questions_de.json
   return (lang === "de") ? "questions_de.json" : "questions.json";
 }
 
 async function loadDBForLang(){
   stopTimer();
-  const file = getDbFileForLang();
 
+  const file = getDbFileForLang();
   const res = await fetch(file, { cache: "no-store" });
   if (!res.ok) throw new Error(`HTTP ${res.status} loading ${file}`);
   DB = await res.json();
 
-  // Session-Tracking pro Sprache: beim Wechsel zurücksetzen
   resetUsedForCurrentLang();
 
   renderCats();
@@ -453,11 +462,6 @@ async function loadDBForLang(){
 }
 
 /* -------------------- EVENTS -------------------- */
-fearBtn.addEventListener("click", () => {
-  ensureAudio();
-  setFearMode(!fearMode);
-});
-
 newQBtn.addEventListener("click", () => {
   ensureAudio();
   nextQuestion();
@@ -476,7 +480,6 @@ showABtn.addEventListener("click", () => {
   updateTimeUI(0);
 });
 
-// difficulty dropdown behavior (dein bisheriger Ansatz bleibt)
 difficultySelect.addEventListener("pointerdown", () => {
   deselectCategoryAndStop();
 });
@@ -489,16 +492,22 @@ difficultySelect.addEventListener("change", () => {
   deselectCategoryAndStop();
 });
 
-// language toggle
-langSelect.addEventListener("change", () => {
-  ensureAudio();
-  lang = langSelect.value === "de" ? "de" : "en";
-  loadDBForLang().catch((e) => {
-    console.error(e);
-    setMetaBase(`Error: could not load ${getDbFileForLang()}`);
-    qEl.textContent = String(e?.message || e);
+if (langSelect){
+  langSelect.addEventListener("change", () => {
+    ensureAudio();
+    lang = langSelect.value === "de" ? "de" : "en";
+    loadDBForLang().catch((e) => {
+      console.error(e);
+      setMetaBase(`Error: could not load ${getDbFileForLang()}`);
+      qEl.textContent = String(e?.message || e);
+    });
   });
-});
+}
+
+// nur zur Sicherheit: falls headerFearBtn existiert, klicks ignorieren
+if (headerFearBtn){
+  headerFearBtn.addEventListener("click", (e) => e.preventDefault());
+}
 
 /* -------------------- INIT -------------------- */
 async function init(){
