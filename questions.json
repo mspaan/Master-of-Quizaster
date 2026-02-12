@@ -114,7 +114,7 @@
     
     { "cat":"GEEK","diff":"hard","q":"In which Country the file format mp3 was invented?","a":"Germany" },
     { "cat":"GEEK","diff":"hard","q":"Out of all of the NASA Space Shuttles, which 2 have been destroyed in disasters?","a":"Challenger and Columbia" },
-    { "cat": "GEEK", "diff": "hard", "q": "On which mobile phone model was the game "Snake" first preinstalled?", "a": "Nokia 6110" }
+    { "cat": "GEEK", "diff": "hard", "q": "On which mobile phone model was the game "Snake" first preinstalled?", "a": "Nokia 6110" },
     { "cat":"GEEK","diff":"hard","q":"What is the most-watched YouTube video of all time?","a":"Baby Shark Dance" },
     { "cat":"GEEK","diff":"hard","q":"What was Mac's first web browser?","a":"Samba" },
     { "cat":"GEEK","diff":"hard","q":"What was Nintendo's first game called??","a":"EVR Race" },
@@ -855,6 +855,7 @@
     { "q": "What is the capital of Italy?", "a": "Rome" }
   ]
 }
+
 
 
 
