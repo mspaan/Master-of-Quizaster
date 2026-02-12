@@ -27,12 +27,14 @@ const panelEl = document.getElementById("panel");
 const difficultySelect = document.getElementById("difficultySelect");
 const randomCatBtn = document.getElementById("randomCatBtn");
 
-// Optional: falls du schon einen Language-Select eingebaut hast
+// Optional: language switch if present in HTML
 const langSelect = document.getElementById("langSelect");
 
-// Header Brainfreezer existiert in index.html, wird aber per CSS versteckt.
-// Wir nutzen ihn nicht mehr aktiv – Brainfreezer kommt als Grid-Button.
+// Header Brainfreezer exists in HTML but we don't use it anymore
 const headerFearBtn = document.getElementById("fearBtn");
+
+const timeFillEl = document.getElementById("timeFill");
+const timeNumEl = document.getElementById("timeNum");
 
 function pickRandom(arr){
   return arr[Math.floor(Math.random() * arr.length)];
@@ -47,7 +49,7 @@ function tremble(){
 function normalizeCat(x){ return String(x ?? "").trim().toUpperCase(); }
 function normalizeDiff(x){ return String(x ?? "").trim().toLowerCase(); }
 
-/* -------------------- AUDIO (WebAudio) -------------------- */
+/* -------------------- AUDIO -------------------- */
 function ensureAudio(){
   try{
     if (!audioCtx){
@@ -124,9 +126,9 @@ function installAudioUnlock(){
 /* -------------------- TIMER -------------------- */
 function updateTimeUI(seconds){
   const s = Math.max(0, Math.min(TOTAL_TIME, seconds));
-  document.getElementById("timeNum").textContent = String(s);
+  timeNumEl.textContent = String(s);
   const pct = (s / TOTAL_TIME) * 100;
-  document.getElementById("timeFill").style.width = `${pct}%`;
+  timeFillEl.style.width = `${pct}%`;
 }
 
 function stopTimer(){
@@ -167,7 +169,7 @@ function setMetaBase(text){
   metaEl.textContent = text;
 }
 
-/* -------------------- SESSION USED HELPERS (per language) -------------------- */
+/* -------------------- USED SETS per language -------------------- */
 function getUsedMapForLang(){
   if (!usedByLang.has(lang)) usedByLang.set(lang, new Map());
   return usedByLang.get(lang);
@@ -189,7 +191,7 @@ function ensureUsedSet(key){
 
 function getNonRepeating(pool, keyFn, usedSet){
   if (pool.length === 0) return null;
-  if (usedSet.size >= pool.length) return null; // hard session rule
+  if (usedSet.size >= pool.length) return null; // hard no-repeat
 
   let tries = 0;
   while (tries < 250){
@@ -228,7 +230,7 @@ function setFearMode(on){
 
   if (on){
     newQBtn.disabled = false;
-    nextQuestion(); // Brainfreezer startet sofort
+    nextQuestion(); // instant
   } else {
     if (selectedCat){
       newQBtn.disabled = false;
@@ -238,13 +240,44 @@ function setFearMode(on){
   }
 }
 
+function createFearButton(){
+  const fearCat = document.createElement("button");
+  fearCat.type = "button";
+  fearCat.className = "cat fearCat";
+  fearCat.dataset.c = "BRAINFREEZER";
+  fearCat.setAttribute("aria-pressed", fearMode ? "true" : "false");
+
+  fearCat.innerHTML = `
+    <div class="left">
+      <div class="name">BRAINFREEZER</div>
+      <div class="tag">${lang === "de" ? "Eiskalt. Sofort." : "Ice-cold. Instant."}</div>
+    </div>
+    <div class="iconWrap">🧊</div>
+  `;
+
+  fearCat.addEventListener("click", () => {
+    ensureAudio();
+    setFearMode(!fearMode);
+    fearCat.setAttribute("aria-pressed", fearMode ? "true" : "false");
+  });
+
+  return fearCat;
+}
+
 function renderCats(){
   catsEl.innerHTML = "";
 
   const cats = Array.isArray(DB?.categories) ? DB.categories : [];
+  let fearPlaced = false;
 
-  // Normale Kategorien
   cats.forEach(c => {
+    // If the DB still contains WEIRD: replace it with Brainfreezer
+    if (normalizeCat(c.id) === "WEIRD"){
+      catsEl.appendChild(createFearButton());
+      fearPlaced = true;
+      return;
+    }
+
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "cat";
@@ -260,7 +293,6 @@ function renderCats(){
 
     btn.addEventListener("click", () => {
       ensureAudio();
-
       if (fearMode) setFearMode(false);
 
       selectedCat = c.id;
@@ -287,28 +319,10 @@ function renderCats(){
     catsEl.appendChild(btn);
   });
 
-  // Brainfreezer Button im Grid (statt WEIRDO)
-  const fearCat = document.createElement("button");
-  fearCat.type = "button";
-  fearCat.className = "cat fearCat";
-  fearCat.dataset.c = "BRAINFREEZER";
-  fearCat.setAttribute("aria-pressed", fearMode ? "true" : "false");
-
-  fearCat.innerHTML = `
-    <div class="left">
-      <div class="name">BRAINFREEZER</div>
-      <div class="tag">${lang === "de" ? "Eiskalt. Sofort." : "Ice-cold. Instant."}</div>
-    </div>
-    <div class="iconWrap">🧊</div>
-  `;
-
-  fearCat.addEventListener("click", () => {
-    ensureAudio();
-    setFearMode(!fearMode);
-    fearCat.setAttribute("aria-pressed", fearMode ? "true" : "false");
-  });
-
-  catsEl.appendChild(fearCat);
+  // If WEIRD isn't in DB anymore: put Brainfreezer at the end (so it always exists)
+  if (!fearPlaced){
+    catsEl.appendChild(createFearButton());
+  }
 }
 
 function randomCategoryPick(){
@@ -319,6 +333,7 @@ function randomCategoryPick(){
 
   const catsWithQs = (Array.isArray(DB.categories) ? DB.categories : [])
     .map(c => c.id)
+    .filter(catId => normalizeCat(catId) !== "WEIRD") // never pick WEIRD
     .filter(catId => {
       const catNeedle = normalizeCat(catId);
       return allQs.some(q => {
@@ -504,7 +519,6 @@ if (langSelect){
   });
 }
 
-// nur zur Sicherheit: falls headerFearBtn existiert, klicks ignorieren
 if (headerFearBtn){
   headerFearBtn.addEventListener("click", (e) => e.preventDefault());
 }
