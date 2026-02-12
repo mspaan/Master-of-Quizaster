@@ -10,9 +10,8 @@
   --green:#42d86b;
   --purple:#b06bff;
 
-  --muted:#3b3b3b;
-
   --card:#fff7e6;
+
   --shadow: 8px 10px 0 rgba(0,0,0,.85);
   --shadowSoft: 6px 8px 0 rgba(0,0,0,.65);
 
@@ -34,10 +33,15 @@ body{
   min-height:100dvh;
 }
 
+/* FULL SCREEN FEEL */
 .wrap{
   max-width: 980px;
   margin: 0 auto;
-  padding: 18px 16px 26px;
+  padding: 12px 12px 18px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display:flex;
+  flex-direction:column;
 }
 
 /* Header */
@@ -46,7 +50,7 @@ body{
   align-items:flex-start;
   justify-content:space-between;
   gap: 14px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .brand{
@@ -100,12 +104,12 @@ body{
   outline-offset: 4px;
 }
 
-/* Wir verstecken den Header-Brainfreezer: es soll nur den im Grid geben */
+/* Hide header Brainfreezer (we use grid Brainfreezer only) */
 #fearBtn{
   display:none !important;
 }
 
-/* Kategorien-Grid */
+/* Categories grid */
 .cats{
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -131,13 +135,18 @@ body{
   box-shadow: var(--shadowSoft);
   overflow: hidden;
   transform: rotate(-0.3deg);
-  transition: transform .08s ease;
+  transition: transform .08s ease, box-shadow .08s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .cat:nth-child(even){ transform: rotate(0.35deg); }
 
 .cat:hover{ transform: rotate(0deg) translateY(-1px); }
-.cat:active{ transform: translateY(2px); box-shadow: 3px 4px 0 rgba(0,0,0,.65); }
+.cat:active{
+  transform: translateY(2px);
+  box-shadow: 3px 4px 0 rgba(0,0,0,.65);
+}
 
 .cat.active{
   outline: 4px dotted var(--ink);
@@ -173,6 +182,7 @@ body{
   position: relative;
   z-index: 2;
   box-shadow: 4px 5px 0 rgba(0,0,0,.65);
+  flex: 0 0 auto;
 }
 
 .cat::before{
@@ -193,13 +203,13 @@ body{
 .cat[data-c="ART"]::before{ background: rgba(255, 90, 61, .28); }
 .cat[data-c="CITIZEN"]::before{ background: rgba(255, 212, 0, .34); }
 
-/* Brainfreezer als “Gefahr”-Button */
+/* -------------------- BRAINFREEZER: DANGEROUS + FLICKER -------------------- */
 .fearCat{
   background:
     repeating-linear-gradient(
       135deg,
-      rgba(0,0,0,.16) 0px,
-      rgba(0,0,0,.16) 12px,
+      rgba(0,0,0,.18) 0px,
+      rgba(0,0,0,.18) 12px,
       rgba(255,255,255,.0) 12px,
       rgba(255,255,255,.0) 24px
     ),
@@ -222,19 +232,62 @@ body{
   opacity: .9;
 }
 
+/* Flicker + pulse + tiny “TV glitch” vibe */
 @keyframes dangerPulse{
   0%{ box-shadow: 10px 12px 0 rgba(0,0,0,.88), 0 0 0 rgba(255,43,43,.0); }
-  50%{ box-shadow: 10px 12px 0 rgba(0,0,0,.88), 0 0 24px rgba(255,43,43,.55); }
+  50%{ box-shadow: 10px 12px 0 rgba(0,0,0,.88), 0 0 26px rgba(255,43,43,.60); }
   100%{ box-shadow: 10px 12px 0 rgba(0,0,0,.88), 0 0 0 rgba(255,43,43,.0); }
 }
-.fearCat{ animation: dangerPulse 1.2s infinite; }
+
+@keyframes flicker{
+  0%{ filter: brightness(1) contrast(1); }
+  6%{ filter: brightness(1.25) contrast(1.1); }
+  8%{ filter: brightness(.9) contrast(1.2); }
+  10%{ filter: brightness(1.35) contrast(1.05); }
+  12%{ filter: brightness(1) contrast(1); }
+  45%{ filter: brightness(1) contrast(1); }
+  46%{ filter: brightness(1.4) contrast(1.15); }
+  48%{ filter: brightness(.85) contrast(1.25); }
+  50%{ filter: brightness(1.2) contrast(1.05); }
+  52%{ filter: brightness(1) contrast(1); }
+  100%{ filter: brightness(1) contrast(1); }
+}
+
+@keyframes glitchJitter{
+  0%{ transform: rotate(-0.8deg) translateX(0); }
+  46%{ transform: rotate(-0.8deg) translateX(0); }
+  47%{ transform: rotate(-0.8deg) translateX(-1px); }
+  48%{ transform: rotate(-0.8deg) translateX(1px); }
+  49%{ transform: rotate(-0.8deg) translateX(-1px); }
+  50%{ transform: rotate(-0.8deg) translateX(0); }
+  100%{ transform: rotate(-0.8deg) translateX(0); }
+}
+
+.fearCat{
+  animation:
+    dangerPulse 1.15s infinite,
+    flicker 2.2s infinite,
+    glitchJitter 2.2s infinite;
+}
+
+/* Flicker the label a bit (subtle) */
+@keyframes textFlicker{
+  0%{ opacity: 1; text-shadow: 0 0 0 rgba(0,0,0,0); }
+  7%{ opacity: .85; text-shadow: 0 0 10px rgba(255,255,255,.35); }
+  9%{ opacity: 1; text-shadow: 0 0 0 rgba(0,0,0,0); }
+  46%{ opacity: 1; }
+  48%{ opacity: .82; text-shadow: 0 0 12px rgba(255,255,255,.40); }
+  50%{ opacity: 1; text-shadow: 0 0 0 rgba(0,0,0,0); }
+  100%{ opacity: 1; }
+}
+.fearCat .name{ animation: textFlicker 2.2s infinite; }
 
 .fearMode .panel{
   border-color: rgba(255,43,43,.95);
   box-shadow: 10px 12px 0 rgba(0,0,0,.88), 0 0 28px rgba(255,43,43,.45);
 }
 
-/* Panel */
+/* Panel (fills remaining space) */
 .panel{
   border: 4px solid var(--ink);
   border-radius: 22px;
@@ -242,6 +295,10 @@ body{
   box-shadow: var(--shadow);
   padding: 16px;
   transform: rotate(0.15deg);
+
+  flex: 1;
+  display:flex;
+  flex-direction:column;
 }
 
 .panelTop{
@@ -270,8 +327,14 @@ body{
   box-shadow: 6px 8px 0 rgba(0,0,0,.7);
   text-transform: uppercase;
   letter-spacing: .05em;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
-.newBtn:active{ transform: translateY(2px); box-shadow: 3px 4px 0 rgba(0,0,0,.65); }
+
+.newBtn:active{
+  transform: translateY(2px);
+  box-shadow: 3px 4px 0 rgba(0,0,0,.65);
+}
 .newBtn:disabled{ opacity:.45; cursor:not-allowed; }
 
 /* Timer */
@@ -281,6 +344,7 @@ body{
   gap: 10px;
   margin: 6px 0 10px;
 }
+
 .timeBar{
   flex: 1;
   height: 10px;
@@ -290,6 +354,7 @@ body{
   overflow: hidden;
   box-shadow: 4px 5px 0 rgba(0,0,0,.65);
 }
+
 .timeFill{
   height: 100%;
   width: 100%;
@@ -297,6 +362,7 @@ body{
   background: linear-gradient(90deg, var(--red), var(--yellow));
   transition: width .12s linear;
 }
+
 .timeNum{
   min-width: 38px;
   text-align: right;
@@ -310,6 +376,8 @@ body{
   line-height: 1.18;
   margin: 14px 0 16px;
   font-weight: 1000;
+
+  flex: 1; /* grow to fill */
 }
 
 .showBtn{
@@ -321,8 +389,14 @@ body{
   cursor: pointer;
   box-shadow: 6px 8px 0 rgba(0,0,0,.7);
   text-transform: uppercase;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
-.showBtn:active{ transform: translateY(2px); box-shadow: 3px 4px 0 rgba(0,0,0,.65); }
+
+.showBtn:active{
+  transform: translateY(2px);
+  box-shadow: 3px 4px 0 rgba(0,0,0,.65);
+}
 .showBtn:disabled{ opacity:.45; cursor:not-allowed; }
 
 .a{
@@ -342,13 +416,13 @@ body{
 }
 
 .foot{
-  margin-top: 14px;
+  margin-top: 12px;
   font-size: 12px;
   color: rgba(0,0,0,.70);
   font-weight: 800;
 }
 
-/* kleine Animation */
+/* Tremble animation (used in JS) */
 @keyframes tremble{
   0%{ transform: translateX(0) }
   20%{ transform: translateX(-1px) }
@@ -358,3 +432,10 @@ body{
   100%{ transform: translateX(0) }
 }
 .tremble{ animation: tremble .28s ease; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .fearCat{ animation: none; }
+  .fearCat .name{ animation: none; }
+  .tremble{ animation: none; }
+}
